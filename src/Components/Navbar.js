@@ -30,7 +30,22 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div></div>
+      <div className="center-container">
+        {/* <div className="center"> */}
+        <div>
+          <h1>Swipe Right</h1>
+        </div>
+
+        <div className="create-account">
+          <a href="/create">Create Account</a>
+        </div>
+
+        <div className="slogan">
+          <h2>Connect with your perfect dinner</h2>
+          <h2>Made by the perfect chef!</h2>
+        </div>
+      </div>
+      {/* </div> */}
     </React.Fragment>
   );
 };

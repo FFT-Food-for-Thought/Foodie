@@ -51,3 +51,32 @@ body {
   background-position: center center;
   background-attachment: fixed;
 }
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  color: #EEE3CB;
+}
+
+.center {
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 75px;
+  padding: 25px;
+}
+
+.create-account {
+  padding: 5px 20px;
+  border-radius: 25px;
+  background-color: #B7C4CF;
+  color: #503D42;
+}
+
+.slogan {
+  padding: 25px;
+}
