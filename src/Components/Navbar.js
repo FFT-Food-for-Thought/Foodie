@@ -4,22 +4,34 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar-container">
-      <div className="navbar">
-        <div className="navbar-left">
-          <a href="/home">Foodie</a>
+    <React.Fragment>
+      <div className="navbar-container">
+        <div className="navbar">
+          <div className="navbar-left">
+            <a href="/home">Foodie</a>
+          </div>
 
-          <a href="/about">About</a>
+          <div className="navbar-left">
+            <a href="/about">About</a>
+          </div>
 
-          <a href="/popup">Pop-Ups</a>
+          <div className="navbar-left">
+            <a href="/popup">Pop-Ups</a>
+          </div>
 
-          <a href="/safety">Safety</a>
+          <div className="navbar-left">
+            <a href="/safety">Safety</a>
+          </div>
+        </div>
+        <div className="navbar-right">
+          <div className="login">
+            <a href="/login">Login</a>
+          </div>
         </div>
       </div>
-      <div class="navbar-right">
-        <div>Login</div>
-      </div>
-    </div>
+
+      <div></div>
+    </React.Fragment>
   );
 };
 
