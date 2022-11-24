@@ -21,18 +21,18 @@
   align-items: center;
   justify-content: center;
   padding: 20px 40px;
-  color: #503D42;
+  color: #503d42;
 }
 
 .navbar-left {
   padding: 0px 20px;
-  color: #EEE3CB;
+  color: #eee3cb;
 }
 
 .login {
   padding: 5px 20px;
   border-radius: 25px;
-  background-color: #EEE3CB;
+  background-color: #eee3cb;
 }
 
 a {
@@ -58,7 +58,7 @@ body {
   height: 100vh;
   align-items: center;
   flex-direction: column;
-  color: #EEE3CB;
+  color: #eee3cb;
 }
 
 .center {
@@ -73,10 +73,52 @@ h1 {
 .create-account {
   padding: 5px 20px;
   border-radius: 25px;
-  background-color: #B7C4CF;
-  color: #503D42;
+  background-color: #b7c4cf;
+  color: #503d42;
 }
 
 .slogan {
   padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cycle:before {
+  content: "";
+  animation-name: replacement;
+  animation-duration: 90s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: absolute;
+}
+
+@keyframes replacement {
+  0% {
+    content: "Bon appétit!";
+  }
+  15% {
+    content: "Qu'aproveche";
+  }
+  30% {
+    content: "いただきます";
+  }
+  45% {
+    content: "कृपया भोजन शुरू कीजियै!";
+  }
+  60% {
+    content: "잘 먹겠습니다";
+  }
+  75% {
+    content: "Buen provecho";
+  }
+
+  90% {
+    content: "食飯!";
+  }
+
+  100% {
+    content: "Smaklig måltid";
+  }
 }
