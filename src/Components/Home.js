@@ -1,8 +1,8 @@
 import React from "react";
-import "../Css/navbar.css";
+import "../Css/home.css";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Home = () => {
   return (
     <React.Fragment>
       <div className="navbar-container">
@@ -48,4 +48,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Home;
