@@ -2,3 +2,126 @@
   margin: 0;
   padding: 0;
 }
+
+.navbar-container {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  padding: 20px 20px;
+  justify-content: space-between;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  color: #503d42;
+}
+
+.navbar-left {
+  padding: 0px 20px;
+  color: #eee3cb;
+}
+
+.login {
+  padding: 5px 20px;
+  border-radius: 25px;
+  background-color: #eee3cb;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  color: inherit;
+}
+
+.nav-page {
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/pexels-ray-piedra-1565982.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  color: #eee3cb;
+}
+
+.center {
+  flex-direction: column;
+}
+
+.cycle {
+  font-size: 75px;
+  padding: 25px;
+}
+
+.create-account {
+  padding: 5px 20px;
+  border-radius: 25px;
+  background-color: #b7c4cf;
+  color: #503d42;
+}
+.create-account:hover {
+  background-color: white;
+}
+
+.slogan {
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cycle:before {
+  content: "";
+  animation-name: replacement;
+  animation-duration: 90s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: absolute;
+}
+
+@keyframes replacement {
+  0% {
+    content: "Bon appétit!";
+  }
+  15% {
+    content: "Qu'aproveche";
+  }
+  30% {
+    content: "いただきます";
+  }
+  45% {
+    content: "कृपया भोजन शुरू कीजियै!";
+  }
+  60% {
+    content: "잘 먹겠습니다";
+  }
+  75% {
+    content: "Buen provecho";
+  }
+
+  90% {
+    content: "食飯!";
+  }
+
+  100% {
+    content: "Smaklig måltid";
+  }
+}
