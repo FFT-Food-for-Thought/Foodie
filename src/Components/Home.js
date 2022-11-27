@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import Login from "./Login";
-import "../Css/home.css";
-import Footer from "./Footer";
+import React, { useState } from 'react';
+import Login from './Login';
+import '../Css/home.css';
+import Footer from './Footer';
+import { logout } from '../db/signup';
 
 const Home = () => {
   const [isLoginOpen, setLoginIsOpen] = useState(false);
@@ -39,6 +40,7 @@ const Home = () => {
               <button className="nav-link" onClick={() => setLoginIsOpen(true)}>
                 Login
               </button>
+              <button onClick={logout}>Logout</button>
               <Login open={isLoginOpen} onClose={() => setLoginIsOpen(false)}>
                 Fancy Modal
               </Login>
