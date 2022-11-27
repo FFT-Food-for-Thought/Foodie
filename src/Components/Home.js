@@ -1,6 +1,6 @@
 import React from "react";
 import "../Css/home.css";
-import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -44,6 +44,7 @@ const Home = () => {
           <h2>To eat the perfect meal!</h2>
         </div>
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

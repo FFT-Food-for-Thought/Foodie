@@ -5,7 +5,7 @@
 .reviews {
   width: 100%;
   padding: 20px;
-  background-color: blue;
+  background-color: red;
 }
 .main-footer {
   width: 100%;
@@ -17,13 +17,34 @@
 }
 .foot-section {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 .foot {
-  padding: 20px;
+  padding: 10px;
   margin: 10px;
+  width: 20%;
   display: block;
 }
 
 li:not(:last-child) {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.description {
+  background-color: blue;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+h2 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+li {
+  font-size: 20px;
 }

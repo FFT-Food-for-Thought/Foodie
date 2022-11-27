@@ -76,6 +76,9 @@ h1 {
   background-color: #b7c4cf;
   color: #503d42;
 }
+.create-account:hover {
+  background-color: white;
+}
 
 .slogan {
   padding: 25px;

@@ -1,14 +1,21 @@
 import db from "./db/firebase";
 import Home from "./Components/Home";
-import Footer from "./Components/Footer";
-// import { colRef } from "./db/firebase";
-// console.log(colRef);
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/">
+          <Route path="" element={<Home />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

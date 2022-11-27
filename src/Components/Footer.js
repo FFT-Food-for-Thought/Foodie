@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="main-footer">
       <section className="reviews"></section>
       <div className="foot-section">
-        <section class="foot">
+        <section className="foot">
           <h2>Legal</h2>
           <ul>
             <li>Privacy</li>
@@ -15,7 +15,7 @@ const Footer = () => {
             <li>Intellectual Property</li>
           </ul>
         </section>
-        <section class="foot">
+        <section className="foot">
           <h2>Careers</h2>
           <ul>
             <li>Privacy</li>
@@ -24,7 +24,7 @@ const Footer = () => {
             <li>Intellectual Property</li>
           </ul>
         </section>
-        <section class="foot">
+        <section className="foot">
           <h2>Social</h2>
           <ul>
             <li>Privacy</li>
@@ -33,7 +33,7 @@ const Footer = () => {
             <li>Intellectual Property</li>
           </ul>
         </section>
-        <section class="foot">
+        <section className="foot">
           <h2>FAQ</h2>
           <ul>
             <li>Privacy</li>
@@ -43,6 +43,7 @@ const Footer = () => {
           </ul>
         </section>
       </div>
+      <section className="description"></section>
     </div>
   );
 };
