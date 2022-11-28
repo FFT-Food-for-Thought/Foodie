@@ -20,10 +20,17 @@ const Login = ({ open, children, onClose }) => {
           <button onClick={onClose}>X</button>
         </div>
         {children}
-        <input placeholder="Email" id="loginEmail" />
-        <input placeholder="Password" id="loginPassword" />
-        <button onClick={_login}>Log In</button>
-        <h3>or</h3>
+        <div className="form-container">
+          <h3>GET STARTED</h3>
+          <p>
+            By clicking Log In, you agree to our Terms. Learn how we process
+            your data in our Privacy Policy and Cookie Policy.
+          </p>
+          <input placeholder="Email" id="loginEmail" />
+          <input placeholder="Password" id="loginPassword" />
+          <button onClick={_login}>Log In</button>
+        </div>
+        <hr className="or-hr" />
         <button>Trouble Loggin In?</button>
         <h3>GET THE APP!</h3>
       </div>
