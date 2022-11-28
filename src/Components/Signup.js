@@ -14,9 +14,27 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
   return (
     <>
       <div className="popup-overlay">
-        <section className="signup-popup">
-          <button onClick={onSignupClose}>X</button>
-          {children}
+        <div className="signup-popup">
+          <div className="signup-close-button-container">
+            <div className="signup-close">
+              <button onClick={onSignupClose}>X</button>
+              {children}
+            </div>
+          </div>
+          <div className="signup-info">
+            <div>
+              <p>Logo</p>
+            </div>
+            <div>
+              <h1>Get Started</h1>
+            </div>
+            <div>
+              <p>
+                By clicking Log In, you agree to our Terms. Learn how we process
+                your data in our Privacy Policy and Cookie Policy.
+              </p>
+            </div>
+          </div>
           <div>
             <input placeholder="Email" htmlFor="email" id="email" />
           </div>
@@ -35,7 +53,7 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
           <div>
             <h3>GET THE APP!</h3>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );
