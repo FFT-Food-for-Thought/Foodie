@@ -1,11 +1,11 @@
-import React from 'react';
-import '../Css/login.css';
-import { login } from '../db/signup';
+import React from "react";
+import "../Css/login.css";
+import { login } from "../db/signup";
 
 const Login = ({ open, children, onClose }) => {
   const _login = () => {
-    const email = document.getElementById('loginEmail').value;
-    const pw = document.getElementById('loginPassword').value;
+    const email = document.getElementById("loginEmail").value;
+    const pw = document.getElementById("loginPassword").value;
 
     login(email, pw);
   };
@@ -16,7 +16,9 @@ const Login = ({ open, children, onClose }) => {
     <>
       <div className="popup-overlay"></div>
       <div className="login-popup">
-        <button onClick={onClose}>X</button>
+        <div className="close-button">
+          <button onClick={onClose}>X</button>
+        </div>
         {children}
         <input placeholder="Email" id="loginEmail" />
         <input placeholder="Password" id="loginPassword" />
