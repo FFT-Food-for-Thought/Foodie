@@ -1,0 +1,24 @@
+.sidebar {
+  height: 100vh;
+  width: 30%;
+  float: left;
+  background-color: white;
+}
+
+.picture-view {
+  height: 100vh;
+  width: 70%;
+  background-color: gray;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-navbar-container {
+  padding: 30px;
+  background-color: red;
+}
+.profile-picture-container {
+  padding: 30px;
+  background-color: red;
+}
