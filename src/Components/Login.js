@@ -14,7 +14,6 @@ const Login = ({ open, children, onClose }) => {
 
   return (
     <>
-      <div className="popup-overlay"></div>
       <div className="login-popup">
         <button onClick={onClose}>X</button>
         {children}
