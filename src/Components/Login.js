@@ -1,11 +1,11 @@
-import React from 'react';
-import '../Css/login.css';
-import { login } from '../db/signup';
+import React from "react";
+import "../Css/login.css";
+import { login } from "../db/signup";
 
 const Login = ({ open, children, onClose }) => {
   const _login = () => {
-    const email = document.getElementById('loginEmail').value;
-    const pw = document.getElementById('loginPassword').value;
+    const email = document.getElementById("loginEmail").value;
+    const pw = document.getElementById("loginPassword").value;
 
     login(email, pw);
   };
