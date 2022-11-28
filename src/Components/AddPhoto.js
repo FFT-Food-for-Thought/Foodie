@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Css/addphoto.css";
-import { getStorage, ref } from "firebase/storage";
+import { storage } from "../db/firebase";
+import { ref, uploadBytes } from "firebase/storage";
 const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
-  //   const file = document.getElementById("userPhoto").value;
-  //   const description = document.getElementById("userDescription").value;
+  const [imageUpload, setImageUpload] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `currentUserImages/${imageUpload.name}1`);
+    uploadBytes(imageRef, imageUpload).then(() => {
+      alert("image uploaded");
+    });
+  };
+  const handleImageChange = async (e) => {
+    e.preventDefault();
+    setImageUpload(e.target.files[0]);
   };
 
   if (!openAddPhoto) return null;
@@ -19,15 +28,15 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
             <button onClick={onAddPhotoClose}>X</button>
             {children}
           </div>
-          <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Add Photo" id="userPhoto" />
+          <div>
             <input
-              type="text"
-              placeholder="Add Description"
-              id="userDescription"
+              type="file"
+              onChange={handleImageChange}
+              placeholder="Add Photo"
+              id="userPhoto"
             />
-            <button>Submit</button>
-          </form>
+            <button onClick={handleSubmit}>Submit</button>
+          </div>
         </div>
       </div>
     </>
