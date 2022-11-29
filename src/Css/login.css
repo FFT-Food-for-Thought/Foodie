@@ -66,6 +66,7 @@
   flex-direction: column;
   padding-top: 50px;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 h3 {
@@ -78,7 +79,7 @@ h3 {
 
 p {
   font-size: 13px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   font-family: "Inter";
 }
 
@@ -87,7 +88,7 @@ p {
 }
 
 #loginPassword {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 input {
@@ -114,8 +115,10 @@ input::placeholder {
   font-weight: 900;
 }
 
-hr {
-  border: 0.75px solid #503D42;
+.line-hr {
+  border: none;
+  border-top: 1px solid #503D42;
+  height: 5px;
 }
 
 a {
@@ -123,6 +126,7 @@ a {
   color: #967E76;
   text-align: center;
   font-size: 13px;
+  padding-bottom: 10px;
 }
 
 .icon {

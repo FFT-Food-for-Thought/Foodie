@@ -54,7 +54,7 @@ const Login = ({ open, children, onClose }) => {
           />
         </div>
         <a href="">Trouble Loggin In?</a>
-        <hr />
+        <hr className="line-hr" />
         <h3>GET THE APP!</h3>
         <div className="apps-container">
           <img
