@@ -37,6 +37,23 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
             </button>
           </div>
           <hr className="or-hr" />
+          <div className="icons">
+            <img
+              src={require("../img/Google.png")}
+              alt="Google icon"
+              className="icon"
+            />
+            <img
+              src={require("../img/Apple.png")}
+              alt="Apple icon"
+              className="icon"
+            />
+            <img
+              src={require("../img/Facebook.png")}
+              alt="Facebook icon"
+              className="icon"
+            />
+          </div>
           <p className="login-link">
             Have an account? <a href="">Log in</a>
           </p>
