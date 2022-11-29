@@ -10,7 +10,9 @@ const Profile = () => {
         <ProfileSideBar />
       </div>
       <div className="picture-view">
-        <ProfilePictureView />
+        <div className="box">
+          <ProfilePictureView />
+        </div>
       </div>
     </>
   );
