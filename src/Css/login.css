@@ -63,6 +63,7 @@
   flex-direction: column;
   height: 320px;
   padding-top: 50px;
+  align-items: center;
 }
 
 h3 {
@@ -85,4 +86,17 @@ p {
 
 #loginPassword {
   margin-bottom: 20px;
+}
+
+input {
+  width: 270px;
+  padding: 9px;
+  background-color: #F5EEE0;
+  border: 0.05em solid #503D42;
+  border-radius: 2px;
+}
+
+input::placeholder {
+  color: #503D42;
+  font-family: "Inter";
 }
