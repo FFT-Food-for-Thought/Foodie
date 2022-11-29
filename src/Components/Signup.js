@@ -17,9 +17,11 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
         <div className="signup-popup">
           <div className="signup-close-button-container">
             <div className="signup-close">
-              <button onClick={onSignupClose}>X</button>
-              {children}
+              <button onClick={onSignupClose} className="round-button">
+                x
+              </button>
             </div>
+            {children}
           </div>
           <div className="signup-info">
             <div>
