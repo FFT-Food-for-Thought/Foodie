@@ -1,5 +1,6 @@
 import db from "./firebase";
 import {
+  addDoc,
   updateDoc,
   getDocs,
   doc,
@@ -45,4 +46,12 @@ export const getLoggedUser = async () => {
   });
 
   return userArray[0];
+};
+
+export const makeUser = async (uid, email) => {
+  const newUserObj = {
+    userId: uid,
+    email,
+  };
+  await addDoc(userRef, newUserObj);
 };

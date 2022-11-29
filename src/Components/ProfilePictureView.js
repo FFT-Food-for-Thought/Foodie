@@ -7,7 +7,6 @@ import { getLoggedUser } from "../db/users";
 const ProfilePictureView = () => {
   const [user, setUser] = useState({});
   const [currentImg, setCurrentImg] = useState(0);
-  // let loggedIn = false;
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
       const newUser = await getLoggedUser();
@@ -18,17 +17,12 @@ const ProfilePictureView = () => {
     return unsub;
   }, []);
   console.log(user);
+
   console.log(user.pictureBucket);
 
   if (user.pictureBucket) {
     return (
       <div>
-        {/* {user.pictureBucket.map((image) => (
-          <div>
-            <img src={image.URL} />
-          </div>
-        ))} */}
-        {/* </div> */}
         <div>
           <img src={user.pictureBucket[currentImg].URL} />
           <h1>{user.firstName}</h1>
