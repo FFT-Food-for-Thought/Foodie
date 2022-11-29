@@ -57,3 +57,11 @@
   right: 0;
   padding: 15px 15px;
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  align-items: center;
+  padding-bottom: 20px;
+}

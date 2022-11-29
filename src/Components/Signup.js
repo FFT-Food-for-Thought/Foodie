@@ -27,13 +27,12 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
             <div>
               <p>Logo</p>
             </div>
-            <div>
-              <h1>Get Started</h1>
-            </div>
-            <div>
+            <div className="form-container">
+              <h3>GET STARTED</h3>
               <p>
-                By clicking Log In, you agree to our Terms. Learn how we process
-                your data in our Privacy Policy and Cookie Policy.
+                By clicking Log In, you agree to our <a href="">Terms</a>. Learn
+                how we process your data in our <a href="">Privacy Policy</a>{" "}
+                and <a href="">Cookie Policy</a>.
               </p>
             </div>
           </div>
