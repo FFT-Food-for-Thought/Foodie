@@ -43,7 +43,7 @@
 
 .or-hr {
   border: none;
-  border-top: 2px solid #503D42;
+  border-top: 1px solid #503D42;
   color: #503D42;
   overflow: visible;
   text-align: center;
@@ -55,13 +55,15 @@
   content: "OR";
   padding: 0 4px;
   position: relative;
-  top: -13px;
+  top: -10px;
+  font-family: "Inter";
+  font-weight: 900;
+  font-size: 13px;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
-  height: 320px;
   padding-top: 50px;
   align-items: center;
 }
@@ -110,4 +112,8 @@ input::placeholder {
   width: 289.33px;
   font-family: "Inter";
   font-weight: 900;
+}
+
+hr {
+  border: 0.75px solid #503D42;
 }

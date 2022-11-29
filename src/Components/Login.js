@@ -36,6 +36,7 @@ const Login = ({ open, children, onClose }) => {
         </div>
         <hr className="or-hr" />
         <button>Trouble Loggin In?</button>
+        <hr />
         <h3>GET THE APP!</h3>
       </div>
     </>
