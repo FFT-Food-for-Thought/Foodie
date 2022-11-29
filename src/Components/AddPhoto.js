@@ -16,9 +16,11 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
 
     const imageRef = ref(storage, `${uid}/${imageUpload.name}5`);
 
-    uploadBytes(imageRef, imageUpload).then(() => {
-      alert("image uploaded");
-    });
+    // uploadBytes(imageRef, imageUpload).then(() => {
+    //   alert("image uploaded");
+    // });
+    await uploadBytes(imageRef, imageUpload);
+    alert("image uploaded");
     console.log("right befoew get URL");
     const URL = await getDownloadURL(imageRef);
     console.log(URL);
