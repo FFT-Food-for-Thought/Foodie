@@ -30,7 +30,9 @@ const Login = ({ open, children, onClose }) => {
           </p>
           <input placeholder="Email" id="loginEmail" />
           <input placeholder="Password" id="loginPassword" />
-          <button onClick={_login}>Log In</button>
+          <button onClick={_login} className="login-button">
+            Log in
+          </button>
         </div>
         <hr className="or-hr" />
         <button>Trouble Loggin In?</button>

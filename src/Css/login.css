@@ -100,3 +100,14 @@ input::placeholder {
   color: #503D42;
   font-family: "Inter";
 }
+
+.login-button {
+  border-radius: 2px;
+  background-color: #503D42;
+  border: 0.05em solid #503D42;
+  color: #DAE1E7;
+  padding: 9px;
+  width: 289.33px;
+  font-family: "Inter";
+  font-weight: 900;
+}
