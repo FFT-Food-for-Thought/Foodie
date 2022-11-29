@@ -50,7 +50,7 @@
   padding: 15px 15px;
 }
 
-#email {
+.form-input {
   margin-bottom: 10px;
 }
 
@@ -71,4 +71,5 @@
 
 .login-link {
   text-align: center;
+  padding-bottom: 10px;
 }

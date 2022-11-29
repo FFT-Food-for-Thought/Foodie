@@ -15,14 +15,12 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
     <>
       <div className="popup-overlay">
         <div className="signup-popup">
-          <div className="signup-close-button-container">
-            <div className="signup-close">
-              <button onClick={onSignupClose} className="round-button">
-                x
-              </button>
-            </div>
-            {children}
+          <div className="signup-close">
+            <button onClick={onSignupClose} className="round-button">
+              x
+            </button>
           </div>
+          {children}
           <div className="form-container">
             <h3>GET STARTED</h3>
             <p>
@@ -30,7 +28,10 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
               how we process your data in our <a href="">Privacy Policy</a> and{" "}
               <a href="">Cookie Policy</a>.
             </p>
-            <input placeholder="Email" htmlFor="email" id="email" />
+            <input placeholder="Email" htmlFor="email" className="form-input" />
+            <input placeholder="First Name" className="form-input" />
+            <input placeholder="Last Name" className="form-input" />
+            <input placeholder="Username" className="form-input" />
             <input placeholder="Password" htmlFor="password" id="password" />
             <button onClick={createUser} className="signup-button">
               Sign up
