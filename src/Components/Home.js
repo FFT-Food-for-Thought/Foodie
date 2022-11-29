@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Login from "./Login";
+import Signup from "./Signup";
 import "../Css/home.css";
 import Footer from "./Footer";
 import { logout } from "../db/signup";
 
 const Home = () => {
   const [isLoginOpen, setLoginIsOpen] = useState(false);
+  const [isSignupOpen, setSignupIsOpen] = useState(false);
   return (
     <React.Fragment>
       <div className="nav-page">
@@ -55,9 +57,13 @@ const Home = () => {
           </span>
 
           <div className="create-account">
-            <a href="/create" className="nav-link">
+            <button className="nav-link" onClick={() => setSignupIsOpen(true)}>
               Create Account
-            </a>
+            </button>
+            <Signup
+              openSignup={isSignupOpen}
+              onSignupClose={() => setSignupIsOpen(false)}
+            ></Signup>
           </div>
 
           <div className="slogan">
