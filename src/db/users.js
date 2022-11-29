@@ -19,6 +19,7 @@ export const getAllUsers = async () => {
     return { ...doc.data(), id: doc.id };
   });
   console.log("user :>> ", user);
+  return user;
 };
 
 //Test function with hardcoded ID
