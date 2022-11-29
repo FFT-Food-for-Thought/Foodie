@@ -3,7 +3,6 @@ import "../Css/profile.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
 import { getLoggedUser } from "../db/users";
-import { unstable_batchedUpdates } from "react-dom";
 const ProfilePictureView = () => {
   const [user, setUser] = useState({});
   useEffect(() => {
@@ -17,15 +16,22 @@ const ProfilePictureView = () => {
     return unsub;
   }, []);
   console.log(user);
-  return (
-    <>
-      <div className="profile-picture-container">
-        <div className="padding">{user.email}</div>
-        <div className="padding">{user.firstName}</div>
-      </div>
-      <div className="testing"></div>
-    </>
-  );
+  if (user.pictureBucket) {
+    return (
+      <>
+        <div className="profile-picture-container">
+          <div className="padding">{user.email}</div>
+          <div className="padding">{user.firstName}</div>
+          {user.pictureBucket.map((img) => {
+            return img.URL;
+          })}
+        </div>
+        <div className="testing"></div>
+      </>
+    );
+  } else {
+    return <div>loading</div>;
+  }
 };
 
 export default ProfilePictureView;
