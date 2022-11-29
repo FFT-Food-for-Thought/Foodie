@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "../Css/addphoto.css";
 import { storage } from "../db/firebase";
+import { auth } from "../db/signup";
 import { ref, uploadBytes } from "firebase/storage";
 const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
   const [imageUpload, setImageUpload] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const uid = auth.currentUser.uid;
     if (imageUpload == null) return;
-    const imageRef = ref(storage, `currentUserImages/${imageUpload.name}1`);
+    const imageRef = ref(storage, `${uid}/${imageUpload.name}1`);
     uploadBytes(imageRef, imageUpload).then(() => {
       alert("image uploaded");
     });
