@@ -23,30 +23,23 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
             </div>
             {children}
           </div>
-          <div className="signup-info">
-            <div>
-              <p>Logo</p>
-            </div>
-            <div className="form-container">
-              <h3>GET STARTED</h3>
-              <p>
-                By clicking Log In, you agree to our <a href="">Terms</a>. Learn
-                how we process your data in our <a href="">Privacy Policy</a>{" "}
-                and <a href="">Cookie Policy</a>.
-              </p>
-              <input placeholder="Email" htmlFor="email" id="email" />
-              <input placeholder="Password" htmlFor="password" id="password" />
-              <button onClick={createUser} className="signup-button">
-                Sign up
-              </button>
-            </div>
+          <div className="form-container">
+            <h3>GET STARTED</h3>
+            <p>
+              By clicking Log In, you agree to our <a href="">Terms</a>. Learn
+              how we process your data in our <a href="">Privacy Policy</a> and{" "}
+              <a href="">Cookie Policy</a>.
+            </p>
+            <input placeholder="Email" htmlFor="email" id="email" />
+            <input placeholder="Password" htmlFor="password" id="password" />
+            <button onClick={createUser} className="signup-button">
+              Sign up
+            </button>
           </div>
-          <div>
-            <h3>or</h3>
-          </div>
-          <div>
-            <button>Trouble Loggin In?</button>
-          </div>
+          <hr className="or-hr" />
+          <p className="login-link">
+            Have an account? <a href="">Log in</a>
+          </p>
           <div>
             <h3>GET THE APP!</h3>
           </div>

@@ -84,3 +84,7 @@
 #password {
   margin-bottom: 25px;
 }
+
+.login-link {
+  text-align: center;
+}
