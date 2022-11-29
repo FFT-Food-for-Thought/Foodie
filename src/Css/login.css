@@ -125,12 +125,7 @@ a {
   font-size: 13px;
 }
 
-.google-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.facebook-icon {
+.icon {
   width: 30px;
   height: 30px;
 }
@@ -140,7 +135,19 @@ a {
   justify-content: space-around;
 }
 
-.apple-icon {
-  width: 30px;
-  height: 30px;
+.app-store {
+  width: 135px;
+  height: 90px;
+}
+
+.google-play {
+  width: 135px;
+  height: 135px;
+}
+
+.apps-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 45px;
 }

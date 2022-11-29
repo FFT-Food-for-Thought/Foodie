@@ -40,22 +40,34 @@ const Login = ({ open, children, onClose }) => {
           <img
             src={require("../img/Google.png")}
             alt="Google icon"
-            className="google-icon"
+            className="icon"
           />
           <img
             src={require("../img/Apple.png")}
             alt="Apple icon"
-            className="apple-icon"
+            className="icon"
           />
           <img
             src={require("../img/Facebook.png")}
             alt="Facebook icon"
-            className="facebook-icon"
+            className="icon"
           />
         </div>
         <a href="">Trouble Loggin In?</a>
         <hr />
         <h3>GET THE APP!</h3>
+        <div className="apps-container">
+          <img
+            src={require("../img/DownloadOnTheAppStore.png")}
+            alt="App Store icon"
+            className="app-store"
+          />
+          <img
+            src={require("../img/GooglePlay.png")}
+            alt="Google Play icon"
+            className="google-play"
+          />
+        </div>
       </div>
     </>
   );
