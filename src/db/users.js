@@ -5,7 +5,10 @@ import {
   doc,
   getDoc,
   collection,
+  query,
+  where,
 } from "firebase/firestore";
+import { auth } from "./signup";
 
 const userRef = collection(db, "Users");
 
@@ -29,4 +32,17 @@ export const updateUser = async () => {
   const docRef = doc(db, "Users", "fhfUllMNrJD0ddRgT38Z");
   const update = { firstName: "Peter" };
   await updateDoc(docRef, update);
+};
+
+//Test get all info of a user based on uid?
+export const getLoggedUser = async () => {
+  const uid = auth.currentUser.uid;
+  const userCol = collection(db, "Users");
+  const q = query(userCol, where("userId", "==", uid));
+  const snapshot = await getDocs(q);
+  const userArray = snapshot.docs.map((doc) => {
+    return doc.data();
+  });
+
+  return userArray[0];
 };
