@@ -7,7 +7,7 @@
 
 .picture-view {
   height: 100vh;
-  width: 70%;
+  width: auto;
   background-color: gray;
   justify-content: center;
   display: flex;
@@ -17,8 +17,26 @@
 .profile-navbar-container {
   padding: 30px;
   background-color: red;
+  display: flex;
+  justify-content: center;
 }
 .profile-picture-container {
+  height: 100vh;
+  /* width: auto; */
   padding: 30px;
+  margin: 30px;
   background-color: red;
+  border: 1px solid black;
+}
+
+.matches {
+  display: flex;
+}
+.padding {
+  margin: 20px;
+}
+.box {
+  width: 40%;
+  background-color: white;
+  height: 50%;
 }
