@@ -57,8 +57,19 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
           <p className="login-link">
             Have an account? <a href="">Log in</a>
           </p>
-          <div>
-            <h3>GET THE APP!</h3>
+          <hr className="line-hr" />
+          <h3>GET THE APP!</h3>
+          <div className="apps-container">
+            <img
+              src={require("../img/DownloadOnTheAppStore.png")}
+              alt="App Store icon"
+              className="app-store"
+            />
+            <img
+              src={require("../img/GooglePlay.png")}
+              alt="Google Play icon"
+              className="google-play"
+            />
           </div>
         </div>
       </div>
