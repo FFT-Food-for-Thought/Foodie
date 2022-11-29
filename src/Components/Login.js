@@ -15,14 +15,58 @@ const Login = ({ open, children, onClose }) => {
   return (
     <>
       <div className="login-popup">
-        <button onClick={onClose}>X</button>
+        <div className="close-button">
+          <button onClick={onClose} className="round-button">
+            x
+          </button>
+        </div>
         {children}
-        <input placeholder="Email" id="loginEmail" />
-        <input placeholder="Password" id="loginPassword" />
-        <button onClick={_login}>Log In</button>
-        <h3>or</h3>
-        <button>Trouble Loggin In?</button>
+        <div className="form-container">
+          <h3>GET STARTED</h3>
+          <p>
+            By clicking Log In, you agree to our <a href="">Terms</a>. Learn how
+            we process your data in our <a href="">Privacy Policy</a> and{" "}
+            <a href="">Cookie Policy</a>.
+          </p>
+          <input placeholder="Email" id="loginEmail" />
+          <input placeholder="Password" id="loginPassword" />
+          <button onClick={_login} className="login-button">
+            Log in
+          </button>
+        </div>
+        <hr className="or-hr" />
+        <div className="icons">
+          <img
+            src={require("../img/Google.png")}
+            alt="Google icon"
+            className="icon"
+          />
+          <img
+            src={require("../img/Apple.png")}
+            alt="Apple icon"
+            className="icon"
+          />
+          <img
+            src={require("../img/Facebook.png")}
+            alt="Facebook icon"
+            className="icon"
+          />
+        </div>
+        <a href="">Trouble Loggin In?</a>
+        <hr className="line-hr" />
         <h3>GET THE APP!</h3>
+        <div className="apps-container">
+          <img
+            src={require("../img/DownloadOnTheAppStore.png")}
+            alt="App Store icon"
+            className="app-store"
+          />
+          <img
+            src={require("../img/GooglePlay.png")}
+            alt="Google Play icon"
+            className="google-play"
+          />
+        </div>
       </div>
     </>
   );
