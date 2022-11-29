@@ -34,16 +34,12 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
                 how we process your data in our <a href="">Privacy Policy</a>{" "}
                 and <a href="">Cookie Policy</a>.
               </p>
+              <input placeholder="Email" htmlFor="email" id="email" />
+              <input placeholder="Password" htmlFor="password" id="password" />
+              <button onClick={createUser} className="signup-button">
+                Sign up
+              </button>
             </div>
-          </div>
-          <div>
-            <input placeholder="Email" htmlFor="email" id="email" />
-          </div>
-          <div>
-            <input placeholder="Password" htmlFor="password" id="password" />
-          </div>
-          <div>
-            <button onClick={createUser}>Sign Up</button>
           </div>
           <div>
             <h3>or</h3>
