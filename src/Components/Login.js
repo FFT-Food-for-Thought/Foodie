@@ -25,8 +25,9 @@ const Login = ({ open, children, onClose }) => {
         <div className="form-container">
           <h3>GET STARTED</h3>
           <p>
-            By clicking Log In, you agree to our Terms. Learn how we process
-            your data in our Privacy Policy and Cookie Policy.
+            By clicking Log In, you agree to our <a href="">Terms</a>. Learn how
+            we process your data in our <a href="">Privacy Policy</a> and{" "}
+            <a href="">Cookie Policy</a>.
           </p>
           <input placeholder="Email" id="loginEmail" />
           <input placeholder="Password" id="loginPassword" />
@@ -35,7 +36,7 @@ const Login = ({ open, children, onClose }) => {
           </button>
         </div>
         <hr className="or-hr" />
-        <button>Trouble Loggin In?</button>
+        <a href="">Trouble Loggin In?</a>
         <hr />
         <h3>GET THE APP!</h3>
       </div>

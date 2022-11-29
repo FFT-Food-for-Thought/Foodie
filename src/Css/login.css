@@ -117,3 +117,10 @@ input::placeholder {
 hr {
   border: 0.75px solid #503D42;
 }
+
+a {
+  font-family: "Inter";
+  color: #967E76;
+  text-align: center;
+  font-size: 13px;
+}
