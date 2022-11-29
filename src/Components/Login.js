@@ -41,7 +41,7 @@ const Login = ({ open, children, onClose }) => {
             <a href="">Cookie Policy</a>.
           </p>
           <input placeholder="Email" id="loginEmail" />
-          <input placeholder="Password" id="loginPassword" />
+          <input placeholder="Password" id="loginPassword" type="password" />
           <button onClick={_login} className="login-button">
             Log in
           </button>
