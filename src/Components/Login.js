@@ -36,6 +36,23 @@ const Login = ({ open, children, onClose }) => {
           </button>
         </div>
         <hr className="or-hr" />
+        <div className="icons">
+          <img
+            src={require("../img/Google.png")}
+            alt="Google icon"
+            className="google-icon"
+          />
+          <img
+            src={require("../img/Apple.png")}
+            alt="Apple icon"
+            className="apple-icon"
+          />
+          <img
+            src={require("../img/Facebook.png")}
+            alt="Facebook icon"
+            className="facebook-icon"
+          />
+        </div>
         <a href="">Trouble Loggin In?</a>
         <hr />
         <h3>GET THE APP!</h3>

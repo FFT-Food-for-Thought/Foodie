@@ -124,3 +124,23 @@ a {
   text-align: center;
   font-size: 13px;
 }
+
+.google-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.facebook-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.apple-icon {
+  width: 30px;
+  height: 30px;
+}
