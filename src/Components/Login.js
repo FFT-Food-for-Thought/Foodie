@@ -36,9 +36,9 @@ const Login = ({ open, children, onClose }) => {
         <div className="form-container">
           <h3>GET STARTED</h3>
           <p>
-            By clicking Log In, you agree to our <a href="">Terms</a>. Learn how
-            we process your data in our <a href="">Privacy Policy</a> and{" "}
-            <a href="">Cookie Policy</a>.
+            By clicking Log In, you agree to our <a href="/">Terms</a>. Learn
+            how we process your data in our <a href="/">Privacy Policy</a> and{" "}
+            <a href="/">Cookie Policy</a>.
           </p>
           <input placeholder="Email" id="loginEmail" />
           <input placeholder="Password" id="loginPassword" type="password" />
@@ -64,7 +64,7 @@ const Login = ({ open, children, onClose }) => {
             className="icon"
           />
         </div>
-        <a href="">Trouble Loggin In?</a>
+        <a href="/">Trouble Loggin In?</a>
         <hr className="line-hr" />
         <h3>GET THE APP!</h3>
         <div className="apps-container">

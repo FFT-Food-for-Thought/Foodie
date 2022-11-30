@@ -18,32 +18,20 @@ const Footer = () => {
         <section className="foot">
           <h2>Careers</h2>
           <ul>
-            <li>Privacy</li>
-            <li>Terms</li>
-            <li>Cookie Policy </li>
-            <li>Intellectual Property</li>
+            <li>Careers Portal</li>
+            <li>LinkedIn</li>
           </ul>
         </section>
         <section className="foot">
           <h2>Social</h2>
           <ul>
-            <li>Privacy</li>
-            <li>Terms</li>
-            <li>Cookie Policy </li>
-            <li>Intellectual Property</li>
-          </ul>
-        </section>
-        <section className="foot">
-          <h2>FAQ</h2>
-          <ul>
-            <li>Privacy</li>
-            <li>Terms</li>
-            <li>Cookie Policy </li>
-            <li>Intellectual Property</li>
+            <li>Insta</li>
+            <li>Facebook</li>
+            <li>youtube </li>
+            <li>twitter</li>
           </ul>
         </section>
       </div>
-      <section className="description"></section>
     </div>
   );
 };
