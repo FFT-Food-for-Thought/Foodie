@@ -9,10 +9,17 @@ import { makeUser } from "./users";
 
 export const auth = getAuth();
 
-export const signup = async (email, pw) => {
+export const signup = async (
+  email,
+  pw,
+  lastName,
+  firstName,
+  username,
+  location
+) => {
   await createUserWithEmailAndPassword(auth, email, pw).then((credential) => {
     const userId = credential.user.uid;
-    makeUser(userId, email);
+    makeUser(userId, email, lastName, firstName, username, location);
   });
 };
 
