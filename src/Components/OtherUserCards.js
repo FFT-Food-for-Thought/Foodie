@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+
 import { getAllUsers } from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
 
 const OtherUserCards = () => {
-  const [currentUser, setCurrentUser] = useState(1);
+  const [currentUser, setCurrentUser] = useState(0);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -22,12 +23,16 @@ const OtherUserCards = () => {
         <SingleProfileCard user={users[currentUser]} />
         <button
           onClick={() => {
-            setCurrentUser(currentUser + 1);
+            currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
           }}
         >
           {"Like"}
         </button>
-        <button onClick={() => setCurrentUser(currentUser + 1)}>
+        <button
+          onClick={() => {
+            currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
+          }}
+        >
           {"Next"}
         </button>
       </div>

@@ -49,10 +49,22 @@ export const getLoggedUser = async () => {
   return userArray[0];
 };
 
-export const makeUser = async (uid, email) => {
+export const makeUser = async (
+  uid,
+  email,
+  lastName,
+  firstName,
+  username,
+  location
+) => {
   const newUserObj = {
     userId: uid,
     email,
+    lastName,
+    firstName,
+    username,
+    location,
+    pictureBucket: [],
   };
   await addDoc(userRef, newUserObj);
 };
