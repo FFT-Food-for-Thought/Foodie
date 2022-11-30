@@ -90,14 +90,14 @@ export const addReviewToReviewee = async (revieweeId, review) => {
 export const addReviewToReviewer = async (reviewerId, review) => {
   try {
     const docRef = doc(db, "Users", reviewerId);
-    const reviewee = await getDoc(db, "Users", reviewerId);
-    const revieweeInfo = reviewee.data();
-    const reviews = revieweeInfo.reviews;
+    const reviewer = await getDoc(db, "Users", reviewerId);
+    const reviewerInfo = reviewer.data();
+    const writtenReviews = reviewerInfo.writtenReviews;
 
-    const updatedReviews = [...reviews, review];
+    const updatedWrittenReviews = [...writtenReviews, review];
 
     const updateObject = {
-      reviews: updatedReviews,
+      writtenReviews: updatedWrittenReviews,
     };
     await updateDoc(docRef, updateObject);
   } catch (error) {
