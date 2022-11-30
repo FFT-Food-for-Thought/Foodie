@@ -68,3 +68,39 @@ export const makeUser = async (
   };
   await addDoc(userRef, newUserObj);
 };
+
+export const addReviewToReviewee = async (revieweeId, review) => {
+  try {
+    const docRef = doc(db, "Users", revieweeId);
+    const reviewee = await getDoc(db, "Users", revieweeId);
+    const revieweeInfo = reviewee.data();
+    const reviews = revieweeInfo.reviews;
+
+    const updatedReviews = [...reviews, review];
+
+    const updateObject = {
+      reviews: updatedReviews,
+    };
+    await updateDoc(docRef, updateObject);
+  } catch (error) {
+    console.log("error in addReviewToRevieww", error);
+  }
+};
+
+export const addReviewToReviewer = async (reviewerId, review) => {
+  try {
+    const docRef = doc(db, "Users", reviewerId);
+    const reviewee = await getDoc(db, "Users", reviewerId);
+    const revieweeInfo = reviewee.data();
+    const reviews = revieweeInfo.reviews;
+
+    const updatedReviews = [...reviews, review];
+
+    const updateObject = {
+      reviews: updatedReviews,
+    };
+    await updateDoc(docRef, updateObject);
+  } catch (error) {
+    console.log("error in addReviewToRevieww", error);
+  }
+};
