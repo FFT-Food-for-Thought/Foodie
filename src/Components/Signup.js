@@ -49,7 +49,12 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
             <input placeholder="Email" htmlFor="email" id="email" />
           </div>
           <div>
-            <input placeholder="Password" htmlFor="password" id="password" />
+            <input
+              placeholder="Password"
+              htmlFor="password"
+              id="password"
+              type="password"
+            />
           </div>
           <div>
             <button onClick={createUser}>Sign Up</button>
