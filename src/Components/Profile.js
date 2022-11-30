@@ -26,7 +26,7 @@ const Profile = () => {
   return (
     <>
       <div className="sidebar">
-        <ProfileSideBar />
+        <ProfileSideBar likedUsers={user.likedUsers} />
       </div>
       <div className="picture-view">
         <div className="box">
