@@ -13,11 +13,22 @@ import {
 const reviewRef = collection(db, "Reviews");
 
 // test function with hardcoded review
-export const createReview = async () => {
+// export const createReview = async () => {
+//   const review = {
+//     review:
+//       "This was the worst meal I ever ate. Peter didn't wash a single dish",
+//     createdAt: serverTimestamp(),
+//   };
+//   await addDoc(reviewRef, review);
+// };
+
+//Live function to actually post reviews to review table
+export const createReview = async (reviewString, reviewer, reviewee) => {
   const review = {
-    review:
-      "This was the worst meal I ever ate. Peter didn't wash a single dish",
+    review: reviewString,
     createdAt: serverTimestamp(),
+    reviewer,
+    reviewee,
   };
   await addDoc(reviewRef, review);
 };
