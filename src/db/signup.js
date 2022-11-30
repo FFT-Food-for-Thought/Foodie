@@ -3,13 +3,17 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-} from 'firebase/auth';
-import db from './firebase';
+} from "firebase/auth";
+import db from "./firebase";
+import { makeUser } from "./users";
 
 export const auth = getAuth();
 
 export const signup = async (email, pw) => {
-  await createUserWithEmailAndPassword(auth, email, pw);
+  await createUserWithEmailAndPassword(auth, email, pw).then((credential) => {
+    const userId = credential.user.uid;
+    makeUser(userId, email);
+  });
 };
 
 export const logout = async () => {

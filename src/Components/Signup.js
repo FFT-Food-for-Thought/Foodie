@@ -1,13 +1,23 @@
 import React from "react";
 import "../Css/signup.css";
 import { signup } from "../db/signup";
+import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
 
 const Signup = ({ openSignup, children, onSignupClose }) => {
+  const navigate = useNavigate();
   const createUser = () => {
     const email = document.getElementById("email").value;
     const pw = document.getElementById("password").value;
     signup(email, pw);
+    onAuthStateChanged(auth, function (user) {
+      if (user) {
+        navigate("/profile");
+      } else {
+        // No user is signed in.
+      }
+    });
   };
 
   if (!openSignup) return null;
@@ -32,7 +42,7 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
             <input placeholder="First Name" className="form-input" />
             <input placeholder="Last Name" className="form-input" />
             <input placeholder="Username" className="form-input" />
-            <input placeholder="Password" htmlFor="password" id="password" />
+            <input placeholder="Password" htmlFor="password" id="password" type="password" />
             <label for="state" className="state">
               State:
             </label>

@@ -1,5 +1,6 @@
 import db from "./firebase";
 import {
+  addDoc,
   updateDoc,
   getDocs,
   doc,
@@ -18,6 +19,7 @@ export const getAllUsers = async () => {
     return { ...doc.data(), id: doc.id };
   });
   console.log("user :>> ", user);
+  return user;
 };
 
 //Test function with hardcoded ID
@@ -45,4 +47,12 @@ export const getLoggedUser = async () => {
   });
 
   return userArray[0];
+};
+
+export const makeUser = async (uid, email) => {
+  const newUserObj = {
+    userId: uid,
+    email,
+  };
+  await addDoc(userRef, newUserObj);
 };
