@@ -10,7 +10,19 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
   const createUser = () => {
     const email = document.getElementById("email").value;
     const pw = document.getElementById("password").value;
-    signup(email, pw);
+    const lastName = document.getElementById("lastName").value;
+    const firstName = document.getElementById("firstName").value;
+    const username = document.getElementById("username").value;
+    const location = document.getElementById("location").value;
+
+    console.log("email", email);
+    console.log("pw", email);
+    console.log("lastname", lastName);
+    console.log("firstname", firstName);
+    console.log("username", username);
+    console.log("location", location);
+
+    signup(email, pw, lastName, firstName, username, location);
     onAuthStateChanged(auth, function (user) {
       if (user) {
         navigate("/profile");
@@ -34,20 +46,45 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
           <div className="form-container">
             <h3>GET STARTED</h3>
             <p>
-              By clicking Sign Up, you agree to our <a href="">Terms</a>. Learn
-              how we process your data in our <a href="">Privacy Policy</a> and{" "}
-              <a href="">Cookie Policy</a>.
+              By clicking Sign Up, you agree to our <a href="/">Terms</a>. Learn
+              how we process your data in our <a href="/">Privacy Policy</a> and{" "}
+              <a href="/">Cookie Policy</a>.
             </p>
-            <input placeholder="Email" htmlFor="email" className="form-input" />
-            <input placeholder="First Name" className="form-input" />
-            <input placeholder="Last Name" className="form-input" />
-            <input placeholder="Username" className="form-input" />
-            <input placeholder="Password" htmlFor="password" id="password" type="password" />
-            <label for="state" className="state">
+            <input
+              placeholder="Email"
+              htmlFor="email"
+              id="email"
+              className="form-input"
+            />
+            <input
+              placeholder="First Name"
+              htmlFor="firstName"
+              id="firstName"
+              className="form-input"
+            />
+            <input
+              placeholder="Last Name"
+              htmlFor="lastName"
+              id="lastName"
+              className="form-input"
+            />
+            <input
+              placeholder="Username"
+              className="form-input"
+              htmlFor="username"
+              id="username"
+            />
+            <input
+              placeholder="Password"
+              htmlFor="password"
+              id="password"
+              type="password"
+            />
+            <label htmlFor="location" className="state">
               State:
             </label>
             <div className="select">
-              <select name="state" id="state">
+              <select name="state" id="location">
                 <option value="select_state" selected disabled>
                   Select State
                 </option>
@@ -136,7 +173,7 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
             />
           </div>
           <p className="login-link">
-            Have an account? <a href="">Log in</a>
+            Have an account? <a href="/">Log in</a>
           </p>
           <hr className="line-hr" />
           <h3>GET THE APP!</h3>
