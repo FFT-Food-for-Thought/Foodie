@@ -5,6 +5,7 @@
 .reviews {
   width: 100%;
   padding: 20px;
+  height: 70%;
   background-color: red;
 }
 .main-footer {
@@ -19,6 +20,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+
   justify-content: center;
   align-items: center;
 }
@@ -33,17 +35,12 @@ li:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.description {
-  background-color: blue;
-  width: 100%;
-}
-
 ul {
   list-style-type: none;
 }
 h2 {
   margin-bottom: 10px;
-  font-size: 25px;
+  font-size: 20px;
 }
 li {
   font-size: 20px;

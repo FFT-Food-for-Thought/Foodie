@@ -14,7 +14,7 @@ const Home = () => {
         <div className="navbar-container">
           <div className="navbar">
             <div className="navbar-left">
-              <a href="/home" className="nav-link">
+              <a href="/" className="nav-link">
                 Foodie
               </a>
             </div>
@@ -26,8 +26,8 @@ const Home = () => {
             </div>
 
             <div className="navbar-left">
-              <a href="/popup" className="nav-link">
-                Pop-Ups
+              <a href="/catering" className="nav-link">
+                Catering
               </a>
             </div>
 
