@@ -104,3 +104,21 @@ export const addReviewToReviewer = async (reviewerId, review) => {
     console.log("error in addReviewToRevieww", error);
   }
 };
+
+export const addLikedUser = async (currentUserId, likedUserId) => {
+  try {
+    const docRef = doc(db, "Users", currentUserId);
+    const likedUser = await getDoc(db, "Users", currentUserId);
+    const likedUserInfo = likedUser.data();
+    const likedUsers = likedUserInfo.likedUsers;
+    const updatedLikedUsers = [...likedUsers, likedUserId];
+
+    const updatedObj = {
+      likedUsers: updatedLikedUsers,
+    };
+
+    await updateDoc(docRef, updatedObj);
+  } catch (error) {
+    console.log("error in addUserLike", error);
+  }
+};
