@@ -4,14 +4,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #dae1e7;
-  border-radius: 5%;
-  padding: 20px;
+  border-radius: 25px;
+  padding: 50px;
   z-index: 1000;
   overflow: hidden;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* display: flex; */
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  width: 360px;
+  height: 800px;
 }
+
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -38,4 +41,59 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.signup-close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 15px 15px;
+}
+
+.form-input {
+  margin-bottom: 10px;
+}
+
+.signup-button {
+  border-radius: 2px;
+  background-color: #503D42;
+  border: 0.05em solid #503D42;
+  color: #DAE1E7;
+  padding: 9px;
+  width: 289.33px;
+  font-family: "Inter";
+  font-weight: 900;
+}
+
+#password {
+  margin-bottom: 10px;
+}
+
+.login-link {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+select {
+  background-color: #F5EEE0;
+  border: 0.05em solid #503D42;
+  padding: 9px;
+  margin-bottom: 25px;
+  width: 289.33px;
+  font-family: "Inter";
+  cursor: pointer;
+  color: #503D42;
+  border-radius: 2px;
+}
+
+.state {
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Inter";
+  width: 289.33px;
+  margin-bottom: 5px;
+}
+
+#password {
+  margin-bottom: 5px;
 }

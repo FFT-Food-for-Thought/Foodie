@@ -25,48 +25,132 @@ const Signup = ({ openSignup, children, onSignupClose }) => {
     <>
       <div className="popup-overlay">
         <div className="signup-popup">
-          <div className="signup-close-button-container">
-            <div className="signup-close">
-              <button onClick={onSignupClose}>X</button>
-              {children}
-            </div>
+          <div className="signup-close">
+            <button onClick={onSignupClose} className="round-button">
+              x
+            </button>
           </div>
-          <div className="signup-info">
-            <div>
-              <p>Logo</p>
+          {children}
+          <div className="form-container">
+            <h3>GET STARTED</h3>
+            <p>
+              By clicking Sign Up, you agree to our <a href="">Terms</a>. Learn
+              how we process your data in our <a href="">Privacy Policy</a> and{" "}
+              <a href="">Cookie Policy</a>.
+            </p>
+            <input placeholder="Email" htmlFor="email" className="form-input" />
+            <input placeholder="First Name" className="form-input" />
+            <input placeholder="Last Name" className="form-input" />
+            <input placeholder="Username" className="form-input" />
+            <input placeholder="Password" htmlFor="password" id="password" type="password" />
+            <label for="state" className="state">
+              State:
+            </label>
+            <div className="select">
+              <select name="state" id="state">
+                <option value="select_state" selected disabled>
+                  Select State
+                </option>
+
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
             </div>
-            <div>
-              <h1>Get Started</h1>
-            </div>
-            <div>
-              <p>
-                By clicking Log In, you agree to our Terms. Learn how we process
-                your data in our Privacy Policy and Cookie Policy.
-              </p>
-            </div>
+            <button onClick={createUser} className="signup-button">
+              Sign Up
+            </button>
           </div>
-          <div>
-            <input placeholder="Email" htmlFor="email" id="email" />
-          </div>
-          <div>
-            <input
-              placeholder="Password"
-              htmlFor="password"
-              id="password"
-              type="password"
+          <hr className="or-hr" />
+          <div className="icons">
+            <img
+              src={require("../img/Google.png")}
+              alt="Google icon"
+              className="icon"
+            />
+            <img
+              src={require("../img/Apple.png")}
+              alt="Apple icon"
+              className="icon"
+            />
+            <img
+              src={require("../img/Facebook.png")}
+              alt="Facebook icon"
+              className="icon"
             />
           </div>
-          <div>
-            <button onClick={createUser}>Sign Up</button>
-          </div>
-          <div>
-            <h3>or</h3>
-          </div>
-          <div>
-            <button>Trouble Loggin In?</button>
-          </div>
-          <div>
-            <h3>GET THE APP!</h3>
+          <p className="login-link">
+            Have an account? <a href="">Log in</a>
+          </p>
+          <hr className="line-hr" />
+          <h3>GET THE APP!</h3>
+          <div className="apps-container">
+            <img
+              src={require("../img/DownloadOnTheAppStore.png")}
+              alt="App Store icon"
+              className="app-store"
+            />
+            <img
+              src={require("../img/GooglePlay.png")}
+              alt="Google Play icon"
+              className="google-play"
+            />
           </div>
         </div>
       </div>
