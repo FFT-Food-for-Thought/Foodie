@@ -31,7 +31,7 @@ const Login = ({ open, children, onClose }) => {
           <input placeholder="Email" id="loginEmail" />
           <input placeholder="Password" id="loginPassword" />
           <button onClick={_login} className="login-button">
-            Log in
+            Log In
           </button>
         </div>
         <hr className="or-hr" />
