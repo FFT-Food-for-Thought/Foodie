@@ -23,7 +23,6 @@ export const signup = async (
       makeUser(userId, email, lastName, firstName, username, location);
     })
     .catch((error) => {
-      // window.alert("Password must be 6 characters or more");
       window.alert(`${error.message}`);
     });
 };
