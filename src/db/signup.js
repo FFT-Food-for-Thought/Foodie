@@ -17,10 +17,14 @@ export const signup = async (
   username,
   location
 ) => {
-  await createUserWithEmailAndPassword(auth, email, pw).then((credential) => {
-    const userId = credential.user.uid;
-    makeUser(userId, email, lastName, firstName, username, location);
-  });
+  await createUserWithEmailAndPassword(auth, email, pw)
+    .then((credential) => {
+      const userId = credential.user.uid;
+      makeUser(userId, email, lastName, firstName, username, location);
+    })
+    .catch((error) => {
+      window.alert(`${error.message}`);
+    });
 };
 
 export const logout = async () => {
@@ -28,5 +32,8 @@ export const logout = async () => {
 };
 
 export const login = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password);
+  signInWithEmailAndPassword(auth, email, password).catch((error) => {
+    console.log("error :>> ", error);
+    window.alert("Incorrect Username/Password");
+  });
 };
