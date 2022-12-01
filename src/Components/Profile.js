@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProfileSideBar from "./ProfileSideBar";
 import SingleProfileCard from "./SingleProfileCard";
-
+import SingleUserCard from "./SingleUserCard";
 import "../Css/profile.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
@@ -42,7 +42,7 @@ const Profile = () => {
           </div>
           <div className="picture-view">
             <div className="box">
-              <SingleProfileCard user={user} />
+              <SingleUserCard user={user} />
               <button onClick={handleView}>Continue Browsing</button>
             </div>
           </div>
