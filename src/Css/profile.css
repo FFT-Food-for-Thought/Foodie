@@ -47,4 +47,8 @@
 
 #infoDiv {
   display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 470.4px;
+  height: 110px;
 }

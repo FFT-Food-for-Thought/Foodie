@@ -35,7 +35,19 @@ const OtherUserCards = () => {
         >
           {"Next"}
         </button>
-        <div id="infoDiv">This is {users[currentUser].firstName}'s info.</div>
+        <div id="infoDiv">
+          This is {users[currentUser].firstName}'s info. Taiyaki slow-carb
+          flannel green juice vinyl cray. Polaroid ascot aesthetic wolf banjo
+          skateboard. IPhone la croix snackwave leggings jean shorts tumblr,
+          viral neutra. Brunch everyday carry vexillologist yuccie selfies.
+          Actually flexitarian chia knausgaard normcore Brooklyn. Etsy actually
+          vexillologist 8-bit, vice snackwave scenester tilde locavore taiyaki.
+          Pok pok swag jean shorts jianbing. Celiac letterpress lo-fi you
+          probably haven't heard of them salvia, hot chicken tofu direct trade
+          irony. Photo booth chillwave vibecession unicorn succulents ramps,
+          pickled blog shaman vice bruh tattooed. Chicharrones listicle poke,
+          single-origin coffee gochujang austin portland +1.
+        </div>
       </div>
     );
   }
