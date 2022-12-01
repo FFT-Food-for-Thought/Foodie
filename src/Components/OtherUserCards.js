@@ -35,6 +35,7 @@ const OtherUserCards = () => {
         >
           {"Next"}
         </button>
+        <div id="infoDiv">This is {users[currentUser].firstName}'s info.</div>
       </div>
     );
   }
