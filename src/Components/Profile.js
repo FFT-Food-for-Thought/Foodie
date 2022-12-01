@@ -18,12 +18,16 @@ const Profile = () => {
       setUser(newUser);
 
       console.log("Auth state changed", user);
+      console.log("newuser", newUser);
     });
     return unsub;
   }, []);
   console.log(user);
 
   console.log(user.pictureBucket);
+
+  if (user.userId) {
+    
   if (isSingleView) {
     return (
       <>
@@ -52,10 +56,13 @@ const Profile = () => {
       <div className="picture-view">
         <div className="box">
           <OtherUserCards />
+
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }} else {
+    return <div>Loading...</div>;
+  }
 };
 
 export default Profile;
