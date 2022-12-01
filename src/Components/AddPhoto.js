@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Css/addphoto.css";
 import { storage } from "../db/firebase";
 import { auth } from "../db/signup";
+import { uuidv4 as v4 } from "@firebase/util";
 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { addPicture } from "../db/pictures";
@@ -14,17 +15,18 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
     const uid = auth.currentUser.uid;
     if (imageUpload == null) return;
 
-    const imageRef = ref(storage, `${uid}/${imageUpload.name}5`);
+    const imageName = `${imageUpload.name}` + v4();
+    const imageRef = ref(storage, `${uid}/${imageName}`);
 
     // uploadBytes(imageRef, imageUpload).then(() => {
     //   alert("image uploaded");
     // });
     await uploadBytes(imageRef, imageUpload);
     alert("image uploaded");
-    console.log("right befoew get URL");
+    console.log("right before get URL");
     const URL = await getDownloadURL(imageRef);
     console.log(URL);
-    await addPicture(URL);
+    await addPicture(URL, imageName, uid);
   };
   const handleImageChange = async (e) => {
     e.preventDefault();
