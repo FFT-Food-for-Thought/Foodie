@@ -16,26 +16,30 @@ const Profile = () => {
       setUser(newUser);
 
       console.log("Auth state changed", user);
+      console.log("newuser", newUser);
     });
     return unsub;
   }, []);
   console.log(user);
 
   console.log(user.pictureBucket);
-
-  return (
-    <>
-      <div className="sidebar">
-        <ProfileSideBar likedUsers={user.likedUsers} />
-      </div>
-      <div className="picture-view">
-        <div className="box">
-          {/* <SingleProfileCard user={user} /> */}
-          <OtherUserCards />
+  if (user.userId) {
+    return (
+      <>
+        <div className="sidebar">
+          <ProfileSideBar likedUsers={user.likedUsers} />
         </div>
-      </div>
-    </>
-  );
+        <div className="picture-view">
+          <div className="box">
+            {/* <SingleProfileCard user={user} /> */}
+            <OtherUserCards />
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    return <div>Loading...</div>;
+  }
 };
 
 export default Profile;
