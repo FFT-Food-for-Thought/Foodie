@@ -27,40 +27,40 @@ const Profile = () => {
   console.log(user.pictureBucket);
 
   if (user.userId) {
-    
-  if (isSingleView) {
-    return (
-      <>
-        <div className="sidebar">
-          <ProfileSideBar
-            likedUsers={user.likedUsers}
-            setSingleViewClicked={setSingleViewClicked}
-          />
-        </div>
-        <div className="picture-view">
-          <div className="box">
-            <SingleProfileCard user={user} />
+    if (isSingleView) {
+      return (
+        <>
+          <div className="sidebar">
+            <ProfileSideBar
+              likedUsers={user.likedUsers}
+              setSingleViewClicked={setSingleViewClicked}
+            />
           </div>
-        </div>
-      </>
-    );
-  }
-  return (
-    <>
-      <div className="sidebar">
-        <ProfileSideBar
-          likedUsers={user.likedUsers}
-          setSingleViewClicked={setSingleViewClicked}
-        />
-      </div>
-      <div className="picture-view">
-        <div className="box">
-          <OtherUserCards />
-
-        </div>
-      </>
-    );
-  }} else {
+          <div className="picture-view">
+            <div className="box">
+              <SingleProfileCard user={user} />
+            </div>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div className="sidebar">
+            <ProfileSideBar
+              likedUsers={user.likedUsers}
+              setSingleViewClicked={setSingleViewClicked}
+            />
+          </div>
+          <div className="picture-view">
+            <div className="box">
+              <OtherUserCards />
+            </div>
+          </div>
+        </>
+      );
+    }
+  } else {
     return <div>Loading...</div>;
   }
 };
