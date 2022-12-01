@@ -10,11 +10,16 @@ import {
 } from "firebase/firestore";
 import { storage } from "./firebase";
 import { auth } from "./signup";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 
 const PROFILE_PIC_REF = "gs://foodie-1ba1a.appspot.com/profilePics/";
 
-export const addPicture = async (imgUrl) => {
+export const addPicture = async (imgUrl, imageName) => {
   const uid = auth.currentUser.uid;
   const userCol = collection(db, "Users");
   const q = query(userCol, where("userId", "==", uid));
@@ -27,6 +32,7 @@ export const addPicture = async (imgUrl) => {
     {
       URL: imgUrl,
       tags: ["shellfish", "chocolate"],
+      imageName,
     },
   ];
   const updateObj = {
@@ -60,4 +66,10 @@ export const getLikedPFP = async (targetUserId) => {
   );
   const imageUrl = await getDownloadURL(imageRef);
   return imageUrl;
+};
+
+export const deletePhoto = async (userId, imageName) => {
+  const pictureRef = ref(storage, `${userId}/${imageName}`);
+
+  deleteObject(pictureRef);
 };
