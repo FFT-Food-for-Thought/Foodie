@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../Css/profile.css";
 import AddPhoto from "./AddPhoto";
 import { logout } from "../db/signup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { addProfilePicture } from "../db/pictures";
 
 const ProfileNavbar = () => {
@@ -42,7 +42,7 @@ const ProfileNavbar = () => {
           Add Photo
         </button>
         <button onClick={handleLogout}>Logout</button>
-
+        <Link to="/profile/allphotos">View All Photos</Link>
         <AddPhoto
           openAddPhoto={isAddPhotoOpen}
           onAddPhotoClose={() => setAddPhotoIsOpen(false)}

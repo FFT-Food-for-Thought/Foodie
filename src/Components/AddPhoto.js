@@ -3,7 +3,6 @@ import "../Css/addphoto.css";
 import { storage } from "../db/firebase";
 import { auth } from "../db/signup";
 import { uuidv4 as v4 } from "@firebase/util";
-
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { addPicture } from "../db/pictures";
 
