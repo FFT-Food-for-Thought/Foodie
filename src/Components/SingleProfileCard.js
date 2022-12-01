@@ -12,6 +12,19 @@ const SingleProfileCard = ({ user }) => {
           <h1>{user.firstName}</h1>
           <button
             onClick={() => {
+              let div = document.getElementById("infoDiv");
+              if (div.style.display === "block") {
+                div.style.display = "none";
+              } else {
+                div.style.display = "block";
+              }
+            }}
+          >
+            {"info"}
+          </button>
+          <br></br>
+          <button
+            onClick={() => {
               currentImg > 0 && setCurrentImg(currentImg - 1);
             }}
           >
