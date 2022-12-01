@@ -5,8 +5,9 @@ import { logout } from "../db/signup";
 import { useNavigate } from "react-router-dom";
 import { addProfilePicture } from "../db/pictures";
 
-const ProfileNavbar = () => {
+const ProfileNavbar = ({ setSingleViewClicked }) => {
   const [isAddPhotoOpen, setAddPhotoIsOpen] = useState(false);
+
   const [imageUpload, setImageUpload] = useState(null);
   const navigate = useNavigate();
 
@@ -24,10 +25,14 @@ const ProfileNavbar = () => {
     logout();
     navigate("/");
   };
+  const handleSingleView = (e) => {
+    e.preventDefault();
+    setSingleViewClicked(true);
+  };
 
   return (
     <div className="profile-navbar-container">
-      <div>Profile Navbar</div>
+      <button onClick={handleSingleView}>Profile Navbar</button>
       <div>
         <input
           type="file"

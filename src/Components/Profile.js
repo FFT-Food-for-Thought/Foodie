@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProfileSideBar from "./ProfileSideBar";
 import SingleProfileCard from "./SingleProfileCard";
+
 import "../Css/profile.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
@@ -9,6 +10,7 @@ import OtherUserCards from "./OtherUserCards";
 
 const Profile = () => {
   const [user, setUser] = useState({});
+  const [isSingleView, setSingleViewClicked] = useState(false);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
@@ -23,21 +25,42 @@ const Profile = () => {
   console.log(user);
 
   console.log(user.pictureBucket);
+
   if (user.userId) {
+    
+  if (isSingleView) {
     return (
       <>
         <div className="sidebar">
-          <ProfileSideBar likedUsers={user.likedUsers} />
+          <ProfileSideBar
+            likedUsers={user.likedUsers}
+            setSingleViewClicked={setSingleViewClicked}
+          />
         </div>
         <div className="picture-view">
           <div className="box">
-            {/* <SingleProfileCard user={user} /> */}
-            <OtherUserCards />
+            <SingleProfileCard user={user} />
           </div>
         </div>
       </>
     );
-  } else {
+  }
+  return (
+    <>
+      <div className="sidebar">
+        <ProfileSideBar
+          likedUsers={user.likedUsers}
+          setSingleViewClicked={setSingleViewClicked}
+        />
+      </div>
+      <div className="picture-view">
+        <div className="box">
+          <OtherUserCards />
+
+        </div>
+      </>
+    );
+  }} else {
     return <div>Loading...</div>;
   }
 };

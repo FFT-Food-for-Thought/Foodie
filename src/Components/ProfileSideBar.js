@@ -2,10 +2,10 @@ import React from "react";
 import ProfileMatchMessage from "./ProfileMatchMessage";
 import ProfileNavbar from "./ProfileNavbar";
 import "../Css/profile.css";
-const ProfileSideBar = ({ likedUsers }) => {
+const ProfileSideBar = ({ likedUsers, setSingleViewClicked }) => {
   return (
     <>
-      <ProfileNavbar />
+      <ProfileNavbar setSingleViewClicked={setSingleViewClicked} />
       <ProfileMatchMessage likedUsers={likedUsers} />
     </>
   );
