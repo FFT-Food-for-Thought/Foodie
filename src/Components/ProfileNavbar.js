@@ -32,7 +32,7 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
 
   return (
     <div className="profile-navbar-container">
-      <button onClick={handleSingleView}>Profile Navbar</button>
+      <button onClick={handleSingleView}>Profile Picture</button>
       <div>
         <input
           type="file"
@@ -40,7 +40,7 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
           placeholder="Add Photo"
           id="profilePicChooser"
         />
-        <button onClick={handleProfileUpload}>Profile Pic</button>
+        <button onClick={handleProfileUpload}>Add Profile Picture</button>
       </div>
       <div className="upload-photo">
         <button className="add-photo" onClick={() => setAddPhotoIsOpen(true)}>

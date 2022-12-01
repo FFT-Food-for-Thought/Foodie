@@ -11,6 +11,10 @@ import OtherUserCards from "./OtherUserCards";
 const Profile = () => {
   const [user, setUser] = useState({});
   const [isSingleView, setSingleViewClicked] = useState(false);
+  const handleView = (e) => {
+    e.preventDefault();
+    setSingleViewClicked(false);
+  };
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
@@ -39,6 +43,7 @@ const Profile = () => {
           <div className="picture-view">
             <div className="box">
               <SingleProfileCard user={user} />
+              <button onClick={handleView}>Continue Browsing</button>
             </div>
           </div>
         </>
