@@ -26,12 +26,6 @@ const Home = () => {
             </div>
 
             <div className="navbar-left">
-              <a href="/catering" className="nav-link">
-                Catering
-              </a>
-            </div>
-
-            <div className="navbar-left">
               <a href="/safety" className="nav-link">
                 Safety
               </a>
