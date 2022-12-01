@@ -17,7 +17,7 @@
 
 .profile-navbar-container {
   padding: 30px;
-  background-color: red;
+  background-image: linear-gradient(to right, #503d42, #6a5c66, #837d8b, #9ba0ae, #b7c4cf);
   display: flex;
   justify-content: center;
 }
