@@ -8,7 +8,9 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { storage } from "./firebase";
 import { auth } from "./signup";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export const addPicture = async (imgUrl) => {
   const uid = auth.currentUser.uid;
@@ -30,4 +32,13 @@ export const addPicture = async (imgUrl) => {
   };
   const docRef = doc(db, "Users", userArray[0].id);
   await updateDoc(docRef, updateObj);
+};
+
+export const addProfilePicture = async (image) => {
+  const uid = auth.currentUser.uid;
+  const imageRef = ref(storage, `profilePics/${uid}/profilePic`);
+  await uploadBytes(imageRef, image);
+  alert("profile picture updated");
+  const URL = await getDownloadURL(imageRef);
+  return URL;
 };
