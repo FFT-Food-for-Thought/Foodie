@@ -26,7 +26,7 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
     console.log("right before get URL");
     const URL = await getDownloadURL(imageRef);
     console.log(URL);
-    await addPicture(URL, imageName, uid);
+    await addPicture(URL, imageName);
   };
   const handleImageChange = async (e) => {
     e.preventDefault();
@@ -42,14 +42,7 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
           <div className="add-photo-close">
             <button onClick={onAddPhotoClose}>X</button>
             {children}
-          </div>
-          <div>
-            <input
-              type="file"
-              onChange={handleImageChange}
-              placeholder="Add Photo"
-              id="userPhoto"
-            />
+            Splaceholder="Add Photo" id="userPhoto" />
             <button onClick={handleSubmit}>Submit</button>
           </div>
         </div>
