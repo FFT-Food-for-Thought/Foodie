@@ -19,7 +19,7 @@ import {
 
 const PROFILE_PIC_REF = "gs://foodie-1ba1a.appspot.com/profilePics/";
 
-export const addPicture = async (imgUrl, imageName) => {
+export const addPicture = async (imgUrl, imageName, tags) => {
   const uid = auth.currentUser.uid;
   const userCol = collection(db, "Users");
   const q = query(userCol, where("userId", "==", uid));
@@ -31,7 +31,7 @@ export const addPicture = async (imgUrl, imageName) => {
     ...userArray[0].pictureBucket,
     {
       URL: imgUrl,
-      tags: ["shellfish", "chocolate"],
+      tags,
       imageName,
     },
   ];
