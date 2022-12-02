@@ -19,16 +19,23 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
 
   return (
     <div className="profile-navbar-container">
-      <button onClick={handleSingleView}>Profile Picture</button>
+      <button className="btn profile-picture" onClick={handleSingleView}>
+        <i class="fa-regular fa-user"></i>
+      </button>
       <div className="upload-photo">
-        <button className="add-photo" onClick={() => setAddPhotoIsOpen(true)}>
-          Add Photo
+        <button
+          className="btn add-photo"
+          onClick={() => setAddPhotoIsOpen(true)}
+        >
+          <i class="fa-solid fa-camera-retro"></i>
         </button>
         <AddPhoto
           openAddPhoto={isAddPhotoOpen}
           onAddPhotoClose={() => setAddPhotoIsOpen(false)}
         ></AddPhoto>
-        <button onClick={handleLogout}>Logout</button>
+        <button className="btn logout" onClick={handleLogout}>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
       </div>
     </div>
   );
