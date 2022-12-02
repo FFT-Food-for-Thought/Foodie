@@ -76,14 +76,18 @@ export const deletePhoto = async (userId, imageName, idx) => {
     return { pictureBucket: doc.data().pictureBucket, id: doc.id };
   });
   const docRef = doc(db, "Users", userArray[0].id);
-  const updatedBucket = userArray.splice(idx, idx + 1);
+  console.log("userArray[0].pictureBucket :>> ", userArray[0].pictureBucket);
+  const updatedBucket = userArray[0].pictureBucket.filter((e, i) => i !== idx);
 
   const updateObj = {
     pictureBucket: updatedBucket,
   };
 
+  console.log("updateObj.pictureBucket :>> ", updateObj.pictureBucket);
   const pictureRef = ref(storage, `${userId}/${imageName}`);
   deleteObject(pictureRef);
 
   await updateDoc(docRef, updateObj);
+
+  return updatedBucket;
 };
