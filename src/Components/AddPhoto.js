@@ -67,6 +67,7 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
         <div className="add-photo-popup">
           <div className="add-photo-close">
             <button onClick={onAddPhotoClose}>X</button>
+            {children}
             <input
               type="file"
               onChange={handleImageChange}
