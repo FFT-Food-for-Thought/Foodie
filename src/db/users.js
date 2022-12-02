@@ -122,3 +122,38 @@ export const addLikedUser = async (currentUserId, likedUserId) => {
     console.log("error in addUserLike", error);
   }
 };
+
+//helper functions
+
+const filterThroughTags = (pictureBucketArray, preference) => {
+  console.log("OOOOOOOOOOOOOOfilterthrough TAGS", pictureBucketArray);
+  for (let i = 0; i < pictureBucketArray.length; i++) {
+    if (checkTags(pictureBucketArray[i].tags, preference)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const checkTags = (arrayOfTags, preference) => {
+  console.log("tags", arrayOfTags);
+  for (let i = 0; i < arrayOfTags.length; i++) {
+    if (arrayOfTags[i] == preference) {
+      return true;
+    }
+  }
+  return false;
+};
+
+export const filterByPhotoTags = (usersArray, preference) => {
+  const filteredList = [];
+  console.log("INNNNNNNNNNNNFILTERARRAYPHOTOTAGS", usersArray);
+  for (let i = 0; i < usersArray.length; i++) {
+    const ithUser = usersArray[i];
+    console.log("ithUser", ithUser);
+    if (filterThroughTags(ithUser.pictureBucket, preference)) {
+      filteredList.push(ithUser);
+    }
+  }
+  return filteredList;
+};
