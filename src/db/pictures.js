@@ -68,8 +68,22 @@ export const getLikedPFP = async (targetUserId) => {
   return imageUrl;
 };
 
-export const deletePhoto = async (userId, imageName) => {
-  const pictureRef = ref(storage, `${userId}/${imageName}`);
+export const deletePhoto = async (userId, imageName, idx) => {
+  const userCol = collection(db, "Users");
+  const q = query(userCol, where("userId", "==", userId));
+  const snapshot = await getDocs(q);
+  const userArray = snapshot.docs.map((doc) => {
+    return { pictureBucket: doc.data().pictureBucket, id: doc.id };
+  });
+  const docRef = doc(db, "Users", userArray[0].id);
+  const updatedBucket = userArray.splice(idx, idx + 1);
 
+  const updateObj = {
+    pictureBucket: updatedBucket,
+  };
+
+  const pictureRef = ref(storage, `${userId}/${imageName}`);
   deleteObject(pictureRef);
+
+  await updateDoc(docRef, updateObj);
 };
