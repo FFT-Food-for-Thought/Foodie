@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Css/profile.css";
 import AddPhoto from "./AddPhoto";
 import { logout } from "../db/signup";
 import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../db/signup";
+import { getLoggedUser } from "../db/users";
 
 const ProfileNavbar = ({ setSingleViewClicked }) => {
   const [isAddPhotoOpen, setAddPhotoIsOpen] = useState(false);
@@ -17,11 +20,28 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
     setSingleViewClicked(true);
   };
 
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, async (user) => {
+      const newUser = await getLoggedUser();
+      setUser(newUser);
+
+      console.log(">>> Auth state changed", user);
+      console.log(">>> newUser is", newUser);
+    });
+    return unsub;
+  }, []);
+  console.log(">>> user is", user);
+
   return (
     <div className="profile-navbar-container">
-      <button className="btn profile-picture" onClick={handleSingleView}>
-        <i class="fa-regular fa-user"></i>
-      </button>
+      <div className="profile">
+        <button className="btn profile-picture" onClick={handleSingleView}>
+          <i class="fa-regular fa-user"></i>
+        </button>
+        <p className="first-name">{user.firstName}</p>
+      </div>
       <div className="upload-photo">
         <button
           className="btn add-photo"

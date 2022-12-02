@@ -20,6 +20,7 @@
   background-image: linear-gradient(to right, #503d42, #6a5c66, #837d8b, #9ba0ae, #b7c4cf);
   display: flex;
   justify-content: space-between;
+  padding-bottom: 17px;
 }
 
 .profile-picture-container {
@@ -64,8 +65,30 @@
   height: 55px;
 }
 
+.btn:hover {
+  background-color: #503D42;
+  color: #D7C0AE;
+}
+
+.btn:active {
+  background-color: #D7C0AE;
+  color: #503D42;
+}
+
 .upload-photo {
   display: flex;
   justify-content: space-between;
   width: 127px;
+}
+
+.profile {
+  display: flex;
+}
+
+.first-name {
+  font-family: "Inter";
+  font-size: 24px;
+  padding-top: 13px;
+  padding-left: 17px;
+  color: #F8F4F1;
 }
