@@ -3,15 +3,22 @@ import { auth } from "../db/signup";
 import { deletePhoto } from "../db/pictures";
 
 const AllPhotos = ({ pictureBucket }) => {
-  const bucket = pictureBucket;
+  const [bucket, setBucket] = useState(pictureBucket);
+  console.log("bucket :>> ", bucket);
 
-  const handleDelete = (imageName, idx) => {
+  const handleDelete = async (imageName, idx) => {
     const userId = auth.currentUser.uid;
-    deletePhoto(userId, imageName, idx);
-    console.log("userId :>> ", userId);
+    const updatedBucket = await deletePhoto(userId, imageName, idx);
+    setBucket(updatedBucket);
   };
 
-  if (bucket === null) {
+  if (bucket === undefined || bucket.length === 0) {
+    return (
+      <>
+        <div>No Pictures to load</div>
+      </>
+    );
+  } else {
     return (
       <>
         {bucket.map((pic, idx) => (
@@ -26,12 +33,6 @@ const AllPhotos = ({ pictureBucket }) => {
             </button>
           </div>
         ))}
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div>No Pictures to load</div>
       </>
     );
   }
