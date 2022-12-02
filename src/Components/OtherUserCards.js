@@ -3,14 +3,21 @@ import React, { useState, useEffect } from "react";
 import { getAllUsers } from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
 
-const OtherUserCards = () => {
+const OtherUserCards = ({ loggedInUser }) => {
   const [currentUser, setCurrentUser] = useState(0);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const _getUsers = async (users) => {
+      //returns array of all users in Users
       const newUser = await getAllUsers();
-      setUsers(newUser);
+      console.log("in useEffect", newUser);
+      const onlyOthers = newUser.filter((userObj) => {
+        if (userObj.userId !== loggedInUser.userId) {
+          return userObj;
+        }
+      });
+      setUsers(onlyOthers);
 
       console.log("Fetched all users", users);
     };

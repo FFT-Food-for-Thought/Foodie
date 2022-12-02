@@ -60,7 +60,7 @@ const Profile = () => {
           </div>
           <div className="picture-view">
             <div className="box">
-              <OtherUserCards />
+              <OtherUserCards loggedInUser={user} />
               <AllPhotos pictureBucket={user.pictureBucket} />
             </div>
           </div>
