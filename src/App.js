@@ -4,12 +4,14 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Profile from "./Components/Profile";
 import WriteReview from "./Components/WriteReview";
+import AllPhotos from "./Components/AllPhotos";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
+import AddPhoto from "./Components/AddPhoto";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/write" element={<WriteReview />} />
+          <Route path="/profile/allphotos" element={<AllPhotos />} />
+          <Route path="/testAddPhoto" element={<AddPhoto />} />
         </Route>
       </Routes>
     </Router>

@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
 import { getLoggedUser } from "../db/users";
 import OtherUserCards from "./OtherUserCards";
+import AllPhotos from "./AllPhotos";
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -59,7 +60,8 @@ const Profile = () => {
           </div>
           <div className="picture-view">
             <div className="box">
-              <OtherUserCards />
+              <OtherUserCards loggedInUser={user} />
+              <AllPhotos pictureBucket={user.pictureBucket} />
             </div>
           </div>
         </>
