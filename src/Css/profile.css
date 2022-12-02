@@ -19,7 +19,7 @@
   padding: 30px;
   background-image: linear-gradient(to right, #503d42, #6a5c66, #837d8b, #9ba0ae, #b7c4cf);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .profile-picture-container {
@@ -62,4 +62,10 @@
   border-radius: 50%;
   width: 55px;
   height: 55px;
+}
+
+.upload-photo {
+  display: flex;
+  justify-content: space-between;
+  width: 127px;
 }
