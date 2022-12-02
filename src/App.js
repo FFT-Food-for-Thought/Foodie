@@ -11,6 +11,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import AddPhoto from "./Components/AddPhoto";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/write" element={<WriteReview />} />
           <Route path="/profile/allphotos" element={<AllPhotos />} />
+          <Route path="/testAddPhoto" element={<AddPhoto />} />
         </Route>
       </Routes>
     </Router>
