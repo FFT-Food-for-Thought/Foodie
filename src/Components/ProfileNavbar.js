@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../Css/profile.css";
 import AddPhoto from "./AddPhoto";
 import { logout } from "../db/signup";
-import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
 import { getLoggedUser } from "../db/users";
