@@ -18,15 +18,15 @@ const OtherUserCards = ({ loggedInUser }) => {
           return userObj;
         }
       });
-      console.log("userpreference", loggedInUser.preference);
-      const onlyPreference = filterByPhotoTags(
-        onlyOthers,
-        loggedInUser.preference
-      );
-      console.log("onlyPreference", onlyPreference);
-      setUsers(onlyPreference);
-
-      console.log("Fetched all users", users);
+      if (loggedInUser.preference) {
+        const onlyPreference = filterByPhotoTags(
+          onlyOthers,
+          loggedInUser.preference
+        );
+        setUsers(onlyPreference);
+      } else {
+        setUsers(onlyOthers);
+      }
     };
     _getUsers();
   }, []);

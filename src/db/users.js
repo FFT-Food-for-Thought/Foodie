@@ -126,7 +126,6 @@ export const addLikedUser = async (currentUserId, likedUserId) => {
 //helper functions
 
 const filterThroughTags = (pictureBucketArray, preference) => {
-  console.log("OOOOOOOOOOOOOOfilterthrough TAGS", pictureBucketArray);
   for (let i = 0; i < pictureBucketArray.length; i++) {
     if (checkTags(pictureBucketArray[i].tags, preference)) {
       return true;
@@ -147,10 +146,8 @@ const checkTags = (arrayOfTags, preference) => {
 
 export const filterByPhotoTags = (usersArray, preference) => {
   const filteredList = [];
-  console.log("INNNNNNNNNNNNFILTERARRAYPHOTOTAGS", usersArray);
   for (let i = 0; i < usersArray.length; i++) {
     const ithUser = usersArray[i];
-    console.log("ithUser", ithUser);
     if (filterThroughTags(ithUser.pictureBucket, preference)) {
       filteredList.push(ithUser);
     }
