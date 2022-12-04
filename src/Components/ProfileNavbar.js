@@ -27,13 +27,9 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
     const unsub = onAuthStateChanged(auth, async (user) => {
       const newUser = await getLoggedUser();
       setUser(newUser);
-
-      console.log(">>> Auth state changed", user);
-      console.log(">>> newUser is", newUser);
     });
     return unsub;
   }, []);
-  console.log(">>> user is", user);
 
   return (
     <div className="profile-navbar-container">
