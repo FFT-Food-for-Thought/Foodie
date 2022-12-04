@@ -67,7 +67,6 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
         <AllPhotos
           openAllPhotos={isAllPhotoOpen}
           onAllPhotoClose={() => setAllPhotoIsOpen(false)}
-          pictureBucket={user.pictureBucket}
         ></AllPhotos>
         <div className="padding-right"></div>
         <button className="btn logout" onClick={handleLogout}>

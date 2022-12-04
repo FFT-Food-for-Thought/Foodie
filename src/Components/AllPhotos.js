@@ -2,39 +2,43 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../db/signup";
 import { deletePhoto } from "../db/pictures";
 import "../Css/allphoto.css";
+import { onAuthStateChanged } from "firebase/auth";
+import { getLoggedUser } from "../db/users";
 
-const AllPhotos = ({
-  pictureBucket,
-  openAllPhotos,
-  children,
-  onAllPhotoClose,
-}) => {
-  // const [bucket, setBucket] = useState(pictureBucket);
+const AllPhotos = ({ openAllPhotos, children, onAllPhotoClose }) => {
+  const [user, setUser] = useState({});
   const [currentImg, setCurrentImg] = useState(0);
-  const [localImages, setImages] = useState(pictureBucket);
-  console.log(">>picturebucket", pictureBucket);
-  // useEffect(() => {
-  //   const unsub = () => {
-  //     setImages(pictureBucket);
-  //   };
-  //   return unsub();
-  // }, []);
-  console.log("images>>>>", localImages);
+  const [img, setImg] = useState([]);
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, async (user) => {
+      const newUser = await getLoggedUser();
+      setUser(newUser);
+      setImg(newUser.pictureBucket);
+
+      console.log(">>> Auth state changed", user);
+      console.log(">>> newUser is", newUser);
+    });
+    return unsub;
+  }, []);
+  console.log(">>picturebucket", img);
+
+  console.log("images>>>>", img);
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    const imageName = pictureBucket[currentImg].imageName;
+    const imageName = img[currentImg].imageName;
     const userId = auth.currentUser.uid;
     const updatedBucket = await deletePhoto(userId, imageName, currentImg);
-    // const filteredImages = localImages.filter((image, idx) => {
-    //   if (idx !== currentImg) return image;
-    // });
-    // setImages(filteredImages);
+    const filteredImages = img.filter((image, idx) => {
+      if (idx !== currentImg) return image;
+    });
+    setImg(filteredImages);
   };
 
   if (!openAllPhotos) {
     return null;
-  } else if (pictureBucket.length === 0 || pictureBucket === undefined) {
+  } else if (img.length === 0 || img === undefined) {
     return (
       <>
         <div className="popup-overlay">
@@ -57,7 +61,7 @@ const AllPhotos = ({
               <button onClick={onAllPhotoClose}>X</button>
               {children}
             </div>
-            <img src={pictureBucket[currentImg].URL} alt="" />
+            <img src={img[currentImg].URL} alt="" />
             <button
               onClick={(e) => {
                 handleDelete(e);
@@ -74,8 +78,7 @@ const AllPhotos = ({
             </button>
             <button
               onClick={() =>
-                currentImg < pictureBucket.length - 1 &&
-                setCurrentImg(currentImg + 1)
+                currentImg < img.length - 1 && setCurrentImg(currentImg + 1)
               }
             >
               {">>"}
