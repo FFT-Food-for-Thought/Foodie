@@ -1,9 +1,14 @@
 import React from "react";
 
-const SingleMatchView = ({ profilePic }) => {
-  console.log("singlematchview profilepic", profilePic);
+const SingleMatchView = ({ likedObj }) => {
+  console.log("singlematchview profilepic", likedObj);
 
-  return <img src={profilePic} alt="profilepic" />;
+  return (
+    <>
+      <img src={likedObj.URL} alt="profilepic" />
+      <p>{likedObj.name}</p>
+    </>
+  );
 };
 
 export default SingleMatchView;
