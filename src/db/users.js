@@ -8,6 +8,7 @@ import {
   collection,
   query,
   where,
+  arrayUnion,
 } from "firebase/firestore";
 import { auth } from "./signup";
 
@@ -43,9 +44,9 @@ export const getLoggedUser = async () => {
   const q = query(userCol, where("userId", "==", uid));
   const snapshot = await getDocs(q);
   const userArray = snapshot.docs.map((doc) => {
-    return doc.data();
+    return { ...doc.data(), id: doc.id };
   });
-
+  console.log("getloggedinuser array [0]", userArray[0]);
   return userArray[0];
 };
 
@@ -69,17 +70,18 @@ export const makeUser = async (
   await addDoc(userRef, newUserObj);
 };
 
-export const addReviewToReviewee = async (revieweeId, review) => {
+export const addReviewToReviewee = async (revieweeId, reviewId) => {
   try {
     const docRef = doc(db, "Users", revieweeId);
-    const reviewee = await getDoc(db, "Users", revieweeId);
-    const revieweeInfo = reviewee.data();
-    const reviews = revieweeInfo.reviews;
 
-    const updatedReviews = [...reviews, review];
+    // const reviewee = await getDoc(db, "Users", revieweeId);
+    // const revieweeInfo = reviewee.data();
+    // const reviews = revieweeInfo.reviews;
+
+    // const updatedReviews = [...reviews, review];
 
     const updateObject = {
-      reviews: updatedReviews,
+      reviews: arrayUnion(reviewId),
     };
     await updateDoc(docRef, updateObject);
   } catch (error) {
@@ -87,17 +89,17 @@ export const addReviewToReviewee = async (revieweeId, review) => {
   }
 };
 
-export const addReviewToReviewer = async (reviewerId, review) => {
+export const addReviewToReviewer = async (reviewerId, reviewId) => {
   try {
     const docRef = doc(db, "Users", reviewerId);
-    const reviewer = await getDoc(db, "Users", reviewerId);
-    const reviewerInfo = reviewer.data();
-    const writtenReviews = reviewerInfo.writtenReviews;
+    // const reviewer = await getDoc(db, "Users", reviewerId);
+    // const reviewerInfo = reviewer.data();
+    // const writtenReviews = reviewerInfo.writtenReviews;
 
-    const updatedWrittenReviews = [...writtenReviews, review];
+    // const updatedWrittenReviews = [...writtenReviews, review];
 
     const updateObject = {
-      writtenReviews: updatedWrittenReviews,
+      writtenReviews: arrayUnion(reviewId),
     };
     await updateDoc(docRef, updateObject);
   } catch (error) {
@@ -109,12 +111,12 @@ export const addLikedUser = async (currentUserId, likedUserId) => {
   try {
     const docRef = doc(db, "Users", currentUserId);
     const likedUser = await getDoc(db, "Users", currentUserId);
-    const likedUserInfo = likedUser.data();
-    const likedUsers = likedUserInfo.likedUsers;
-    const updatedLikedUsers = [...likedUsers, likedUserId];
+    // const likedUserInfo = likedUser.data();
+    // const likedUsers = likedUserInfo.likedUsers;
+    // const updatedLikedUsers = [...likedUsers, likedUserId];
 
     const updatedObj = {
-      likedUsers: updatedLikedUsers,
+      likedUsers: arrayUnion(likedUserId),
     };
 
     await updateDoc(docRef, updatedObj);

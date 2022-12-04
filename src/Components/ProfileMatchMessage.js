@@ -12,13 +12,15 @@ const ProfileMatchMessage = ({ likedUsers }) => {
   useEffect(() => {
     const unsub = async () => {
       const pfpList = await Promise.all(
+
         likedUsers.map(async (targetObj) => {
           const URL = await getLikedPFP(targetObj.userId);
           console.log("targetObj", targetObj);
           return { URL, name: targetObj.name };
+
         })
       );
-      console.log("pfplist", pfpList);
+      console.log("after pfplist", pfpList);
       setLikedList(pfpList);
     };
     unsub();
@@ -26,6 +28,7 @@ const ProfileMatchMessage = ({ likedUsers }) => {
 
   const toggleMatches = (e) => {
     e.preventDefault();
+    console.log(likedList);
     setMessage(false);
     setMatch(true);
   };
