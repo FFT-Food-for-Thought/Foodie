@@ -30,7 +30,8 @@ export const createReview = async (reviewString, reviewer, reviewee) => {
     reviewer,
     reviewee,
   };
-  await addDoc(reviewRef, review);
+  const reviewId = await addDoc(reviewRef, review);
+  return reviewId;
 };
 
 // test function with hardcoded review

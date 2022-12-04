@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { filterByPhotoTags } from "../db/users";
-import { getAllUsers } from "../db/users";
+import {
+  getAllUsers,
+  addReviewToReviewee,
+  addReviewToReviewer,
+} from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
 
 const OtherUserCards = ({ loggedInUser }) => {
   const [currentUser, setCurrentUser] = useState(0);
   const [users, setUsers] = useState([]);
 
+  const dummyReviewId = "reviewIdgibberish";
+  const onAddReviewHandler = (revieweeId) => {
+    console.log("revieweeid", revieweeId);
+    console.log("logged id", loggedInUser);
+    addReviewToReviewee(revieweeId, dummyReviewId);
+    addReviewToReviewer(loggedInUser.id, dummyReviewId);
+    console.log("clicked");
+  };
   useEffect(() => {
     const _getUsers = async (users) => {
       //returns array of all users in Users
@@ -48,6 +60,13 @@ const OtherUserCards = ({ loggedInUser }) => {
           }}
         >
           {"Next"}
+        </button>
+        <button
+          onClick={() => {
+            onAddReviewHandler(users[currentUser].id);
+          }}
+        >
+          REVIEW
         </button>
         <div id="infoDiv">
           This is {users[currentUser].firstName}'s info. Taiyaki slow-carb
