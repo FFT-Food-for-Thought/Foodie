@@ -12,10 +12,10 @@ const ProfileMatchMessage = ({ likedUsers }) => {
   useEffect(() => {
     const unsub = async () => {
       const pfpList = await Promise.all(
-        likedUsers.map(async (targetId) => {
-          const URL = await getLikedPFP(targetId);
-          console.log(URL);
-          return URL;
+        likedUsers.map(async (targetObj) => {
+          const URL = await getLikedPFP(targetObj.userId);
+          console.log("targetObj", targetObj);
+          return { URL, name: targetObj.name };
         })
       );
       console.log("pfplist", pfpList);
@@ -44,8 +44,8 @@ const ProfileMatchMessage = ({ likedUsers }) => {
 
         <div>
           {likedList.length &&
-            likedList.map((profilePic) => {
-              return <SingleMatchView profilePic={profilePic} />;
+            likedList.map((likedObj) => {
+              return <SingleMatchView likedObj={likedObj} />;
             })}
         </div>
       </div>
