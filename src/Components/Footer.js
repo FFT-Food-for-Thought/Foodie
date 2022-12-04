@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../Css/footer.css";
+import { getReviews } from "../db/reviews";
 
 const Footer = () => {
+  const [reviews, setReviews] = useState([]);
+  console.log(">>> reviews is", reviews);
+
+  useEffect(() => {
+    const _getReviews = async (reviews) => {
+      //returns array of all reviews in Reviews
+      const newReview = await getReviews();
+      setReviews(newReview);
+      console.log(">>> in useEffect", newReview);
+    };
+    _getReviews();
+  }, []);
+  console.log(">>> reviews is", reviews);
+
   return (
     <div className="main-footer">
       <section className="reviews"></section>
