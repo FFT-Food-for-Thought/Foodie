@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../Css/profile.css";
 import SingleMatchView from "./SingleMatchView";
 import { getLikedPFP } from "../db/pictures";
+import Chat from "./Chat";
 const ProfileMatchMessage = ({ likedUsers }) => {
   const dummyData = ["Carina'sPFP, Kyle'PFP, PeterPFP, RobertPFP, THATGUYPFP"];
   const [match, setMatch] = useState(true);
@@ -53,6 +54,7 @@ const ProfileMatchMessage = ({ likedUsers }) => {
     <div>
       <button onClick={toggleMatches}>Matches</button>
       <button onClick={toggleMessasges}>Messages</button>
+      {/* <Chat /> */}
       <div>Hello</div>
     </div>
   );
