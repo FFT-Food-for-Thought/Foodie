@@ -50,14 +50,18 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
         >
           <i class="fa-solid fa-camera-retro"></i>
         </button>
+        <div className="padding-right"></div>
         <AddPhoto
           openAddPhoto={isAddPhotoOpen}
           onAddPhotoClose={() => setAddPhotoIsOpen(false)}
         ></AddPhoto>
+        <Link to="/profile/allphotos" className="btn view-all-photos">
+          <i class="fa-regular fa-images"></i>
+        </Link>
+        <div className="padding-right"></div>
         <button className="btn logout" onClick={handleLogout}>
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </button>
-        <Link to="/profile/allphotos">View All Photos</Link>
       </div>
     </div>
   );

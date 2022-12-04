@@ -78,7 +78,7 @@
 .upload-photo {
   display: flex;
   justify-content: space-between;
-  width: 127px;
+  width: 200px;
 }
 
 .profile {
@@ -91,4 +91,16 @@
   padding-top: 13px;
   padding-left: 17px;
   color: #F8F4F1;
+}
+
+.view-all-photos {
+  padding-bottom: 0px;
+}
+
+.fa-images {
+  padding-top: 19px;
+}
+
+.padding-right {
+  padding-right: 17px;
 }
