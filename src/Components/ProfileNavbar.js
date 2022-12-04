@@ -58,18 +58,21 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
           openAddPhoto={isAddPhotoOpen}
           onAddPhotoClose={() => setAddPhotoIsOpen(false)}
         ></AddPhoto>
-        <div className="padding-right"></div>
-        <button className="btn logout" onClick={handleLogout}>
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <button
+          onClick={() => setAllPhotoIsOpen(true)}
+          className="btn view-all-photos"
+        >
+          <i class="fa-regular fa-images"></i>
         </button>
-
-        <button onClick={() => setAllPhotoIsOpen(true)}>View All Photos</button>
         <AllPhotos
           openAllPhotos={isAllPhotoOpen}
           onAllPhotoClose={() => setAllPhotoIsOpen(false)}
           pictureBucket={user.pictureBucket}
         ></AllPhotos>
-
+        <div className="padding-right"></div>
+        <button className="btn logout" onClick={handleLogout}>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
       </div>
     </div>
   );
