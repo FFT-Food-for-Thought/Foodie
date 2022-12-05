@@ -31,9 +31,28 @@ export const getUser = async () => {
 };
 
 //Test function with hardcoded ID
-export const updateUser = async () => {
-  const docRef = doc(db, "Users", "fhfUllMNrJD0ddRgT38Z");
-  const update = { firstName: "Peter" };
+export const updateUser = async (
+  userId,
+  email,
+  firstName,
+  lastName,
+  userName,
+  location
+) => {
+  // Below is old hardcoded code
+  // const docRef = doc(db, "Users", "fhfUllMNrJD0ddRgT38Z");
+  // const update = { firstName: "Peter" };
+  // await updateDoc(docRef, update);
+
+  const docRef = doc(db, "Users", userId);
+  const update = {
+    firstName: firstName,
+    lastName: lastName,
+    location: location,
+    username: userName,
+    email: email,
+  };
+  console.log("update :>> ", update);
   await updateDoc(docRef, update);
 };
 
