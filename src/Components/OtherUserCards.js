@@ -4,6 +4,7 @@ import {
   getAllUsers,
   addReviewToReviewee,
   addReviewToReviewer,
+  addLikedUser,
 } from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
 
@@ -43,12 +44,22 @@ const OtherUserCards = ({ loggedInUser }) => {
     _getUsers();
   }, []);
   console.log("more fetches", users);
+
+  const handleLike = (otherUserObj) => {
+    console.log("in handle like", otherUserObj);
+    const likedId = otherUserObj.userId;
+    console.log("likedId", likedId);
+    const likedName = otherUserObj.firstName;
+    console.log("likedName", likedName);
+    addLikedUser(loggedInUser.id, likedId, likedName);
+  };
   if (users.length) {
     return (
       <div>
         <SingleProfileCard user={users[currentUser]} />
         <button
           onClick={() => {
+            handleLike(users[currentUser]);
             currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
           }}
         >

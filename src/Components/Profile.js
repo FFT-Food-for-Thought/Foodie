@@ -66,6 +66,7 @@ const Profile = () => {
             <ProfileSideBar
               likedUsers={user.likedUsers}
               setSingleViewClicked={setSingleViewClicked}
+              user={user}
             />
           </div>
           <div className="picture-view">
@@ -83,6 +84,7 @@ const Profile = () => {
             <ProfileSideBar
               likedUsers={user.likedUsers}
               setSingleViewClicked={setSingleViewClicked}
+              user={user}
             />
           </div>
           <div className="picture-view">
