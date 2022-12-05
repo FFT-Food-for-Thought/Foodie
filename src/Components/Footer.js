@@ -7,7 +7,7 @@ const Footer = () => {
   console.log(">>> reviews is", reviews);
 
   useEffect(() => {
-    const _getReviews = async (reviews) => {
+    const _getReviews = async () => {
       //returns array of all reviews in Reviews
       const newReview = await getReviews();
       setReviews(newReview);

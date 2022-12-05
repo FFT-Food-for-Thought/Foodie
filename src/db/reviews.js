@@ -49,6 +49,7 @@ export const getReviews = async () => {
     return { ...doc.data(), id: doc.id };
   });
   console.log("review :>> ", review);
+  return review;
 };
 
 export const getReview = async () => {
