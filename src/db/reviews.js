@@ -43,7 +43,6 @@ export const updateReview = async () => {
   };
   await updateDoc(reviewRef, update);
 };
-
 export const getReviews = async () => {
   const reviews = await getDocs(reviewRef);
   let review = reviews.docs.map((doc) => {

@@ -3,19 +3,19 @@ import "../Css/profile.css";
 import SingleMatchView from "./SingleMatchView";
 import { getLikedPFP } from "../db/pictures";
 import Chat from "./Chat";
-const ProfileMatchMessage = ({ likedUsers }) => {
+const ProfileMatchMessage = ({ likedUsers, loggedInUser }) => {
   const dummyData = ["Carina'sPFP, Kyle'PFP, PeterPFP, RobertPFP, THATGUYPFP"];
   const [match, setMatch] = useState(true);
   const [message, setMessage] = useState(false);
   const [likedList, setLikedList] = useState([]);
-
+  console.log("wtf why doesn't logged in work", loggedInUser);
   useEffect(() => {
     const unsub = async () => {
       const pfpList = await Promise.all(
         likedUsers.map(async (targetObj) => {
           const URL = await getLikedPFP(targetObj.userId);
           console.log("targetObj", targetObj);
-          return { URL, name: targetObj.name };
+          return { URL, name: targetObj.name, id: targetObj.userId };
         })
       );
       console.log("after pfplist", pfpList);
@@ -46,7 +46,12 @@ const ProfileMatchMessage = ({ likedUsers }) => {
         <div>
           {likedList.length &&
             likedList.map((likedObj) => {
-              return <SingleMatchView likedObj={likedObj} />;
+              return (
+                <SingleMatchView
+                  likedObj={likedObj}
+                  loggedInUser={loggedInUser}
+                />
+              );
             })}
         </div>
       </div>

@@ -5,7 +5,7 @@ import { addToChat } from "../db/messages";
 import { orderBy } from "firebase/firestore";
 import { getChat } from "../db/messages";
 import { async } from "@firebase/util";
-const Chat = () => {
+const Chat = ({ target, loggedInUser }) => {
   const docRef = doc(db, "messages", "AnrgW4l8uAwwSi0c8lM8");
 
   const handleMessage = async () => {
@@ -29,12 +29,22 @@ const Chat = () => {
   };
 
   const handleGetChat = async () => {
-    console.log(await getChat("fhfUllMNrJD0ddRgT38Z", "Hh4F4ny8fdsNOUU0RGAb"));
+    // console.log(await getChat("fhfUllMNrJD0ddRgT38Z", "Hh4F4ny8fdsNOUU0RGAb"));
+    console.log("chatters", target, loggedInUser);
   };
   return (
     <div>
       <button onClick={handleMessage}>Click Messages</button>
-      <button onClick={() => addToChat("AnrgW4l8uAwwSi0c8lM8", "Kyle")}>
+      <button
+        onClick={() =>
+          addToChat(
+            "fhfUllMNrJD0ddRgT38Z",
+            "Hh4F4ny8fdsNOUU0RGAb",
+            "TESTMESSAGE",
+            "Kyle"
+          )
+        }
+      >
         hard code
       </button>
       <button onClick={handleGetChat}>getChat</button>
