@@ -5,6 +5,7 @@ import Signup from "./Components/Signup";
 import Profile from "./Components/Profile";
 import WriteReview from "./Components/WriteReview";
 import AllPhotos from "./Components/AllPhotos";
+import EditProfile from "./Components/EditProfile";
 import {
   BrowserRouter as Router,
   Routes,
@@ -24,6 +25,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/write" element={<WriteReview />} />
           <Route path="/profile/allphotos" element={<AllPhotos />} />
+          <Route path="/profile/editprofile" element={<EditProfile />} />
           <Route path="/testAddPhoto" element={<AddPhoto />} />
         </Route>
       </Routes>
