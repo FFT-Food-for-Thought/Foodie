@@ -9,6 +9,7 @@ import {
   query,
   where,
   arrayUnion,
+  arrayRemove,
 } from "firebase/firestore";
 import { auth } from "./signup";
 
@@ -107,24 +108,39 @@ export const addReviewToReviewer = async (reviewerId, reviewId) => {
   }
 };
 
-export const addLikedUser = async (currentUserId, likedUserId) => {
+export const addLikedUser = async (currentUserId, likedUserId, likedName) => {
   try {
     const docRef = doc(db, "Users", currentUserId);
-    const likedUser = await getDoc(db, "Users", currentUserId);
+    // const likedUser = await getDoc(db, "Users", currentUserId);
     // const likedUserInfo = likedUser.data();
     // const likedUsers = likedUserInfo.likedUsers;
     // const updatedLikedUsers = [...likedUsers, likedUserId];
-
-    const updatedObj = {
-      likedUsers: arrayUnion(likedUserId),
+    const likedObj = {
+      name: likedName,
+      userId: likedUserId,
     };
 
+    console.log("likedObj in like function", likedObj);
+    const updatedObj = {
+      likedUsers: arrayUnion(likedObj),
+    };
+
+    console.log(updatedObj);
     await updateDoc(docRef, updatedObj);
   } catch (error) {
     console.log("error in addUserLike", error);
   }
 };
 
+export const removeLike = async (currentUserId, likedUserObj) => {
+  try {
+    const userRef = doc(db, "Users", currentUserId);
+    const updatedObj = {
+      likedUsers: arrayRemove(likedUserObj),
+    };
+    await updateDoc(userRef, updatedObj);
+  } catch (error) {}
+};
 //helper functions
 
 const filterThroughTags = (pictureBucketArray, preference) => {
