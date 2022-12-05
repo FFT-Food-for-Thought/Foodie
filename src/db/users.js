@@ -17,11 +17,22 @@ const userRef = collection(db, "Users");
 
 export const getAllUsers = async () => {
   const users = await getDocs(userRef);
-  let user = users.docs.map((doc) => {
+  let allUser = users.docs.map((doc) => {
     return { ...doc.data(), id: doc.id };
   });
-  console.log("user :>> ", user);
-  return user;
+  console.log("allUser :>> ", allUser);
+  return allUser;
+};
+
+export const getAllChefs = async () => {
+  const q = query(userRef, where("role", "==", "chef"));
+
+  const allChefSnapshots = await getDocs(q);
+  const allChefs = allChefSnapshots.docs.map((doc) => {
+    return { ...doc.data(), id: doc.id };
+  });
+  console.log("in get all chefs", allChefs);
+  return allChefs;
 };
 
 //Test function with hardcoded ID
