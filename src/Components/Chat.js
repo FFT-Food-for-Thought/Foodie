@@ -30,7 +30,7 @@ const Chat = ({ target, loggedInUser }) => {
 
   const handleGetChat = async () => {
     console.log("chatters", target, loggedInUser);
-    console.log(await getChat("fhfUllMNrJD0ddRgT38Z", "fhfUllMNrJD0ddRgT38Z"));
+    console.log(await getChat("fhfUllMNrJD0ddRgT38Z", "c9cVD0WoaQQwJoSGbKND"));
   };
   return (
     <div>
@@ -39,8 +39,8 @@ const Chat = ({ target, loggedInUser }) => {
         onClick={() =>
           addToChat(
             "fhfUllMNrJD0ddRgT38Z",
-            "fhfUllMNrJD0ddRgT38Z",
-            "second",
+            "c9cVD0WoaQQwJoSGbKND",
+            "First",
             "Kyle"
           )
         }
