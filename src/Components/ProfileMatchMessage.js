@@ -12,12 +12,10 @@ const ProfileMatchMessage = ({ likedUsers }) => {
   useEffect(() => {
     const unsub = async () => {
       const pfpList = await Promise.all(
-
         likedUsers.map(async (targetObj) => {
           const URL = await getLikedPFP(targetObj.userId);
           console.log("targetObj", targetObj);
           return { URL, name: targetObj.name };
-
         })
       );
       console.log("after pfplist", pfpList);
@@ -57,8 +55,7 @@ const ProfileMatchMessage = ({ likedUsers }) => {
     <div>
       <button onClick={toggleMatches}>Matches</button>
       <button onClick={toggleMessasges}>Messages</button>
-      {/* <Chat /> */}
-      <div>Hello</div>
+      <Chat />
     </div>
   );
 };
