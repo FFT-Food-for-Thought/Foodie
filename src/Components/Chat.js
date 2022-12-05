@@ -39,8 +39,8 @@ const Chat = ({ target, loggedInUser }) => {
         onClick={() =>
           addToChat(
             "fhfUllMNrJD0ddRgT38Z",
-            "Hh4F4ny8fdsNOUU0RGAb",
-            "TESTMESSAGE",
+            "fhfUllMNrJD0ddRgT38Z",
+            "second",
             "Kyle"
           )
         }

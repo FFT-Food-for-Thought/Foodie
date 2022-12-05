@@ -19,16 +19,31 @@ export const addToChat = async (
   username
 ) => {
   const chatRoom = await getChat(loggedInUserId, targetUserId);
-  const chatRoomId = chatRoom.id;
+  if (chatRoom) {
+    const chatRoomId = chatRoom.id;
 
-  const docRef = doc(db, "messages", chatRoomId);
-  const updatedObject = {
-    message,
-    sentby: username,
-    // timestamp: serverTimestamp(),
-  };
+    const docRef = doc(db, "messages", chatRoomId);
+    const updatedObject = {
+      message,
+      sentby: username,
+      // timestamp: serverTimestamp(),
+    };
 
-  await updateDoc(docRef, { chats: arrayUnion(updatedObject) });
+    await updateDoc(docRef, { chats: arrayUnion(updatedObject) });
+  } else {
+    const chatRoomId = findChatFromTwo(loggedInUserId, targetUserId);
+    const newChatDoc = {
+      chatters: chatRoomId,
+      chats: [
+        {
+          message,
+          sentby: username,
+        },
+      ],
+    };
+    const chatRef = collection(db, "messages");
+    await addDoc(chatRef, newChatDoc);
+  }
 };
 export const getChat = async (loggedInUserId, targetUserId) => {
   const chatRoomName = findChatFromTwo(loggedInUserId, targetUserId);
