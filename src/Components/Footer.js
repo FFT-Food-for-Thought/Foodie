@@ -16,15 +16,17 @@ const Footer = () => {
     _getReviews();
   }, []);
   console.log(">>> reviews is", reviews);
-  console.log(">>> reviews[0] is", reviews[0]);
-  console.log(">>> reviews[0].review is", reviews[0].review);
 
   return (
     <div className="main-footer">
       <section className="reviews">
-        <div className="single-review">{reviews[0].review}</div>
-        <div className="single-review">{reviews[0].review}</div>
-        <div className="single-review">{reviews[0].review}</div>
+        {reviews.map((review, i) => (
+          <div className="single-review" key={i}>
+            {review.review}
+          </div>
+        ))}
+        <div className="single-review"></div>
+        <div className="single-review"></div>
       </section>
       <div className="foot-section">
         <section className="foot">

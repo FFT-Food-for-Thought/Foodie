@@ -57,5 +57,6 @@ li {
 .single-review {
   border: 0.05em solid #503D42;
   border-radius: 2px;
-  width: 540px;
+  width: 446px;
+  height: 340px;
 }
