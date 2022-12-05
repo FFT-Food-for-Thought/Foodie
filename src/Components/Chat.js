@@ -29,8 +29,8 @@ const Chat = ({ target, loggedInUser }) => {
   };
 
   const handleGetChat = async () => {
-    // console.log(await getChat("fhfUllMNrJD0ddRgT38Z", "Hh4F4ny8fdsNOUU0RGAb"));
     console.log("chatters", target, loggedInUser);
+    console.log(await getChat("fhfUllMNrJD0ddRgT38Z", "fhfUllMNrJD0ddRgT38Z"));
   };
   return (
     <div>

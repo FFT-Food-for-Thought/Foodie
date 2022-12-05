@@ -7,7 +7,6 @@ const SingleMatchView = ({ likedObj }) => {
     <>
       <img src={likedObj.URL} alt="profilepic" />
       <p>{likedObj.name}</p>
-      <Chat target={likedObj} loggedinUser={loggedinUser} />
     </>
   );
 };
