@@ -1,7 +1,6 @@
 import React from "react";
-import Chat from "./Chat";
-import { auth } from "../db/signup";
-const SingleMatchView = ({ likedObj, loggedinUser }) => {
+import { removeLike } from "../db/users";
+const SingleMatchView = ({ likedObj }) => {
   console.log("singlematchview profilepic", likedObj);
 
   return (
