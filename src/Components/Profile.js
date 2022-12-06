@@ -7,8 +7,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
 import { getLoggedUser, getAllUsers, removeLike } from "../db/users";
 import OtherUserCards from "./OtherUserCards";
-import AllPhotos from "./AllPhotos";
 import { distance } from "../db/users";
+import { addGeo } from "../db/users";
+
 const Profile = () => {
   const [user, setUser] = useState({});
   const [allUsers, setUsers] = useState([]);
@@ -18,44 +19,6 @@ const Profile = () => {
     e.preventDefault();
     setSingleViewClicked(false);
   };
-  if ("geolocation" in navigator) {
-    /* geolocation is available */
-    console.log("gelocation is useable");
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log(position.coords.latitude, position.coords.longitude);
-
-        console.log(
-          "distance formulat being used, you are this many miles from disneyland in a straight line",
-          distance(
-            position.coords.latitude,
-            position.coords.longitude,
-            28.377242637128813,
-            -81.57071111805162
-          )
-        );
-      },
-      () => {
-        console.log(
-          "I can't calculate your distance from disney land if you don't share your location :("
-        );
-      }
-    );
-  } else {
-    /* geolocation IS NOT available */
-    //28.377242637128813, -81.57071111805162
-  }
-
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (user) => {
-      const newUser = await getLoggedUser();
-      setUser(newUser);
-      setLikedList(newUser.likedUsers);
-      console.log("Auth state changed", user);
-      console.log("newuser", newUser);
-    });
-    return unsub;
-  }, []);
 
   useEffect(() => {
     const _getUsers = async (users) => {
@@ -67,6 +30,30 @@ const Profile = () => {
       setUsers(allUsersLocal);
     };
     _getUsers();
+    
+    if ("geolocation" in navigator) {
+      /* geolocation is available */
+      console.log("geolocation is useable");
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          addGeo(user.id, position.coords.latitude, position.coords.longitude);
+
+          // console.log(
+          //   "distance formulat being used, you are this many miles from disneyland in a straight line",
+          //   distance(
+          //     position.coords.latitude,
+          //     position.coords.longitude,
+          //     28.377242637128813,
+          //     -81.57071111805162
+          //   )
+          // );
+        },
+        () => {
+          // console.log(
+          //   "I can't calculate your distance from disney land if you don't share your location :("
+          // );
+        }
+      );
   }, []);
   console.log(user);
 

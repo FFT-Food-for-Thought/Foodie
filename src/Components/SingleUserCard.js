@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../Css/profile.css";
 import AddProfilePic from "./AddProfilePic";
+import EditProfile from "./EditProfile";
 
 const SingleUserCard = ({ user }) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [isAddProfilePicOpen, setAddProfilePicIsOpen] = useState(false);
+  const [isEditProfileOpen, setEditProfileIsOpen] = useState(false);
   if (user.pictureBucket) {
     if (user.pictureBucket.length) {
       return (
@@ -17,6 +19,13 @@ const SingleUserCard = ({ user }) => {
             openProfilePic={isAddProfilePicOpen}
             onProfilePicClose={() => setAddProfilePicIsOpen(false)}
           ></AddProfilePic>
+          <button onClick={() => setEditProfileIsOpen(true)}>
+            Edit Profile
+          </button>
+          <EditProfile
+            openEditProfile={isEditProfileOpen}
+            onEditProfileClose={() => setEditProfileIsOpen(false)}
+          ></EditProfile>
           <h1>{user.firstName}</h1>
           <button
             onClick={() => {
@@ -49,7 +58,18 @@ const SingleUserCard = ({ user }) => {
         </div>
       );
     } else {
-      return <div>{user.firstName}NO PIC</div>;
+      return (
+        <div>
+          <div>{user.firstName}NO PIC</div>
+          <button onClick={() => setEditProfileIsOpen(true)}>
+            Edit Profile
+          </button>
+          <EditProfile
+            openEditProfile={isEditProfileOpen}
+            onEditProfileClose={() => setEditProfileIsOpen(false)}
+          ></EditProfile>
+        </div>
+      );
     }
   }
   return <div>Loading...</div>;
