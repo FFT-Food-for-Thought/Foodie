@@ -77,8 +77,10 @@ export const getLikedPFP = async (targetUserId) => {
       storage,
       `${PROFILE_PIC_REF}${targetUserId}/profilePic.jpg`
     );
-    const imageUrl = await getDownloadURL(imageRef);
-    return imageUrl;
+    if (imageRef) {
+      const imageUrl = await getDownloadURL(imageRef);
+      return imageUrl;
+    }
   } catch (error) {
     console.log("error getting pfp", error);
   }
