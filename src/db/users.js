@@ -10,6 +10,7 @@ import {
   where,
   arrayUnion,
   arrayRemove,
+  GeoPoint,
 } from "firebase/firestore";
 import { auth } from "./signup";
 
@@ -242,3 +243,13 @@ export function distance(lat1, lon1, lat2, lon2) {
 
   return c * r;
 }
+
+export const addGeo = async (userId, lat, long) => {
+  try {
+    const docRef = doc(db, "Users", userId);
+    const update = { geo: new GeoPoint(lat, long) };
+    await updateDoc(docRef, update);
+  } catch (error) {
+    // console.log("error in try catch AddGeo :>> ", error);
+  }
+};
