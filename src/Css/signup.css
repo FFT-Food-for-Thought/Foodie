@@ -56,9 +56,9 @@
 
 .signup-button {
   border-radius: 2px;
-  background-color: #503D42;
-  border: 0.05em solid #503D42;
-  color: #DAE1E7;
+  background-color: #503d42;
+  border: 0.05em solid #503d42;
+  color: #dae1e7;
   padding: 9px;
   width: 289.33px;
   font-family: "Inter";
@@ -75,14 +75,14 @@
 }
 
 select {
-  background-color: #F5EEE0;
-  border: 0.05em solid #503D42;
+  background-color: #f5eee0;
+  border: 0.05em solid #503d42;
   padding: 9px;
   margin-bottom: 25px;
   width: 289.33px;
   font-family: "Inter";
   cursor: pointer;
-  color: #503D42;
+  color: #503d42;
   border-radius: 2px;
 }
 
@@ -96,4 +96,8 @@ select {
 
 #password {
   margin-bottom: 5px;
+}
+
+.signup-text {
+  color: #503d42;
 }
