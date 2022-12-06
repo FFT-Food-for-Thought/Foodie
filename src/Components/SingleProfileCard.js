@@ -13,7 +13,17 @@ const SingleProfileCard = ({ user }) => {
             alt=""
             className="other-user-img"
           />
-          <h1>{user.firstName}</h1>
+          <div className="name-and-location">
+            <h1 className="other-user-firstName">{user.firstName}</h1>
+            <div className="location">
+              <i class="fa-solid fa-house"></i>
+              <p className="other-user-location">Lives in {user.location}</p>
+            </div>
+            <div className="location">
+              <i class="fa-solid fa-location-dot"></i>
+              <p className="other-user-location">miles away</p>
+            </div>
+          </div>
           <button
             onClick={() => {
               let div = document.getElementById("infoDiv");

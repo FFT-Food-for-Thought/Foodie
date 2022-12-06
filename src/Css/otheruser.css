@@ -4,3 +4,37 @@
   -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
   max-height: 353px;
 }
+
+.other-user-firstName {
+  color: #F8F4F1;
+  font-family: "Inter";
+  font-weight: 400;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.fa-house {
+  color: #F8F4F1;
+  padding-left: 12px;
+}
+
+.other-user-location {
+  color: #F8F4F1;
+  font-family: "Inter";
+  padding-left: 5px;
+  vertical-align: bottom;
+}
+
+.fa-location-dot {
+  color: #F8F4F1;
+  padding-left: 15px;
+}
+
+.location {
+  display: flex;
+  padding-bottom: 2.5px;
+}
+
+.name-and-location {
+  transform: translateY(-49.25px);
+}

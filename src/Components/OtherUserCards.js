@@ -8,6 +8,7 @@ import {
   getAllChefs,
 } from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
+import "../Css/otheruser.css";
 
 const OtherUserCards = ({ loggedInUser, allUsers }) => {
   const [currentUser, setCurrentUser] = useState(0);
@@ -56,7 +57,7 @@ const OtherUserCards = ({ loggedInUser, allUsers }) => {
   };
   if (users.length) {
     return (
-      <div>
+      <div className="other-user">
         <SingleProfileCard user={users[currentUser]} />
         <button
           onClick={() => {
