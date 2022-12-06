@@ -99,6 +99,7 @@ const Profile = () => {
               likedUsers={user.likedUsers}
               setSingleViewClicked={setSingleViewClicked}
               user={user}
+              allUsers={allUsers}
             />
           </div>
           <div className="picture-view">
