@@ -18,44 +18,52 @@ export const addToChat = async (
   message,
   username
 ) => {
-  const chatRoom = await getChat(loggedInUserId, targetUserId);
-  if (chatRoom) {
-    const chatRoomId = chatRoom.id;
+  try {
+    const chatRoom = await getChat(loggedInUserId, targetUserId);
+    if (chatRoom) {
+      const chatRoomId = chatRoom.id;
 
-    const docRef = doc(db, "messages", chatRoomId);
-    const updatedObject = {
-      message,
-      sentby: username,
-      // timestamp: serverTimestamp(),
-    };
+      const docRef = doc(db, "messages", chatRoomId);
+      const updatedObject = {
+        message,
+        sentby: username,
+        // timestamp: serverTimestamp(),
+      };
 
-    await updateDoc(docRef, { chats: arrayUnion(updatedObject) });
-  } else {
-    const chatRoomId = findChatFromTwo(loggedInUserId, targetUserId);
-    const newChatDoc = {
-      chatters: chatRoomId,
-      chats: [
-        {
-          message,
-          sentby: username,
-        },
-      ],
-    };
-    const chatRef = collection(db, "messages");
-    await addDoc(chatRef, newChatDoc);
+      await updateDoc(docRef, { chats: arrayUnion(updatedObject) });
+    } else {
+      const chatRoomId = findChatFromTwo(loggedInUserId, targetUserId);
+      const newChatDoc = {
+        chatters: chatRoomId,
+        chats: [
+          {
+            message,
+            sentby: username,
+          },
+        ],
+      };
+      const chatRef = collection(db, "messages");
+      await addDoc(chatRef, newChatDoc);
+    }
+  } catch (error) {
+    console.log("error in addChat", error);
   }
 };
 export const getChat = async (loggedInUserId, targetUserId) => {
-  const chatRoomName = findChatFromTwo(loggedInUserId, targetUserId);
-  const q = query(
-    collection(db, "messages"),
-    where("chatters", "==", chatRoomName)
-  );
-  const snapshot = await getDocs(q);
-  const chatRoom = snapshot.docs.map((doc) => {
-    return { ...doc.data(), id: doc.id };
-  });
-  return chatRoom[0];
+  try {
+    const chatRoomName = findChatFromTwo(loggedInUserId, targetUserId);
+    const q = query(
+      collection(db, "messages"),
+      where("chatters", "==", chatRoomName)
+    );
+    const snapshot = await getDocs(q);
+    const chatRoom = snapshot.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    return chatRoom[0];
+  } catch (error) {
+    console.log("error in getChat", error);
+  }
 };
 
 // export const postToChat = async (
