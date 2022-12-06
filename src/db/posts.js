@@ -21,9 +21,13 @@ export const getAllPosts = async () => {
 };
 
 export const getPost = async () => {
-  const postRef = doc(db, "Posts", "SnfGhpSnmoapaB1q8SfL");
-  const post = await (await getDoc(postRef)).data();
-  console.log(post);
+  try {
+    const postRef = doc(db, "Posts", "SnfGhpSnmoapaB1q8SfL");
+    const post = await (await getDoc(postRef)).data();
+    console.log(post);
+  } catch (error) {
+    console.log("error in get post", error);
+  }
 };
 
 //Adding a post

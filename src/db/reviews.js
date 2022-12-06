@@ -24,37 +24,54 @@ const reviewRef = collection(db, "Reviews");
 
 //Live function to actually post reviews to review table
 export const createReview = async (reviewString, reviewer, reviewee) => {
-  const review = {
-    review: reviewString,
-    createdAt: serverTimestamp(),
-    reviewer,
-    reviewee,
-  };
-  const reviewId = await addDoc(reviewRef, review);
-  return reviewId;
+  try {
+    const review = {
+      review: reviewString,
+      createdAt: serverTimestamp(),
+      reviewer,
+      reviewee,
+    };
+    const reviewId = await addDoc(reviewRef, review);
+    return reviewId;
+  } catch (error) {
+    console.log("error in createReview", error);
+  }
 };
 
 // test function with hardcoded review
 export const updateReview = async () => {
-  const reviewRef = doc(db, "Reviews", "hjpevG87iwfoZzEr2Mtd");
-  const update = {
-    review: "This was actually not that bad.",
-    lastUpdateAt: serverTimestamp(),
-  };
-  await updateDoc(reviewRef, update);
+  try {
+    const reviewRef = doc(db, "Reviews", "hjpevG87iwfoZzEr2Mtd");
+    const update = {
+      review: "This was actually not that bad.",
+      lastUpdateAt: serverTimestamp(),
+    };
+    await updateDoc(reviewRef, update);
+  } catch (error) {
+    console.log("error in updateReview", error);
+  }
 };
 export const getReviews = async () => {
-  const reviews = await getDocs(reviewRef);
-  let review = reviews.docs.map((doc) => {
-    return { ...doc.data(), id: doc.id };
-  });
-  console.log("review :>> ", review);
+  try {
+    const reviews = await getDocs(reviewRef);
+    let review = reviews.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    console.log("review :>> ", review);
+    return review;
+  } catch (error) {
+    console.log("erorr in getReviews");
+  }
 };
 
 export const getReview = async () => {
-  const reviewRef = doc(db, "Reviews", "hjpevG87iwfoZzEr2Mtd");
-  const review = await getDoc(reviewRef);
-  console.log("review :>> ", review.data());
+  try {
+    const reviewRef = doc(db, "Reviews", "hjpevG87iwfoZzEr2Mtd");
+    const review = await getDoc(reviewRef);
+    console.log("review :>> ", review.data());
+  } catch (error) {
+    console.log("error in get Review", error);
+  }
 };
 
 export const deleteReview = async () => {
