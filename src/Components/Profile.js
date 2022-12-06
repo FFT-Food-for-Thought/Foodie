@@ -21,16 +21,13 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    const _getUsers = async (users) => {
-      //returns array of all users in Users
-      const allUsersLocal = await getAllUsers();
-      console.log("in useEffect", allUsersLocal);
-      //filter self out of potential others
+    const unsub = onAuthStateChanged(auth, async (user) => {
+      const newUser = await getLoggedUser();
+      setUser(newUser);
 
-      setUsers(allUsersLocal);
-    };
-    _getUsers();
-    
+      console.log("Auth state changed", user);
+      console.log("newuser", newUser);
+    });
     if ("geolocation" in navigator) {
       /* geolocation is available */
       console.log("geolocation is useable");
@@ -54,6 +51,20 @@ const Profile = () => {
           // );
         }
       );
+    }
+    return unsub;
+  }, []);
+
+  useEffect(() => {
+    const _getUsers = async (users) => {
+      //returns array of all users in Users
+      const allUsersLocal = await getAllUsers();
+      console.log("in useEffect", allUsersLocal);
+      //filter self out of potential others
+
+      setUsers(allUsersLocal);
+    };
+    _getUsers();
   }, []);
   console.log(user);
 
