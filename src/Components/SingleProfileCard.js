@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Css/profile.css";
+import "../Css/otheruser.css";
 
 const SingleProfileCard = ({ user }) => {
   const [currentImg, setCurrentImg] = useState(0);
@@ -8,7 +8,11 @@ const SingleProfileCard = ({ user }) => {
     if (user.pictureBucket.length) {
       return (
         <div>
-          <img src={user.pictureBucket[currentImg].URL} alt="" />
+          <img
+            src={user.pictureBucket[currentImg].URL}
+            alt=""
+            className="other-user-img"
+          />
           <h1>{user.firstName}</h1>
           <button
             onClick={() => {
