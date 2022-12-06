@@ -60,33 +60,48 @@ const ProfileMatchMessage = ({ likedUsers, user }) => {
   if (match)
     return (
       <div className="matches">
-        <button onClick={toggleMatches}>Matches</button>
-        <button onClick={toggleMessasges}>Messages</button>
+        <div className="match-container">
+          <div className="match-message-navbar">
+            <div>
+              <button onClick={toggleMatches} className="match-button">
+                Matches
+              </button>
+            </div>
+            <div>
+              <button onClick={toggleMessasges} className="message-button">
+                Messages
+              </button>
+            </div>
+          </div>
 
-        <div>
-          {likedList.length &&
-            likedList.map((likedObj) => {
-              return (
-                <div>
-                  <SingleMatchView likedObj={likedObj} />;
-                  <button
-                    onClick={() => {
-                      removeLikedHandler(likedObj);
-                    }}
-                  >
-                    RemoveFromLike
-                  </button>
-                </div>
-              );
-            })}
+          <div className="">
+            {likedList.length &&
+              likedList.map((likedObj) => {
+                return (
+                  <div className="matched-users-container">
+                    <SingleMatchView likedObj={likedObj} />
+                    <button
+                      className="match-remove-button"
+                      onClick={() => {
+                        removeLikedHandler(likedObj);
+                      }}
+                    >
+                      Remove Match
+                    </button>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       </div>
     );
   return (
-    <div>
-      <button onClick={toggleMatches}>Matches</button>
-      <button onClick={toggleMessasges}>Messages</button>
-      <Chat />
+    <div className="matches">
+      <div className="match-container">
+        <button onClick={toggleMatches}>Matches</button>
+        <button onClick={toggleMessasges}>Messages</button>
+        <Chat />
+      </div>
     </div>
   );
 };

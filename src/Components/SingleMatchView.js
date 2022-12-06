@@ -5,7 +5,7 @@ const SingleMatchView = ({ likedObj }) => {
 
   return (
     <>
-      <img src={likedObj.URL} alt="profilepic" />
+      <img src={likedObj.URL} alt="profilepic" className="match-img" />
       <p>{likedObj.name}</p>
     </>
   );
