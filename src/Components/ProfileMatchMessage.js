@@ -15,7 +15,8 @@ const ProfileMatchMessage = ({ likedUsers, user }) => {
           const URL = await getLikedPFP(targetObj.userId);
           console.log("targetObj", targetObj);
 
-          return { URL, name: targetObj.name, userId: targetObj.userId };
+          // return { URL, name: targetObj.name, userId: targetObj.userId };
+          return { ...targetObj, URL };
         })
       );
       console.log("after pfplist", pfpList);
@@ -79,7 +80,10 @@ const ProfileMatchMessage = ({ likedUsers, user }) => {
               likedList.map((likedObj) => {
                 return (
                   <div className="matched-users-container">
-                    <SingleMatchView likedObj={likedObj} />
+                    <SingleMatchView
+                      onClick={console.log(likedObj)}
+                      likedObj={likedObj}
+                    />
                     <button
                       className="match-remove-button"
                       onClick={() => {

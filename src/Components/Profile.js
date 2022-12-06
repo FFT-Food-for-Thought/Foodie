@@ -5,12 +5,13 @@ import SingleUserCard from "./SingleUserCard";
 import "../Css/profile.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
-import { getLoggedUser } from "../db/users";
+import { getLoggedUser, getAllUsers } from "../db/users";
 import OtherUserCards from "./OtherUserCards";
 import AllPhotos from "./AllPhotos";
 import { distance } from "../db/users";
 const Profile = () => {
   const [user, setUser] = useState({});
+  const [allUsers, setUsers] = useState([]);
   const [isSingleView, setSingleViewClicked] = useState(false);
   const handleView = (e) => {
     e.preventDefault();
@@ -54,6 +55,18 @@ const Profile = () => {
     });
     return unsub;
   }, []);
+
+  useEffect(() => {
+    const _getUsers = async (users) => {
+      //returns array of all users in Users
+      const allUsersLocal = await getAllUsers();
+      console.log("in useEffect", allUsersLocal);
+      //filter self out of potential others
+
+      setUsers(allUsersLocal);
+    };
+    _getUsers();
+  }, []);
   console.log(user);
 
   console.log(user.pictureBucket);
@@ -90,7 +103,7 @@ const Profile = () => {
           </div>
           <div className="picture-view">
             <div className="box">
-              <OtherUserCards loggedInUser={user} />
+              <OtherUserCards loggedInUser={user} allUsers={allUsers} />
               {/* <AllPhotos pictureBucket={user.pictureBucket} /> */}
             </div>
           </div>

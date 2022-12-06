@@ -9,10 +9,10 @@ import {
 } from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
 
-const OtherUserCards = ({ loggedInUser }) => {
+const OtherUserCards = ({ loggedInUser, allUsers }) => {
   const [currentUser, setCurrentUser] = useState(0);
-  const [users, setUsers] = useState([]);
-
+  const [users, setUsers] = useState(allUsers);
+  console.log("new all users check", allUsers, users);
   const dummyReviewId = "reviewIdgibberish";
   const onAddReviewHandler = (revieweeId) => {
     console.log("revieweeid", revieweeId);
@@ -21,29 +21,29 @@ const OtherUserCards = ({ loggedInUser }) => {
     addReviewToReviewer(loggedInUser.id, dummyReviewId);
     console.log("clicked");
   };
-  useEffect(() => {
-    const _getUsers = async (users) => {
-      //returns array of all users in Users
-      const newUser = await getAllChefs();
-      console.log("in useEffect", newUser);
-      //filter self out of potential others
-      const onlyOthers = newUser.filter((userObj) => {
-        if (userObj.userId !== loggedInUser.userId) {
-          return userObj;
-        }
-      });
-      if (loggedInUser.preference) {
-        const onlyPreference = filterByPhotoTags(
-          onlyOthers,
-          loggedInUser.preference
-        );
-        setUsers(onlyPreference);
-      } else {
-        setUsers(onlyOthers);
-      }
-    };
-    _getUsers();
-  }, []);
+  // useEffect(() => {
+  //   const _getUsers = async (users) => {
+  //     //returns array of all users in Users
+  //     const newUser = await getAllChefs();
+  //     console.log("in useEffect", newUser);
+  //     //filter self out of potential others
+  //     const onlyOthers = newUser.filter((userObj) => {
+  //       if (userObj.userId !== loggedInUser.userId) {
+  //         return userObj;
+  //       }
+  //     });
+  //     if (loggedInUser.preference) {
+  //       const onlyPreference = filterByPhotoTags(
+  //         onlyOthers,
+  //         loggedInUser.preference
+  //       );
+  //       setUsers(onlyPreference);
+  //     } else {
+  //       setUsers(onlyOthers);
+  //     }
+  //   };
+  //   _getUsers();
+  // }, []);
   console.log("more fetches", users);
 
   const handleLike = (otherUserObj) => {
