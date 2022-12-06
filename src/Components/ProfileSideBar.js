@@ -8,8 +8,9 @@ const ProfileSideBar = ({
   setSingleViewClicked,
   user,
   allUsers,
+  removeLikedHandler,
 }) => {
-  console.log("profileSideBar", user);
+  console.log("profileSideBar", user, "and", likedUsers);
 
   return (
     <>
@@ -18,6 +19,7 @@ const ProfileSideBar = ({
         likedUsers={likedUsers}
         user={user}
         allUsers={allUsers}
+        removeLikedHandler={removeLikedHandler}
       />
     </>
   );
