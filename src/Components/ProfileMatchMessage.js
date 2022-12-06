@@ -4,7 +4,12 @@ import SingleMatchView from "./SingleMatchView";
 import { getLikedPFP } from "../db/pictures";
 import Chat from "./Chat";
 import { removeLike } from "../db/users";
-const ProfileMatchMessage = ({ likedUsers, user }) => {
+const ProfileMatchMessage = ({
+  likedUsers,
+  user,
+  allUsers,
+  removeLikedHandler,
+}) => {
   const [match, setMatch] = useState(true);
   const [message, setMessage] = useState(false);
   const [likedList, setLikedList] = useState([]);
@@ -14,35 +19,43 @@ const ProfileMatchMessage = ({ likedUsers, user }) => {
         likedUsers.map(async (targetObj) => {
           const URL = await getLikedPFP(targetObj.userId);
           console.log("targetObj", targetObj);
-
-          return { URL, name: targetObj.name, userId: targetObj.userId };
+          let singleUser;
+          for (let i = 0; i < allUsers.length; i++) {
+            const userObj = allUsers[i];
+            if (userObj.userId == targetObj.userId) {
+              singleUser = { ...userObj };
+              break;
+            }
+          }
+          // return { URL, name: targetObj.name, userId: targetObj.userId };
+          return { ...targetObj, URL, ...singleUser };
         })
       );
       console.log("after pfplist", pfpList);
       setLikedList(pfpList);
     };
     unsub();
-  }, []);
+  }, [likedUsers.length]);
+  console.log("profilematchview rendered", likedList, "and", likedUsers);
+  // const removeLikedHandler = (userObj) => {
+  //   const objectToRemove = {
+  //     name: userObj.name,
+  //     userId: userObj.userId,
+  //   };
+  //   console.log(objectToRemove);
 
-  const removeLikedHandler = (userObj) => {
-    const objectToRemove = {
-      name: userObj.name,
-      userId: userObj.userId,
-    };
-    console.log(objectToRemove);
+  //   removeLike(user.id, objectToRemove);
 
-    removeLike(user.id, objectToRemove);
+  //   const filtered = likedList.filter((userObj) => {
+  //     if (userObj.userId != objectToRemove.userId) {
+  //       return userObj;
+  //     }
+  //   });
+  //   console.log(filtered);
+  //   setLikedList(filtered);
 
-    const filtered = likedList.filter((userObj) => {
-      if (userObj.userId != objectToRemove.userId) {
-        return userObj;
-      }
-    });
-    console.log(filtered);
-    setLikedList(filtered);
-
-    //updateLikedList to remove the removed person
-  };
+  //   //updateLikedList to remove the removed person
+  // };
 
   const toggleMatches = (e) => {
     e.preventDefault();
@@ -78,8 +91,14 @@ const ProfileMatchMessage = ({ likedUsers, user }) => {
             {likedList.length &&
               likedList.map((likedObj) => {
                 return (
-                  <div className="matched-users-container">
-                    <SingleMatchView likedObj={likedObj} />
+                  <div
+                    className="matched-users-container"
+                    key={likedObj.userId}
+                  >
+                    <SingleMatchView
+                      onClick={console.log(likedObj)}
+                      likedObj={likedObj}
+                    />
                     <button
                       className="match-remove-button"
                       onClick={() => {
