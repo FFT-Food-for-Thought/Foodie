@@ -33,10 +33,13 @@ const Home = () => {
           </div>
           <div className="navbar-right">
             <div className="login">
-              <button className="nav-link" onClick={() => setLoginIsOpen(true)}>
+              <button
+                className="login-button"
+                onClick={() => setLoginIsOpen(true)}
+              >
                 Login
               </button>
-              <button onClick={logout}>Logout</button>
+
               <Login
                 open={isLoginOpen}
                 onClose={() => setLoginIsOpen(false)}
@@ -51,7 +54,10 @@ const Home = () => {
           </span>
 
           <div className="create-account">
-            <button className="nav-link" onClick={() => setSignupIsOpen(true)}>
+            <button
+              className="create-account-link"
+              onClick={() => setSignupIsOpen(true)}
+            >
               Create Account
             </button>
             <Signup

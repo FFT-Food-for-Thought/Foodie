@@ -1,42 +1,76 @@
 import React, { useState, useEffect } from "react";
 import { filterByPhotoTags } from "../db/users";
-import { getAllUsers } from "../db/users";
+import {
+  getAllUsers,
+  addReviewToReviewee,
+  addReviewToReviewer,
+  addLikedUser,
+  getAllChefs,
+} from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
 
-const OtherUserCards = ({ loggedInUser }) => {
+const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
   const [currentUser, setCurrentUser] = useState(0);
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const _getUsers = async (users) => {
-      //returns array of all users in Users
-      const newUser = await getAllUsers();
-      console.log("in useEffect", newUser);
-      //filter self out of potential others
-      const onlyOthers = newUser.filter((userObj) => {
-        if (userObj.userId !== loggedInUser.userId) {
-          return userObj;
-        }
-      });
-      if (loggedInUser.preference) {
-        const onlyPreference = filterByPhotoTags(
-          onlyOthers,
-          loggedInUser.preference
-        );
-        setUsers(onlyPreference);
-      } else {
-        setUsers(onlyOthers);
-      }
-    };
-    _getUsers();
-  }, []);
+  const [users, setUsers] = useState(allUsers);
+  console.log("new all users check", allUsers, users);
+  const dummyReviewId = "reviewIdgibberish";
+  const onAddReviewHandler = (revieweeId) => {
+    console.log("revieweeid", revieweeId);
+    console.log("logged id", loggedInUser);
+    addReviewToReviewee(revieweeId, dummyReviewId);
+    addReviewToReviewer(loggedInUser.id, dummyReviewId);
+    console.log("clicked");
+  };
+  // useEffect(() => {
+  //   const _getUsers = async (users) => {
+  //     //returns array of all users in Users
+  //     const newUser = await getAllChefs();
+  //     console.log("in useEffect", newUser);
+  //     //filter self out of potential others
+  //     const onlyOthers = newUser.filter((userObj) => {
+  //       if (userObj.userId !== loggedInUser.userId) {
+  //         return userObj;
+  //       }
+  //     });
+  //     if (loggedInUser.preference) {
+  //       const onlyPreference = filterByPhotoTags(
+  //         onlyOthers,
+  //         loggedInUser.preference
+  //       );
+  //       setUsers(onlyPreference);
+  //     } else {
+  //       setUsers(onlyOthers);
+  //     }
+  //   };
+  //   _getUsers();
+  // }, []);
   console.log("more fetches", users);
+
+  // const handleLike = (otherUserObj) => {
+  //   console.log("in handle like", otherUserObj);
+  //   const likedId = otherUserObj.userId;
+  //   console.log("likedId", likedId);
+  //   const likedName = otherUserObj.firstName;
+  //   console.log("likedName", likedName);
+  //   addLikedUser(loggedInUser.id, likedId, likedName);
+  // };
   if (users.length) {
     return (
       <div>
         <SingleProfileCard user={users[currentUser]} />
         <button
           onClick={() => {
+            const likedObj = {
+              userId: users[currentUser].userId,
+              name: users[currentUser].firstName,
+            };
+            console.log("in like click", likedObj);
+            handleLike(likedObj);
+            addLikedUser(
+              loggedInUser.id,
+              users[currentUser].userId,
+              users[currentUser].firstName
+            );
             currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
           }}
         >
@@ -48,6 +82,13 @@ const OtherUserCards = ({ loggedInUser }) => {
           }}
         >
           {"Next"}
+        </button>
+        <button
+          onClick={() => {
+            onAddReviewHandler(users[currentUser].id);
+          }}
+        >
+          REVIEW
         </button>
         <div id="infoDiv">
           This is {users[currentUser].firstName}'s info. Taiyaki slow-carb

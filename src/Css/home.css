@@ -29,11 +29,11 @@
   color: #eee3cb;
 }
 
-.login {
+/* .login {
   padding: 5px 20px;
   border-radius: 25px;
   background-color: #eee3cb;
-}
+} */
 
 .nav-link {
   text-decoration: none;
@@ -41,7 +41,34 @@
   font-weight: bold;
   color: inherit;
 }
-
+.nav-link:hover {
+  color: #b7c4cf;
+}
+.create-account-link {
+  cursor: pointer;
+  border: none;
+  background-color: #eee3cb;
+  font-size: 25px;
+  font-weight: bold;
+  color: inherit;
+  padding: 5px 20px;
+  border-radius: 25px;
+  background-color: #b7c4cf;
+  color: #503d42;
+}
+.login-button {
+  padding: 5px 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  background-color: #eee3cb;
+  font-size: 25px;
+  font-weight: bold;
+  color: inherit;
+}
+.login-button:hover {
+  background-color: #b7c4cf;
+}
 .nav-page {
   width: 100%;
   height: 100%;
@@ -70,13 +97,7 @@
   padding: 25px;
 }
 
-.create-account {
-  padding: 5px 20px;
-  border-radius: 25px;
-  background-color: #b7c4cf;
-  color: #503d42;
-}
-.create-account:hover {
+.create-account-link:hover {
   background-color: white;
 }
 

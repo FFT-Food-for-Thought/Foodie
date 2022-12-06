@@ -6,10 +6,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
 import { getLoggedUser } from "../db/users";
 import { addProfilePicture } from "../db/pictures";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useResolvedPath } from "react-router-dom";
+import AllPhotos from "./AllPhotos";
 
 const ProfileNavbar = ({ setSingleViewClicked }) => {
   const [isAddPhotoOpen, setAddPhotoIsOpen] = useState(false);
+  const [isAllPhotoOpen, setAllPhotoIsOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -22,6 +24,7 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
   };
 
   const [user, setUser] = useState({});
+  console.log(">>>> NAVBAR", user.pictureBucket);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
@@ -51,9 +54,16 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
           openAddPhoto={isAddPhotoOpen}
           onAddPhotoClose={() => setAddPhotoIsOpen(false)}
         ></AddPhoto>
-        <Link to="/profile/allphotos" className="btn view-all-photos">
+        <button
+          onClick={() => setAllPhotoIsOpen(true)}
+          className="btn view-all-photos"
+        >
           <i class="fa-regular fa-images"></i>
-        </Link>
+        </button>
+        <AllPhotos
+          openAllPhotos={isAllPhotoOpen}
+          onAllPhotoClose={() => setAllPhotoIsOpen(false)}
+        ></AllPhotos>
         <div className="padding-right"></div>
         <button className="btn logout" onClick={handleLogout}>
           <i class="fa-solid fa-arrow-right-from-bracket"></i>

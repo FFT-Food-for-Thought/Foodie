@@ -2,29 +2,64 @@ import React, { useState, useEffect } from "react";
 import "../Css/profile.css";
 import SingleMatchView from "./SingleMatchView";
 import { getLikedPFP } from "../db/pictures";
-const ProfileMatchMessage = ({ likedUsers }) => {
-  const dummyData = ["Carina'sPFP, Kyle'PFP, PeterPFP, RobertPFP, THATGUYPFP"];
+import Chat from "./Chat";
+import { removeLike } from "../db/users";
+const ProfileMatchMessage = ({
+  likedUsers,
+  user,
+  allUsers,
+  removeLikedHandler,
+}) => {
   const [match, setMatch] = useState(true);
   const [message, setMessage] = useState(false);
   const [likedList, setLikedList] = useState([]);
-
   useEffect(() => {
     const unsub = async () => {
       const pfpList = await Promise.all(
-        likedUsers.map(async (targetId) => {
-          const URL = await getLikedPFP(targetId);
-          console.log(URL);
-          return URL;
+        likedUsers.map(async (targetObj) => {
+          const URL = await getLikedPFP(targetObj.userId);
+          console.log("targetObj", targetObj);
+          let singleUser;
+          for (let i = 0; i < allUsers.length; i++) {
+            const userObj = allUsers[i];
+            if (userObj.userId == targetObj.userId) {
+              singleUser = { ...userObj };
+              break;
+            }
+          }
+          // return { URL, name: targetObj.name, userId: targetObj.userId };
+          return { ...targetObj, URL, ...singleUser };
         })
       );
-      console.log("pfplist", pfpList);
+      console.log("after pfplist", pfpList);
       setLikedList(pfpList);
     };
     unsub();
-  }, []);
+  }, [likedUsers.length]);
+  console.log("profilematchview rendered", likedList, "and", likedUsers);
+  // const removeLikedHandler = (userObj) => {
+  //   const objectToRemove = {
+  //     name: userObj.name,
+  //     userId: userObj.userId,
+  //   };
+  //   console.log(objectToRemove);
+
+  //   removeLike(user.id, objectToRemove);
+
+  //   const filtered = likedList.filter((userObj) => {
+  //     if (userObj.userId != objectToRemove.userId) {
+  //       return userObj;
+  //     }
+  //   });
+  //   console.log(filtered);
+  //   setLikedList(filtered);
+
+  //   //updateLikedList to remove the removed person
+  // };
 
   const toggleMatches = (e) => {
     e.preventDefault();
+    console.log(likedList);
     setMessage(false);
     setMatch(true);
   };
@@ -38,22 +73,54 @@ const ProfileMatchMessage = ({ likedUsers }) => {
   if (match)
     return (
       <div className="matches">
-        <button onClick={toggleMatches}>Matches</button>
-        <button onClick={toggleMessasges}>Messages</button>
+        <div className="match-container">
+          <div className="match-message-navbar">
+            <div>
+              <button onClick={toggleMatches} className="match-button">
+                Matches
+              </button>
+            </div>
+            <div>
+              <button onClick={toggleMessasges} className="message-button">
+                Messages
+              </button>
+            </div>
+          </div>
 
-        <div>
-          {likedList.length &&
-            likedList.map((profilePic) => {
-              return <SingleMatchView profilePic={profilePic} />;
-            })}
+          <div className="">
+            {likedList.length &&
+              likedList.map((likedObj) => {
+                return (
+                  <div
+                    className="matched-users-container"
+                    key={likedObj.userId}
+                  >
+                    <SingleMatchView
+                      onClick={console.log(likedObj)}
+                      likedObj={likedObj}
+                    />
+                    <button
+                      className="match-remove-button"
+                      onClick={() => {
+                        removeLikedHandler(likedObj);
+                      }}
+                    >
+                      Remove Match
+                    </button>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       </div>
     );
   return (
-    <div>
-      <button onClick={toggleMatches}>Matches</button>
-      <button onClick={toggleMessasges}>Messages</button>
-      <div>Hello</div>
+    <div className="matches">
+      <div className="match-container">
+        <button onClick={toggleMatches}>Matches</button>
+        <button onClick={toggleMessasges}>Messages</button>
+        <Chat />
+      </div>
     </div>
   );
 };
