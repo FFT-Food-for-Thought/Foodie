@@ -16,12 +16,31 @@ import { auth } from "./signup";
 const userRef = collection(db, "Users");
 
 export const getAllUsers = async () => {
-  const users = await getDocs(userRef);
-  let user = users.docs.map((doc) => {
-    return { ...doc.data(), id: doc.id };
-  });
-  console.log("user :>> ", user);
-  return user;
+  try {
+    const users = await getDocs(userRef);
+    let allUser = users.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    console.log("allUser :>> ", allUser);
+    return allUser;
+  } catch (error) {
+    console.log("error getting all users", error);
+  }
+};
+
+export const getAllChefs = async () => {
+  try {
+    const q = query(userRef, where("role", "==", "chef"));
+
+    const allChefSnapshots = await getDocs(q);
+    const allChefs = allChefSnapshots.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    console.log("in get all chefs", allChefs);
+    return allChefs;
+  } catch (error) {
+    console.log("error in getting all chefs", error);
+  }
 };
 
 //Test function with hardcoded ID
@@ -44,30 +63,37 @@ export const updateUser = async (
   // const docRef = doc(db, "Users", "fhfUllMNrJD0ddRgT38Z");
   // const update = { firstName: "Peter" };
   // await updateDoc(docRef, update);
-
-  const docRef = doc(db, "Users", userId);
-  const update = {
-    firstName: firstName,
-    lastName: lastName,
-    location: location,
-    username: userName,
-    email: email,
-  };
-  console.log("update :>> ", update);
-  await updateDoc(docRef, update);
+  try {
+    const docRef = doc(db, "Users", userId);
+    const update = {
+      firstName: firstName,
+      lastName: lastName,
+      location: location,
+      username: userName,
+      email: email,
+    };
+    console.log("update :>> ", update);
+    await updateDoc(docRef, update);
+  } catch (error) {
+    console.log("error in updateUser", error);
+  }
 };
 
 //Test get all info of a user based on uid?
 export const getLoggedUser = async () => {
-  const uid = auth.currentUser.uid;
-  const userCol = collection(db, "Users");
-  const q = query(userCol, where("userId", "==", uid));
-  const snapshot = await getDocs(q);
-  const userArray = snapshot.docs.map((doc) => {
-    return { ...doc.data(), id: doc.id };
-  });
-  console.log("getloggedinuser array [0]", userArray[0]);
-  return userArray[0];
+  try {
+    const uid = auth.currentUser.uid;
+    const userCol = collection(db, "Users");
+    const q = query(userCol, where("userId", "==", uid));
+    const snapshot = await getDocs(q);
+    const userArray = snapshot.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    console.log("getloggedinuser array [0]", userArray[0]);
+    return userArray[0];
+  } catch (error) {
+    console.log("error in getloggeduser", error);
+  }
 };
 
 export const makeUser = async (
@@ -78,16 +104,20 @@ export const makeUser = async (
   username,
   location
 ) => {
-  const newUserObj = {
-    userId: uid,
-    email,
-    lastName,
-    firstName,
-    username,
-    location,
-    pictureBucket: [],
-  };
-  await addDoc(userRef, newUserObj);
+  try {
+    const newUserObj = {
+      userId: uid,
+      email,
+      lastName,
+      firstName,
+      username,
+      location,
+      pictureBucket: [],
+    };
+    await addDoc(userRef, newUserObj);
+  } catch (error) {
+    console.log("error in makeUser", error);
+  }
 };
 
 export const addReviewToReviewee = async (revieweeId, reviewId) => {

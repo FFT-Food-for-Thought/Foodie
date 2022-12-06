@@ -40,8 +40,10 @@ const Chat = ({ target, loggedInUser }) => {
           addToChat(
             "fhfUllMNrJD0ddRgT38Z",
             "c9cVD0WoaQQwJoSGbKND",
-            "the Cyborgs will rise!",
-            "LilDebz"
+<
+            "skynet",
+            "Kyle"
+
           )
         }
       >

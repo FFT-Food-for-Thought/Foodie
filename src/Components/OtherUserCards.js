@@ -5,6 +5,7 @@ import {
   addReviewToReviewee,
   addReviewToReviewer,
   addLikedUser,
+  getAllChefs,
 } from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
 
@@ -23,7 +24,7 @@ const OtherUserCards = ({ loggedInUser }) => {
   useEffect(() => {
     const _getUsers = async (users) => {
       //returns array of all users in Users
-      const newUser = await getAllUsers();
+      const newUser = await getAllChefs();
       console.log("in useEffect", newUser);
       //filter self out of potential others
       const onlyOthers = newUser.filter((userObj) => {
