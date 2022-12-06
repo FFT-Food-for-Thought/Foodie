@@ -9,6 +9,8 @@ import { getLoggedUser, getAllUsers } from "../db/users";
 import OtherUserCards from "./OtherUserCards";
 import AllPhotos from "./AllPhotos";
 import { distance } from "../db/users";
+import { addGeo } from "../db/users";
+
 const Profile = () => {
   const [user, setUser] = useState({});
   const [allUsers, setUsers] = useState([]);
@@ -53,6 +55,30 @@ const Profile = () => {
       console.log("Auth state changed", user);
       console.log("newuser", newUser);
     });
+    if ("geolocation" in navigator) {
+      /* geolocation is available */
+      console.log("geolocation is useable");
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          addGeo(user.id, position.coords.latitude, position.coords.longitude);
+
+          // console.log(
+          //   "distance formulat being used, you are this many miles from disneyland in a straight line",
+          //   distance(
+          //     position.coords.latitude,
+          //     position.coords.longitude,
+          //     28.377242637128813,
+          //     -81.57071111805162
+          //   )
+          // );
+        },
+        () => {
+          // console.log(
+          //   "I can't calculate your distance from disney land if you don't share your location :("
+          // );
+        }
+      );
+    }
     return unsub;
   }, []);
 
