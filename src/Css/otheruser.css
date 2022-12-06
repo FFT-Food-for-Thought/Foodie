@@ -1,4 +1,6 @@
 .other-user-img {
   width: 512.67px;
   height: auto;
+  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  max-height: 353px;
 }
