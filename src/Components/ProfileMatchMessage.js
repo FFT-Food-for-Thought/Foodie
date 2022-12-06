@@ -4,7 +4,7 @@ import SingleMatchView from "./SingleMatchView";
 import { getLikedPFP } from "../db/pictures";
 import Chat from "./Chat";
 import { removeLike } from "../db/users";
-const ProfileMatchMessage = ({ likedUsers, user }) => {
+const ProfileMatchMessage = ({ likedUsers, user, allUsers }) => {
   const [match, setMatch] = useState(true);
   const [message, setMessage] = useState(false);
   const [likedList, setLikedList] = useState([]);
@@ -14,9 +14,16 @@ const ProfileMatchMessage = ({ likedUsers, user }) => {
         likedUsers.map(async (targetObj) => {
           const URL = await getLikedPFP(targetObj.userId);
           console.log("targetObj", targetObj);
-
+          let singleUser;
+          for (let i = 0; i < allUsers.length; i++) {
+            const userObj = allUsers[i];
+            if (userObj.userId == targetObj.userId) {
+              singleUser = { ...userObj };
+              break;
+            }
+          }
           // return { URL, name: targetObj.name, userId: targetObj.userId };
-          return { ...targetObj, URL };
+          return { ...targetObj, URL, ...singleUser };
         })
       );
       console.log("after pfplist", pfpList);
