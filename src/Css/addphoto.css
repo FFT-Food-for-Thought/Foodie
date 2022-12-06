@@ -17,3 +17,41 @@
   background-color: rgb(0, 0, 0, 0.7);
   z-index: 1000;
 }
+.add-photo-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button {
+  float: right;
+}
+.add-photo-input {
+  border: none;
+  margin: 10px;
+}
+.addphoto-submit {
+  background-color: red;
+  width: 100px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.tags-and-delete {
+  display: flex;
+}
+
+.added-tag {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 2px;
+}
+.delete-tag {
+  cursor: pointer;
+  border: none;
+  background-color: #dae1e7;
+}
+.delete-tag:hover {
+  color: red;
+}

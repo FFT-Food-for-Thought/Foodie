@@ -4,6 +4,7 @@ import { auth } from "../db/signup";
 import { onAuthStateChanged } from "firebase/auth";
 import { updateUser } from "../db/users";
 import { StateSelect } from "./StateSelect";
+import "../Css/editprofile.css";
 
 const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
   const [user, setUser] = useState({});
