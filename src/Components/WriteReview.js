@@ -1,5 +1,12 @@
 import React, { useRef, useState } from "react";
-const WriteReview = ({ userId, revieweeId }) => {
+import "../Css/writeReview.css";
+const WriteReview = ({
+  userId,
+  revieweeId,
+  children,
+  openWriteReview,
+  onWriteReviewClose,
+}) => {
   const [pictags, setTags] = useState([]);
   const reviewRef = useRef();
   const tagRef = useRef();
@@ -8,25 +15,23 @@ const WriteReview = ({ userId, revieweeId }) => {
     console.log("review text", reviewRef.current.value);
   };
 
-  const addTagHandler = (e) => {
-    console.log(tagRef.current.value);
-    if (pictags.includes(tagRef.current.value)) {
-      alert("This tag already added");
-      return;
-    }
-    if (pictags.length >= 3) {
-      alert("max of three tags");
-      return;
-    }
+  if (!openWriteReview) return null;
 
-    return (
-      <>
-        <form onSubmit={submitHandler}>
-          <textarea ref={reviewRef} style={{ resize: "none" }}></textarea>
-          <button>Submit</button>
-        </form>
-      </>
-    );
-  };
+  return (
+    <>
+      <div className="popup-overlay">
+        <div className="add-photo-close">
+          <div className="close-button-review">
+            <button onClick={onWriteReviewClose}>X</button>
+            {children}
+          </div>
+          <form onSubmit={submitHandler}>
+            <textarea ref={reviewRef} style={{ resize: "none" }}></textarea>
+            <button>Submit</button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
 };
 export default WriteReview;
