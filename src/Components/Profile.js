@@ -24,7 +24,7 @@ const Profile = () => {
     const unsub = onAuthStateChanged(auth, async (user) => {
       const newUser = await getLoggedUser();
       setUser(newUser);
-
+      setLikedList(newUser.likedUsers);
       console.log("Auth state changed", user);
       console.log("newuser", newUser);
     });
