@@ -64,9 +64,17 @@ const OtherUserCards = ({ loggedInUser, allUsers }) => {
             onClick={() => {
               currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
             }}
-            className="next-button"
+            className="other-user-button next"
           >
             <i class="fa-solid fa-xmark"></i>
+          </button>
+          <button
+            onClick={() => {
+              onAddReviewHandler(users[currentUser].id);
+            }}
+            className="other-user-button review"
+          >
+            <i class="fa-regular fa-pen-to-square"></i>
           </button>
           <button
             onClick={() => {
@@ -75,13 +83,6 @@ const OtherUserCards = ({ loggedInUser, allUsers }) => {
             }}
           >
             {"Like"}
-          </button>
-          <button
-            onClick={() => {
-              onAddReviewHandler(users[currentUser].id);
-            }}
-          >
-            REVIEW
           </button>
         </div>
         <div id="infoDiv">

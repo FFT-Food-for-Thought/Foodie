@@ -7,7 +7,7 @@ const SingleProfileCard = ({ user }) => {
   if (user.pictureBucket) {
     if (user.pictureBucket.length) {
       return (
-        <div>
+        <div className="single-profile-card">
           <img
             src={user.pictureBucket[currentImg].URL}
             alt=""

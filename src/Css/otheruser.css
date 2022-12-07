@@ -99,29 +99,57 @@
   padding-top: 7px;
 }
 
-.next-button {
+.other-user-button {
   background-color: #F8F4F1;
-  color: #A97575;
   border: none;
   cursor: pointer;
-  font-size: 24px;
   border-radius: 50%;
   width: 35px;
   height: 35px;
 }
 
-.next-button:hover {
-  background-color: #A97575;
+.other-user-button:hover {
   color: #F8F4F1;
 }
 
-.next-button:active {
+.other-user-next {
+  transform: translateY(-58px);
+  display: flex;
+  justify-content: center;
+}
+
+.next {
+  color: #A97575;
+  font-size: 24px;
+}
+
+.next:hover {
+  background-color: #A97575;
+}
+
+.next:active {
   background-color: #F8F4F1;
   color: #A97575;
 }
 
-.other-user-next {
-  transform: translateY(-120px);
-  display: flex;
-  justify-content: center;
+.other-user {
+  height: 473px;
+}
+
+.single-profile-card {
+  height: 473px;
+}
+
+.review {
+  color: #B7C4CF;
+  font-size: 20px;
+}
+
+.review:hover {
+  background-color: #B7C4CF;
+}
+
+.review:active {
+  background-color: #F8F4F1;
+  color: #B7C4CF;
 }
