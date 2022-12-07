@@ -170,3 +170,16 @@
   color: #F8F4F1;
   background-color: #80A479;
 }
+
+.no-pic {
+  color: #F8F4F1;
+  font-family: "Inter";
+  font-size: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-pic-first-name {
+  transform: translateY(-66px);
+}
