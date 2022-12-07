@@ -100,16 +100,11 @@
 }
 
 .other-user-button {
-  background-color: #F8F4F1;
   border: none;
   cursor: pointer;
   border-radius: 50%;
   width: 35px;
   height: 35px;
-}
-
-.other-user-button:hover {
-  color: #F8F4F1;
 }
 
 .other-user-next {
@@ -119,17 +114,20 @@
 }
 
 .next {
-  color: #A97575;
+  color: #F8F4F1;
+  background-color: #A97575;
   font-size: 24px;
+  margin-right: 10px;
 }
 
 .next:hover {
-  background-color: #A97575;
+  color: #A97575;
+  background-color: #F8F4F1;
 }
 
 .next:active {
-  background-color: #F8F4F1;
-  color: #A97575;
+  color: #F8F4F1;
+  background-color: #A97575;
 }
 
 .other-user {
@@ -141,15 +139,34 @@
 }
 
 .review {
-  color: #B7C4CF;
+  color: #F8F4F1;
+  background-color: #B7C4CF;
   font-size: 20px;
 }
 
 .review:hover {
-  background-color: #B7C4CF;
+  color: #B7C4CF;
+  background-color: #F8F4F1;
 }
 
 .review:active {
+  color: #F8F4F1;
+  background-color: #B7C4CF;
+}
+
+.like {
+  color: #F8F4F1;
+  background-color: #80A479;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.like:hover {
+  color: #80A479;
   background-color: #F8F4F1;
-  color: #B7C4CF;
+}
+
+.like:active {
+  color: #F8F4F1;
+  background-color: #80A479;
 }

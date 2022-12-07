@@ -81,8 +81,9 @@ const OtherUserCards = ({ loggedInUser, allUsers }) => {
               handleLike(users[currentUser]);
               currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
             }}
+            className="other-user-button like"
           >
-            {"Like"}
+            <i class="fa-regular fa-heart"></i>
           </button>
         </div>
         <div id="infoDiv">
