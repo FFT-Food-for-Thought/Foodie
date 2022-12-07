@@ -57,6 +57,13 @@ const SingleProfileCard = ({ user }) => {
               <i class="fa-solid fa-location-dot"></i>
               <p className="other-user-location">miles away</p>
             </div>
+            <div className="other-user-tags">
+              {user.pictureBucket[currentImg].tags.map((tag, i) => (
+                <p key={i} className="other-user-tag">
+                  {tag}
+                </p>
+              ))}
+            </div>
           </div>
           <br></br>
         </div>

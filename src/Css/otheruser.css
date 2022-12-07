@@ -35,7 +35,7 @@
 }
 
 .name-and-location {
-  transform: translateY(-73.25px);
+  transform: translateY(-113.5px);
 }
 
 .info-button {
@@ -81,4 +81,20 @@
 
 .left-right-button:active {
   color: #F8F4F1;
+}
+
+.other-user-tag {
+  color: #F8F4F1;
+  font-family: "Inter";
+  background-color: #503D42;
+  border: solid;
+  border-radius: 25px;
+  padding: 2px;
+  margin-right: 5px;
+}
+
+.other-user-tags {
+  display: flex;
+  padding-left: 12px;
+  padding-top: 7px;
 }
