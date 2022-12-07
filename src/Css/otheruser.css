@@ -1,8 +1,7 @@
 .other-user-img {
   width: 512.67px;
-  height: auto;
+  height: 353px;
   -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-  max-height: 353px;
 }
 
 .other-user-firstName {
@@ -36,14 +35,13 @@
 }
 
 .name-and-location {
-  transform: translateY(-49.25px);
+  transform: translateY(-73.25px);
 }
 
 .info-button {
   background-color: #F8F4F1;
   color: #503D42;
   border: none;
-  font-family: "Inter";
   cursor: pointer;
   font-size: 16px;
   border-radius: 50%;
@@ -66,4 +64,21 @@
   display: flex;
   justify-content: space-between;
   transform: translateY(-118.5px);
+}
+
+.left-right-button {
+  background: none;
+  color: #F8F4F1;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.left-right-button:hover {
+  color: #80A479;
+}
+
+.left-right-button:active {
+  color: #F8F4F1;
 }

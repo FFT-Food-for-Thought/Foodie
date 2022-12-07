@@ -18,16 +18,18 @@ const SingleProfileCard = ({ user }) => {
               onClick={() => {
                 currentImg > 0 && setCurrentImg(currentImg - 1);
               }}
+              className="left-right-button"
             >
-              {"<<"}
+              <i class="fa-solid fa-angles-left"></i>
             </button>
             <button
               onClick={() =>
                 currentImg < user.pictureBucket.length - 1 &&
                 setCurrentImg(currentImg + 1)
               }
+              className="left-right-button"
             >
-              {">>"}
+              <i class="fa-solid fa-angles-right"></i>
             </button>
           </div>
           <div className="name-and-location">
