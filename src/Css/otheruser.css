@@ -49,4 +49,5 @@
   border-radius: 50%;
   width: 21px;
   height: 21px;
+  transform: translate(5px, 12px);
 }
