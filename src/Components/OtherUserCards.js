@@ -10,7 +10,7 @@ import {
 import SingleProfileCard from "./SingleProfileCard";
 import "../Css/otheruser.css";
 
-const OtherUserCards = ({ loggedInUser, allUsers }) => {
+const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
   const [currentUser, setCurrentUser] = useState(0);
   const [users, setUsers] = useState(allUsers);
   console.log("new all users check", allUsers, users);
@@ -47,14 +47,14 @@ const OtherUserCards = ({ loggedInUser, allUsers }) => {
   // }, []);
   console.log("more fetches", users);
 
-  const handleLike = (otherUserObj) => {
-    console.log("in handle like", otherUserObj);
-    const likedId = otherUserObj.userId;
-    console.log("likedId", likedId);
-    const likedName = otherUserObj.firstName;
-    console.log("likedName", likedName);
-    addLikedUser(loggedInUser.id, likedId, likedName);
-  };
+  // const handleLike = (otherUserObj) => {
+  //   console.log("in handle like", otherUserObj);
+  //   const likedId = otherUserObj.userId;
+  //   console.log("likedId", likedId);
+  //   const likedName = otherUserObj.firstName;
+  //   console.log("likedName", likedName);
+  //   addLikedUser(loggedInUser.id, likedId, likedName);
+  // };
   if (users.length) {
     return (
       <div className="other-user">
@@ -78,7 +78,17 @@ const OtherUserCards = ({ loggedInUser, allUsers }) => {
           </button>
           <button
             onClick={() => {
-              handleLike(users[currentUser]);
+              const likedObj = {
+                userId: users[currentUser].userId,
+                name: users[currentUser].firstName,
+              };
+              console.log("in like click", likedObj);
+              handleLike(likedObj);
+              addLikedUser(
+                loggedInUser.id,
+                users[currentUser].userId,
+                users[currentUser].firstName
+              );
               currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
             }}
             className="other-user-button like"

@@ -13,6 +13,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import AddPhoto from "./Components/AddPhoto";
+import MatchedProfile from "./Components/MatchedProfile";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/profile/allphotos" element={<AllPhotos />} />
           <Route path="/profile/editprofile" element={<EditProfile />} />
           <Route path="/testAddPhoto" element={<AddPhoto />} />
+          <Route path="/matched" element={<MatchedProfile />} />
         </Route>
       </Routes>
     </Router>

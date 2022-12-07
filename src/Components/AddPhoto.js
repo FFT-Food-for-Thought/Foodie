@@ -66,33 +66,51 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
       <div className="popup-overlay">
         <div className="add-photo-popup">
           <div className="add-photo-close">
-            <button onClick={onAddPhotoClose}>X</button>
-            {children}
-            <input
-              type="file"
-              onChange={handleImageChange}
-              placeholder="Add Photo"
-              id="addphotoChooserthingy"
-            />
-            <button onClick={handleSubmit}>Submit</button>
-            <select ref={tagRef} name="tags" id="picturetags">
-              {tags.map((tag) => {
-                return (
-                  <option key={tag} value={tag}>
-                    {tag}
-                  </option>
-                );
-              })}
-            </select>
-            <button onClick={addTagHandler}>AddTag</button>
+            <div className="add-photo-form-container">
+              <div className="close-button">
+                <button onClick={onAddPhotoClose}>X</button>
+                {children}
+              </div>
+              <input
+                type="file"
+                onChange={handleImageChange}
+                placeholder="Add Photo"
+                id="addphotoChooserthingy"
+                className="add-photo-input"
+              />
+
+              <select ref={tagRef} name="tags" id="picturetags">
+                {tags.map((tag) => {
+                  return (
+                    <option key={tag} value={tag}>
+                      {tag}
+                    </option>
+                  );
+                })}
+              </select>
+              <div>
+                <button onClick={addTagHandler}>AddTag</button>
+                <button onClick={handleSubmit} className="addphoto-submit">
+                  Submit
+                </button>
+              </div>
+            </div>
             <div>
               {pictags.map((tag, i) => {
                 return (
-                  <div key={i}>
-                    <button onClick={onTagHandler} data-tag={tag}>
-                      X
-                    </button>
-                    <p>{tag}</p>
+                  <div key={i} className="tags-and-delete">
+                    <div className="">
+                      <p className="added-tag">{tag}</p>
+                    </div>
+                    <div>
+                      <button
+                        onClick={onTagHandler}
+                        data-tag={tag}
+                        className="delete-tag"
+                      >
+                        X
+                      </button>
+                    </div>
                   </div>
                 );
               })}
