@@ -11,6 +11,7 @@ import SingleProfileCard from "./SingleProfileCard";
 import "../Css/otheruser.css";
 
 const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
+  const [currentImg, setCurrentImg] = useState(0);
   const [currentUser, setCurrentUser] = useState(0);
   const [users, setUsers] = useState(allUsers);
   console.log("new all users check", allUsers, users);
@@ -58,11 +59,16 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
   if (users.length) {
     return (
       <div className="other-user">
-        <SingleProfileCard user={users[currentUser]} />
+        <SingleProfileCard
+          user={users[currentUser]}
+          currentImg={currentImg}
+          setCurrentImg={setCurrentImg}
+        />
         <div className="other-user-next">
           <button
             onClick={() => {
               currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
+              setCurrentImg(0);
             }}
             className="other-user-button next"
           >
@@ -83,6 +89,7 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
                 name: users[currentUser].firstName,
               };
               console.log("in like click", likedObj);
+              setCurrentImg(0);
               handleLike(likedObj);
               addLikedUser(
                 loggedInUser.id,

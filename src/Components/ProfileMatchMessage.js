@@ -18,11 +18,11 @@ const ProfileMatchMessage = ({
       const pfpList = await Promise.all(
         likedUsers.map(async (targetObj) => {
           const URL = await getLikedPFP(targetObj.userId);
-          console.log("targetObj", targetObj);
+          console.log("targetObj>>>", targetObj);
           let singleUser;
           for (let i = 0; i < allUsers.length; i++) {
             const userObj = allUsers[i];
-            if (userObj.userId == targetObj.userId) {
+            if (userObj.userId === targetObj.userId) {
               singleUser = { ...userObj };
               break;
             }
@@ -31,7 +31,7 @@ const ProfileMatchMessage = ({
           return { ...targetObj, URL, ...singleUser };
         })
       );
-      console.log("after pfplist", pfpList);
+      console.log("after pfplist>>>>", pfpList);
       setLikedList(pfpList);
     };
     unsub();

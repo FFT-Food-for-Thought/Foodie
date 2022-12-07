@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "../Css/otheruser.css";
 
-const SingleProfileCard = ({ user }) => {
-  const [currentImg, setCurrentImg] = useState(0);
-
+const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
   if (user.pictureBucket) {
     if (user.pictureBucket.length) {
       return (

@@ -114,6 +114,11 @@ export const makeUser = async (
       username,
       location,
       pictureBucket: [],
+      likedUsers: [],
+      reviews: [],
+      writtenReviews: [],
+      role: "foodie",
+      preference: "",
     };
     await addDoc(userRef, newUserObj);
   } catch (error) {
