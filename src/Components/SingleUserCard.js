@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Css/profile.css";
+import "../Css/singleuser.css";
 import AddProfilePic from "./AddProfilePic";
 
 const SingleUserCard = ({ user }) => {
@@ -49,7 +49,9 @@ const SingleUserCard = ({ user }) => {
         </div>
       );
     } else {
-      return <div>{user.firstName}NO PIC</div>;
+      return (
+        <div className="single-user-firstName">{user.firstName}NO PIC</div>
+      );
     }
   }
   return <div>Loading...</div>;
