@@ -1,9 +1,12 @@
-.add-photo-popup {
+.add-photos-popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #dae1e7;
+  /* background-color: #dae1e7; */
+  background-image: url("https://images.pexels.com/photos/616409/pexels-photo-616409.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 50px;
   z-index: 1000;
   flex-direction: column;
@@ -25,21 +28,60 @@
 }
 
 .close-button {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
   float: right;
+  border: none;
+  background: none;
+}
+.close-button:hover {
+  color: rgb(192, 36, 36);
 }
 .add-photo-input {
+  /* background-color: #dae1e7; */
   border: none;
   margin: 10px;
+  border-bottom: solid 2px #2d2820;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: none;
 }
 .addphoto-submit {
-  background-color: red;
+  cursor: pointer;
+  /* background-color: #dae1e7; */
   width: 100px;
   padding: 5px;
   margin: 10px;
+  background: none;
+  border-bottom: solid 2px #2d2820;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
-
+.addphoto-addtag {
+  cursor: pointer;
+  background: none;
+  /* background-color: #dae1e7; */
+  width: 100px;
+  padding: 5px;
+  margin: 10px;
+  border-bottom: solid 2px #2d2820;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.addphoto-addtag:hover {
+  color: rgb(192, 36, 36);
+}
+.addphoto-submit:hover {
+  color: rgb(192, 36, 36);
+}
 .tags-and-delete {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .added-tag {
@@ -50,8 +92,41 @@
 .delete-tag {
   cursor: pointer;
   border: none;
-  background-color: #dae1e7;
+  font-size: 15px;
+
+  /* background-color: #dae1e7; */
+  background: none;
+  /* border-bottom: solid 2px #2d2820;
+  border-top: none;
+  border-left: none;
+  border-right: none; */
 }
 .delete-tag:hover {
-  color: red;
+  color: rgb(192, 36, 36);
+}
+.add-photo-tags {
+  font-size: 20px;
+  font-weight: bold;
+  /* background-color: #dae1e7; */
+  background: none;
+  margin-bottom: 30px;
+  border-bottom: solid 2px #2d2820;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+
+  border-bottom: solid 2px #2d2820;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.tag-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.tag-suggestion {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }

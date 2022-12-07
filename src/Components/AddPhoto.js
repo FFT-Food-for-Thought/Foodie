@@ -64,13 +64,16 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
   return (
     <>
       <div className="popup-overlay">
-        <div className="add-photo-popup">
+        <div className="add-photos-popup">
           <div className="add-photo-close">
             <div className="add-photo-form-container">
               <div className="close-button">
-                <button onClick={onAddPhotoClose}>X</button>
+                <button onClick={onAddPhotoClose} className="close-button">
+                  X
+                </button>
                 {children}
               </div>
+              <div className="tag-title">Show us your best dish!</div>
               <input
                 type="file"
                 onChange={handleImageChange}
@@ -79,7 +82,12 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
                 className="add-photo-input"
               />
 
-              <select ref={tagRef} name="tags" id="picturetags">
+              <select
+                ref={tagRef}
+                name="tags"
+                id="picturetags"
+                className="add-photo-tags"
+              >
                 {tags.map((tag) => {
                   return (
                     <option key={tag} value={tag}>
@@ -88,8 +96,13 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
                   );
                 })}
               </select>
+              <div className="tag-suggestion">
+                Please select up to three tags.
+              </div>
               <div>
-                <button onClick={addTagHandler}>AddTag</button>
+                <button onClick={addTagHandler} className="addphoto-addtag">
+                  AddTag
+                </button>
                 <button onClick={handleSubmit} className="addphoto-submit">
                   Submit
                 </button>
@@ -99,7 +112,7 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
               {pictags.map((tag, i) => {
                 return (
                   <div key={i} className="tags-and-delete">
-                    <div className="">
+                    <div className="tag-container">
                       <p className="added-tag">{tag}</p>
                     </div>
                     <div>
