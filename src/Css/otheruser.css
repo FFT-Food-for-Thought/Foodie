@@ -30,11 +30,23 @@
   padding-left: 15px;
 }
 
-.location {
+.basic-info {
   display: flex;
   padding-bottom: 2.5px;
 }
 
 .name-and-location {
   transform: translateY(-49.25px);
+}
+
+.info-button {
+  background: #F8F4F1;
+  color: #503D42;
+  border: none;
+  font-family: "Inter";
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
 }
