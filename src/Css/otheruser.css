@@ -179,3 +179,7 @@
   justify-content: center;
   align-items: center;
 }
+
+.no-pic-first-name {
+  transform: translateY(-66px);
+}

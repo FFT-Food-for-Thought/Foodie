@@ -72,7 +72,9 @@ const SingleProfileCard = ({ user }) => {
       return (
         <div className="single-profile-card">
           <div className="other-user-img no-pic">NO PIC</div>
-          <h1 className="other-user-firstName">{user.firstName}</h1>
+          <h1 className="other-user-firstName no-pic-first-name">
+            {user.firstName}
+          </h1>
         </div>
       );
     }
