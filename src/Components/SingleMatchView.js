@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import MatchedProfile from "./MatchedProfile";
+import React from "react";
+
 const SingleMatchView = ({ likedObj }) => {
-  const [isMatchedCardOpen, setMatchCard] = useState(false);
   console.log("singlematchview profilepic", likedObj);
 
   if (likedObj.URL) {
@@ -9,19 +8,6 @@ const SingleMatchView = ({ likedObj }) => {
       <>
         <img src={likedObj.URL} alt="profilepic" className="match-img" />
         <p>{likedObj.name}</p>
-        <button
-          onClick={() => {
-            setMatchCard(true);
-            console.log("setmatchtrue");
-          }}
-        >
-          Profile
-        </button>
-        <MatchedProfile
-          isMatchedCardOpen={isMatchedCardOpen}
-          setMatchCard={setMatchCard}
-          user={likedObj}
-        />
       </>
     );
   } else {
@@ -33,19 +19,6 @@ const SingleMatchView = ({ likedObj }) => {
           className="match-img"
         />
         <p>{likedObj.name}</p>
-        <button
-          onClick={() => {
-            setMatchCard(true);
-            console.log("setmatchtrue");
-          }}
-        >
-          Profile
-        </button>
-        <MatchedProfile
-          isMatchedCardOpen={isMatchedCardOpen}
-          setMatchCard={setMatchCard}
-          user={likedObj}
-        />
       </>
     );
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Css/otheruser.css";
 
 const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {

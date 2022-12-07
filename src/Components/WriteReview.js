@@ -20,7 +20,7 @@ const WriteReview = ({
   return (
     <>
       <div className="popup-overlay">
-        <div className="add-photo-close">
+        <div className="add-photo-popup">
           <div className="close-button-review">
             <button onClick={onWriteReviewClose}>X</button>
             {children}

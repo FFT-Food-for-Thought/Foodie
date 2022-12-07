@@ -5,10 +5,13 @@ import { getLikedPFP } from "../db/pictures";
 import Chat from "./Chat";
 import { removeLike } from "../db/users";
 const ProfileMatchMessage = ({
+  setMatchedViewClicked,
+  setSingleViewClicked,
   likedUsers,
   user,
   allUsers,
   removeLikedHandler,
+  setCurrentMatch,
 }) => {
   const [match, setMatch] = useState(true);
   const [message, setMessage] = useState(false);
@@ -96,9 +99,22 @@ const ProfileMatchMessage = ({
                     key={likedObj.userId}
                   >
                     <SingleMatchView
+                      setMatchedViewClicked={setMatchedViewClicked}
+                      setSingleViewClicked={setSingleViewClicked}
                       onClick={console.log(likedObj)}
                       likedObj={likedObj}
+                      setCurrentMatch={setCurrentMatch}
                     />
+                    <button
+                      onClick={() => {
+                        setCurrentMatch(likedObj);
+                        setSingleViewClicked(false);
+                        setMatchedViewClicked(true);
+                        console.log("setmatchtrue");
+                      }}
+                    >
+                      Profile
+                    </button>
                     <button
                       className="match-remove-button"
                       onClick={() => {
