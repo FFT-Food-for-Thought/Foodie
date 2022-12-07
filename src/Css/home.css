@@ -123,13 +123,13 @@
     content: "Bon appétit!";
   }
   15% {
-    content: "Qu'aproveche";
+    content: "食飯!";
   }
   30% {
-    content: "いただきます";
+    content: "Kain Na!";
   }
   45% {
-    content: "कृपया भोजन शुरू कीजियै!";
+    content: "いただきます";
   }
   60% {
     content: "잘 먹겠습니다";
@@ -139,7 +139,7 @@
   }
 
   90% {
-    content: "食飯!";
+    content: "कृपया भोजन शुरू कीजियै!";
   }
 
   100% {
