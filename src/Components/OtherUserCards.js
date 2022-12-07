@@ -59,28 +59,31 @@ const OtherUserCards = ({ loggedInUser, allUsers }) => {
     return (
       <div className="other-user">
         <SingleProfileCard user={users[currentUser]} />
-        <button
-          onClick={() => {
-            handleLike(users[currentUser]);
-            currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
-          }}
-        >
-          {"Like"}
-        </button>
-        <button
-          onClick={() => {
-            currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
-          }}
-        >
-          {"Next"}
-        </button>
-        <button
-          onClick={() => {
-            onAddReviewHandler(users[currentUser].id);
-          }}
-        >
-          REVIEW
-        </button>
+        <div className="other-user-next">
+          <button
+            onClick={() => {
+              currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
+            }}
+            className="next-button"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <button
+            onClick={() => {
+              handleLike(users[currentUser]);
+              currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
+            }}
+          >
+            {"Like"}
+          </button>
+          <button
+            onClick={() => {
+              onAddReviewHandler(users[currentUser].id);
+            }}
+          >
+            REVIEW
+          </button>
+        </div>
         <div id="infoDiv">
           This is {users[currentUser].firstName}'s info. Taiyaki slow-carb
           flannel green juice vinyl cray. Polaroid ascot aesthetic wolf banjo

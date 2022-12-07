@@ -98,3 +98,30 @@
   padding-left: 12px;
   padding-top: 7px;
 }
+
+.next-button {
+  background-color: #F8F4F1;
+  color: #A97575;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.next-button:hover {
+  background-color: #A97575;
+  color: #F8F4F1;
+}
+
+.next-button:active {
+  background-color: #F8F4F1;
+  color: #A97575;
+}
+
+.other-user-next {
+  transform: translateY(-120px);
+  display: flex;
+  justify-content: center;
+}
