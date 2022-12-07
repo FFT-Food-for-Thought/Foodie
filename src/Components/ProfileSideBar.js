@@ -6,20 +6,29 @@ import "../Css/profile.css";
 const ProfileSideBar = ({
   likedUsers,
   setSingleViewClicked,
+  setMatchedViewClicked,
   user,
   allUsers,
+  setCurrentMatch,
   removeLikedHandler,
 }) => {
   console.log("profileSideBar", user, "and", likedUsers);
 
   return (
     <>
-      <ProfileNavbar setSingleViewClicked={setSingleViewClicked} />
+      <ProfileNavbar
+        setSingleViewClicked={setSingleViewClicked}
+        setMatchedViewClicked={setMatchedViewClicked}
+      />
       <ProfileMatchMessage
         likedUsers={likedUsers}
         user={user}
+        setCurrentMatch={setCurrentMatch}
+        setSingleViewClicked={setSingleViewClicked}
+        setMatchedViewClicked={setMatchedViewClicked}
         allUsers={allUsers}
         removeLikedHandler={removeLikedHandler}
+        setClicked
       />
     </>
   );

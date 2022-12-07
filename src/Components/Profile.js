@@ -9,15 +9,24 @@ import { getLoggedUser, getAllUsers, removeLike } from "../db/users";
 import OtherUserCards from "./OtherUserCards";
 import { distance } from "../db/users";
 import { addGeo } from "../db/users";
+import MatchedProfile from "./MatchedProfile";
 
 const Profile = () => {
   const [user, setUser] = useState({});
   const [allUsers, setUsers] = useState([]);
   const [isSingleView, setSingleViewClicked] = useState(false);
+  const [isMatchedView, setMatchedViewClicked] = useState(false);
   const [likedUsers, setLikedList] = useState([]);
+  const [currentMatch, setCurrentMatch] = useState({});
+  console.log("Current Match  >>>>", currentMatch);
+  console.log("isMatchedView >>>>", isMatchedView);
   const handleView = (e) => {
     e.preventDefault();
     setSingleViewClicked(false);
+  };
+  const handleMatchedView = (e) => {
+    e.preventDefault();
+    setMatchedViewClicked(false);
   };
 
   useEffect(() => {
@@ -109,7 +118,9 @@ const Profile = () => {
               likedUsers={likedUsers}
               loggedInUser={user}
               setSingleViewClicked={setSingleViewClicked}
+              setMatchedViewClicked={setMatchedViewClicked}
               removeLikedHandler={removeLikedHandler}
+              setCurrentMatch={setCurrentMatch}
               user={user}
             />
           </div>
@@ -121,6 +132,28 @@ const Profile = () => {
           </div>
         </>
       );
+    } else if (isMatchedView) {
+      return (
+        <>
+          <div className="sidebar">
+            <ProfileSideBar
+              likedUsers={likedUsers}
+              loggedInUser={user}
+              setSingleViewClicked={setSingleViewClicked}
+              setMatchedViewClicked={setMatchedViewClicked}
+              removeLikedHandler={removeLikedHandler}
+              setCurrentMatch={setCurrentMatch}
+              user={user}
+            />
+          </div>
+          <div className="picture-view">
+            <div className="box">
+              <MatchedProfile user={currentMatch} />
+              <button onClick={handleMatchedView}>Continue Browsing</button>
+            </div>
+          </div>
+        </>
+      );
     } else {
       return (
         <>
@@ -128,9 +161,11 @@ const Profile = () => {
             <ProfileSideBar
               likedUsers={likedUsers}
               setSingleViewClicked={setSingleViewClicked}
+              setMatchedViewClicked={setMatchedViewClicked}
               user={user}
               allUsers={allUsers}
               removeLikedHandler={removeLikedHandler}
+              setCurrentMatch={setCurrentMatch}
             />
           </div>
           <div className="picture-view">
