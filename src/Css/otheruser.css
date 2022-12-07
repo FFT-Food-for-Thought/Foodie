@@ -40,7 +40,7 @@
 }
 
 .info-button {
-  background: #F8F4F1;
+  background-color: #F8F4F1;
   color: #503D42;
   border: none;
   font-family: "Inter";
@@ -50,4 +50,14 @@
   width: 21px;
   height: 21px;
   transform: translate(5px, 12px);
+}
+
+.info-button:hover {
+  background-color: #503D42;
+  color: #F8F4F1;
+}
+
+.info-button:active {
+  background-color: #F8F4F1;
+  color: #503D42;
 }
