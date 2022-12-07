@@ -69,7 +69,12 @@ const SingleProfileCard = ({ user }) => {
         </div>
       );
     } else {
-      return <div className="other-user-firstName">{user.firstName}NO PIC</div>;
+      return (
+        <div className="single-profile-card">
+          <div className="other-user-img no-pic">NO PIC</div>
+          <h1 className="other-user-firstName">{user.firstName}</h1>
+        </div>
+      );
     }
   }
   return <div>Loading...</div>;
