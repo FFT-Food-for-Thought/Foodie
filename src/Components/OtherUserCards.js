@@ -8,6 +8,7 @@ import {
   getAllChefs,
 } from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
+import "../Css/otheruser.css";
 
 const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
   const [currentUser, setCurrentUser] = useState(0);
@@ -56,40 +57,45 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
   // };
   if (users.length) {
     return (
-      <div>
+      <div className="other-user">
         <SingleProfileCard user={users[currentUser]} />
-        <button
-          onClick={() => {
-            const likedObj = {
-              userId: users[currentUser].userId,
-              name: users[currentUser].firstName,
-            };
-            console.log("in like click", likedObj);
-            handleLike(likedObj);
-            addLikedUser(
-              loggedInUser.id,
-              users[currentUser].userId,
-              users[currentUser].firstName
-            );
-            currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
-          }}
-        >
-          {"Like"}
-        </button>
-        <button
-          onClick={() => {
-            currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
-          }}
-        >
-          {"Next"}
-        </button>
-        <button
-          onClick={() => {
-            onAddReviewHandler(users[currentUser].id);
-          }}
-        >
-          REVIEW
-        </button>
+        <div className="other-user-next">
+          <button
+            onClick={() => {
+              currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
+            }}
+            className="other-user-button next"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <button
+            onClick={() => {
+              onAddReviewHandler(users[currentUser].id);
+            }}
+            className="other-user-button review"
+          >
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button
+            onClick={() => {
+              const likedObj = {
+                userId: users[currentUser].userId,
+                name: users[currentUser].firstName,
+              };
+              console.log("in like click", likedObj);
+              handleLike(likedObj);
+              addLikedUser(
+                loggedInUser.id,
+                users[currentUser].userId,
+                users[currentUser].firstName
+              );
+              currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
+            }}
+            className="other-user-button like"
+          >
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
         <div id="infoDiv">
           This is {users[currentUser].firstName}'s info. Taiyaki slow-carb
           flannel green juice vinyl cray. Polaroid ascot aesthetic wolf banjo

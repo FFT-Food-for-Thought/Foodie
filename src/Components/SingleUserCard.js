@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Css/profile.css";
+import "../Css/singleuser.css";
 import AddProfilePic from "./AddProfilePic";
 import EditProfile from "./EditProfile";
 
@@ -60,7 +60,7 @@ const SingleUserCard = ({ user }) => {
     } else {
       return (
         <div>
-          <div>{user.firstName}NO PIC</div>
+          <div className="single-user-firstName">{user.firstName}NO PIC</div>
           <button onClick={() => setEditProfileIsOpen(true)}>
             Edit Profile
           </button>
