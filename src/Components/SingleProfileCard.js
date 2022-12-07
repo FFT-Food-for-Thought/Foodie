@@ -13,6 +13,23 @@ const SingleProfileCard = ({ user }) => {
             alt=""
             className="other-user-img"
           />
+          <div className="left-right">
+            <button
+              onClick={() => {
+                currentImg > 0 && setCurrentImg(currentImg - 1);
+              }}
+            >
+              {"<<"}
+            </button>
+            <button
+              onClick={() =>
+                currentImg < user.pictureBucket.length - 1 &&
+                setCurrentImg(currentImg + 1)
+              }
+            >
+              {">>"}
+            </button>
+          </div>
           <div className="name-and-location">
             <div className="basic-info">
               <h1 className="other-user-firstName">{user.firstName}</h1>
@@ -40,21 +57,6 @@ const SingleProfileCard = ({ user }) => {
             </div>
           </div>
           <br></br>
-          <button
-            onClick={() => {
-              currentImg > 0 && setCurrentImg(currentImg - 1);
-            }}
-          >
-            {"<<"}
-          </button>
-          <button
-            onClick={() =>
-              currentImg < user.pictureBucket.length - 1 &&
-              setCurrentImg(currentImg + 1)
-            }
-          >
-            {">>"}
-          </button>
         </div>
       );
     } else {
