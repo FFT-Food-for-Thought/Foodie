@@ -8,6 +8,8 @@ import {
   serverTimestamp,
   getDoc,
   getDocs,
+  where,
+  query,
 } from "firebase/firestore";
 
 const reviewRef = collection(db, "Reviews");
@@ -71,6 +73,34 @@ export const getReview = async () => {
     console.log("review :>> ", review.data());
   } catch (error) {
     console.log("error in get Review", error);
+  }
+};
+
+export const getRevieweeReviews = async (revieweeId) => {
+  try {
+    const reviewCol = collection(db, "Reviews");
+    const q = query(reviewCol, where("revieweeId", "==", revieweeId));
+    const reviewSnapshot = await getDocs(q);
+    const revieweeReviews = reviewSnapshot.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    return revieweeReviews;
+  } catch (error) {
+    console.log("error in getRevieweeReviews", error);
+  }
+};
+
+export const getReviewerReviews = async (reviewerId) => {
+  try {
+    const reviewCol = collection(db, "Reviews");
+    const q = query(reviewCol, where("reviewerId", "==", reviewerId));
+    const reviewSnapshot = await getDocs(q);
+    const reviewerReviews = reviewSnapshot.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    return reviewerReviews;
+  } catch (error) {
+    console.log("error in getReviewerReviews", error);
   }
 };
 
