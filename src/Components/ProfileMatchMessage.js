@@ -106,14 +106,14 @@ const ProfileMatchMessage = ({
                       setCurrentMatch={setCurrentMatch}
                     />
                     <button
+                      className="matched-profile-button"
                       onClick={() => {
                         setCurrentMatch(likedObj);
                         setSingleViewClicked(false);
                         setMatchedViewClicked(true);
-                        console.log("setmatchtrue");
                       }}
                     >
-                      Profile
+                      {likedObj.firstName} {likedObj.lastName}
                     </button>
                     <button
                       className="match-remove-button"

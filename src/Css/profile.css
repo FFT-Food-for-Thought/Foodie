@@ -197,3 +197,20 @@
 .padding-right {
   padding-right: 17px;
 }
+
+.matched-profile-button {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5%;
+  background-color: #80a479;
+  border-bottom: solid 2px #2d2820;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.matched-profile-button:hover {
+  color: rgb(192, 36, 36);
+}

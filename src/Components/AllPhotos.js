@@ -42,7 +42,7 @@ const AllPhotos = ({ openAllPhotos, children, onAllPhotoClose }) => {
     return (
       <>
         <div className="popup-overlay">
-          <div className="add-photo-popup">
+          <div className="all-photo-popup">
             <div className="all-photo-close">
               <button onClick={onAllPhotoClose}>X</button>
               {children}
@@ -56,13 +56,23 @@ const AllPhotos = ({ openAllPhotos, children, onAllPhotoClose }) => {
     return (
       <>
         <div className="popup-overlay">
-          <div className="add-photo-popup">
-            <div className="all-photo-close">
-              <button onClick={onAllPhotoClose}>X</button>
+          <div
+            className="all-photo-popup"
+            style={{
+              // backgroundImage: `url( ${img[currentImg].URL} )`,
+              backgroundSize: "cover",
+              backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0)10%, rgba(0,0,0,1)), url( ${img[currentImg].URL} )`,
+            }}
+          >
+            <div className="all-photo-container">
+              <button onClick={onAllPhotoClose} className="all-photo-close">
+                X
+              </button>
               {children}
             </div>
-            <img src={img[currentImg].URL} alt="" />
+            {/* <img src={img[currentImg].URL} alt="" /> */}
             <button
+              className="delete-photo-button"
               onClick={(e) => {
                 handleDelete(e);
               }}
@@ -70,6 +80,7 @@ const AllPhotos = ({ openAllPhotos, children, onAllPhotoClose }) => {
               Delete Photo
             </button>
             <button
+              className="search-left-button"
               onClick={() => {
                 currentImg > 0 && setCurrentImg(currentImg - 1);
               }}
@@ -77,6 +88,7 @@ const AllPhotos = ({ openAllPhotos, children, onAllPhotoClose }) => {
               {"<<"}
             </button>
             <button
+              className="search-right-button"
               onClick={() =>
                 currentImg < img.length - 1 && setCurrentImg(currentImg + 1)
               }
