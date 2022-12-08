@@ -17,6 +17,7 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
   const submitHandler = async (e) => {};
   console.log("rendered seereviews", reviews);
   if (!openSeeReview) return null;
+
   if (reviews.length) {
     return (
       <>
@@ -48,6 +49,7 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
                 {">>"}
               </button>
             </div>
+
           </div>
         </div>
       </>
@@ -67,6 +69,7 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
               </button>
               <p>No Reviews</p>
             </div>
+
           </div>
         </div>
       </>
