@@ -181,10 +181,6 @@
   align-items: center;
 }
 
-.no-pic-first-name {
-  transform: translateY(-66px);
-}
-
 #infoDiv {
   display: none;
   overflow-x: hidden;
@@ -196,4 +192,8 @@
   color: #f8f4f1;
   padding: 15px;
   border-radius: 6px;
+}
+
+.name-and-location-no-img {
+  transform: translateY(-62px);
 }

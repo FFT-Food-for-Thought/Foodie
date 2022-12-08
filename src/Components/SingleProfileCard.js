@@ -70,9 +70,32 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
       return (
         <div className="single-profile-card">
           <div className="other-user-img no-pic">NO PIC</div>
-          <h1 className="other-user-firstName no-pic-first-name">
-            {user.firstName}
-          </h1>
+          <div className="name-and-location-no-img">
+            <div className="basic-info">
+              <h1 className="other-user-firstName">{user.firstName}</h1>
+              <button
+                onClick={() => {
+                  let div = document.getElementById("infoDiv");
+                  if (div.style.display === "block") {
+                    div.style.display = "none";
+                  } else {
+                    div.style.display = "block";
+                  }
+                }}
+                className="info-button"
+              >
+                <i class="fa-solid fa-circle-info"></i>
+              </button>
+            </div>
+            <div className="basic-info">
+              <i class="fa-solid fa-house"></i>
+              <p className="other-user-location">Lives in {user.location}</p>
+            </div>
+            <div className="basic-info">
+              <i class="fa-solid fa-location-dot"></i>
+              <p className="other-user-location">miles away</p>
+            </div>
+          </div>
         </div>
       );
     }
