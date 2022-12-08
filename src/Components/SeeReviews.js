@@ -7,6 +7,7 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
   const [currentReview, setCurrentReview] = useState(0);
   useEffect(() => {
     const _getReviews = async () => {
+      console.log("gotreviews");
       const gottenReviews = await getRevieweeReviews(user.id);
       setReviews(gottenReviews);
     };
@@ -48,11 +49,12 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
                 {">>"}
               </button>
             </div>
+
           </div>
         </div>
       </>
     );
-  } else
+  } else {
     return (
       <>
         <div className="popup-overlay">
@@ -65,12 +67,13 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
               >
                 X
               </button>
-              {/* {children} */}
-              <div>No reviews yet</div>
+              <p>No Reviews</p>
             </div>
+
           </div>
         </div>
       </>
     );
+  }
 };
 export default SeeReviews;
