@@ -58,7 +58,8 @@ export const updateUser = async (
   firstName,
   lastName,
   userName,
-  location
+  location,
+  bio
 ) => {
   // Below is old hardcoded code
   // const docRef = doc(db, "Users", "fhfUllMNrJD0ddRgT38Z");
@@ -72,6 +73,7 @@ export const updateUser = async (
       location: location,
       username: userName,
       email: email,
+      bio: bio,
     };
     console.log("update :>> ", update);
     await updateDoc(docRef, update);

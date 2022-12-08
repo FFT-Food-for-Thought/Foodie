@@ -60,6 +60,18 @@ export const addProfilePicture = async (image) => {
   }
 };
 
+export const deleteProfilePicture = async () => {
+  try {
+    const uid = auth.currentUser.uid;
+    const imageRef = ref(storage, `profilePics/${uid}/profilePic.jpg`);
+    deleteObject(imageRef).catch((err) =>
+      console.log("error in Delete Profile Picture :>> ", err)
+    );
+  } catch (error) {
+    console.log("error in Delete Profile Picture :>> ", error);
+  }
+};
+
 export const getMyProfilePicture = async () => {
   try {
     const uid = auth.currentUser.uid;

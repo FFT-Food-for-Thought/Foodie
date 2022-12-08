@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import "../Css/editprofilepicture.css";
-import { addProfilePicture } from "../db/pictures";
+import { addProfilePicture, deleteProfilePicture } from "../db/pictures";
 
 const AddProfilePic = ({ openProfilePic, children, onProfilePicClose }) => {
   const [imageUpload, setImageUpload] = useState(null);
 
   const handleProfileUpload = () => {
     console.log("uploading");
+    deleteProfilePicture();
     addProfilePicture(imageUpload);
   };
 
   const handleImageChange = async (e) => {
     e.preventDefault();
+
     setImageUpload(e.target.files[0]);
   };
   if (!openProfilePic) return null;

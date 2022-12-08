@@ -61,6 +61,14 @@ const SingleUserCard = ({ user }) => {
       return (
         <div>
           <div className="single-user-firstName">{user.firstName}NO PIC</div>
+
+          <button onClick={() => setAddProfilePicIsOpen(true)}>
+            Add Profile Pic
+          </button>
+          <AddProfilePic
+            openProfilePic={isAddProfilePicOpen}
+            onProfilePicClose={() => setAddProfilePicIsOpen(false)}
+          ></AddProfilePic>
           <button onClick={() => setEditProfileIsOpen(true)}>
             Edit Profile
           </button>

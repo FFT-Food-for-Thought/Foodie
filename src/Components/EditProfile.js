@@ -12,6 +12,7 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const userNameRef = useRef();
+  const bioRef = useRef();
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
@@ -28,7 +29,8 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
     const lastName = lastNameRef.current.value;
     const location = document.getElementById("location").value;
     const userName = userNameRef.current.value;
-    updateUser(userId, email, firstName, lastName, userName, location);
+    const bio = bioRef.current.value;
+    updateUser(userId, email, firstName, lastName, userName, location, bio);
   };
 
   if (!openEditProfile) return null;
@@ -69,6 +71,14 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
               className="form-input"
               htmlFor="username"
               id="username"
+            />
+            <input
+              defaultValue={user.bio}
+              ref={bioRef}
+              className="form-input"
+              htmlFor="bio"
+              id="bio"
+              type="text"
             />
             <label htmlFor="location" className="state">
               State:
