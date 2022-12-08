@@ -9,7 +9,7 @@ import { addProfilePicture } from "../db/pictures";
 import { useNavigate, Link, useResolvedPath } from "react-router-dom";
 import AllPhotos from "./AllPhotos";
 
-const ProfileNavbar = ({ setSingleViewClicked }) => {
+const ProfileNavbar = ({ setSingleViewClicked, setMatchedViewClicked }) => {
   const [isAddPhotoOpen, setAddPhotoIsOpen] = useState(false);
   const [isAllPhotoOpen, setAllPhotoIsOpen] = useState(false);
   const [pictures, setPictures] = useState([]);
@@ -23,6 +23,7 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
   const handleSingleView = (e) => {
     e.preventDefault();
     setSingleViewClicked(true);
+    setMatchedViewClicked(false);
   };
 
   console.log(">>>> NAVBAR", user.pictureBucket);

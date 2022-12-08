@@ -5,7 +5,7 @@
 }
 
 .other-user-firstName {
-  color: #F8F4F1;
+  color: #f8f4f1;
   font-family: "Inter";
   font-weight: 400;
   padding-left: 10px;
@@ -13,19 +13,19 @@
 }
 
 .fa-house {
-  color: #F8F4F1;
+  color: #f8f4f1;
   padding-left: 12px;
 }
 
 .other-user-location {
-  color: #F8F4F1;
+  color: #f8f4f1;
   font-family: "Inter";
   padding-left: 5px;
   vertical-align: bottom;
 }
 
 .fa-location-dot {
-  color: #F8F4F1;
+  color: #f8f4f1;
   padding-left: 15px;
 }
 
@@ -39,8 +39,8 @@
 }
 
 .info-button {
-  background-color: #F8F4F1;
-  color: #503D42;
+  background-color: #f8f4f1;
+  color: #503d42;
   border: none;
   cursor: pointer;
   font-size: 16px;
@@ -51,13 +51,13 @@
 }
 
 .info-button:hover {
-  background-color: #503D42;
-  color: #F8F4F1;
+  background-color: #503d42;
+  color: #f8f4f1;
 }
 
 .info-button:active {
-  background-color: #F8F4F1;
-  color: #503D42;
+  background-color: #f8f4f1;
+  color: #503d42;
 }
 
 .left-right {
@@ -68,7 +68,7 @@
 
 .left-right-button {
   background: none;
-  color: #F8F4F1;
+  color: #f8f4f1;
   border: none;
   cursor: pointer;
   font-size: 24px;
@@ -76,17 +76,17 @@
 }
 
 .left-right-button:hover {
-  color: #80A479;
+  color: #80a479;
 }
 
 .left-right-button:active {
-  color: #F8F4F1;
+  color: #f8f4f1;
 }
 
 .other-user-tag {
-  color: #F8F4F1;
+  color: #f8f4f1;
   font-family: "Inter";
-  background-color: #503D42;
+  background-color: #503d42;
   border: solid;
   border-radius: 25px;
   padding: 2px;
@@ -114,20 +114,20 @@
 }
 
 .next {
-  color: #F8F4F1;
-  background-color: #A97575;
+  color: #f8f4f1;
+  background-color: #a97575;
   font-size: 24px;
   margin-right: 10px;
 }
 
 .next:hover {
-  color: #A97575;
-  background-color: #F8F4F1;
+  color: #a97575;
+  background-color: #f8f4f1;
 }
 
 .next:active {
-  color: #F8F4F1;
-  background-color: #A97575;
+  color: #f8f4f1;
+  background-color: #a97575;
 }
 
 .other-user {
@@ -139,40 +139,40 @@
 }
 
 .review {
-  color: #F8F4F1;
-  background-color: #B7C4CF;
+  color: #f8f4f1;
+  background-color: #b7c4cf;
   font-size: 20px;
 }
 
 .review:hover {
-  color: #B7C4CF;
-  background-color: #F8F4F1;
+  color: #b7c4cf;
+  background-color: #f8f4f1;
 }
 
 .review:active {
-  color: #F8F4F1;
-  background-color: #B7C4CF;
+  color: #f8f4f1;
+  background-color: #b7c4cf;
 }
 
 .like {
-  color: #F8F4F1;
-  background-color: #80A479;
+  color: #f8f4f1;
+  background-color: #80a479;
   font-size: 20px;
   margin-left: 10px;
 }
 
 .like:hover {
-  color: #80A479;
-  background-color: #F8F4F1;
+  color: #80a479;
+  background-color: #f8f4f1;
 }
 
 .like:active {
-  color: #F8F4F1;
-  background-color: #80A479;
+  color: #f8f4f1;
+  background-color: #80a479;
 }
 
 .no-pic {
-  color: #F8F4F1;
+  color: #f8f4f1;
   font-family: "Inter";
   font-size: 48px;
   display: flex;

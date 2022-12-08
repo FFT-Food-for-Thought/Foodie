@@ -13,7 +13,7 @@ const SingleUserCard = ({ user }) => {
         <div>
           <img src={user.pictureBucket[currentImg].URL} alt="" />
           <button onClick={() => setAddProfilePicIsOpen(true)}>
-            Edit Profile Pic
+            Add Profile Pic
           </button>
           <AddProfilePic
             openProfilePic={isAddProfilePicOpen}
