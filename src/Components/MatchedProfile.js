@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import "../Css/profile.css";
 import "../Css/writeReview.css";
+import SeeReviews from "./SeeReviews";
 import WriteReview from "./WriteReview";
 //add back in {user} into props later
 const MatchedProfile = ({ setMatchCard, user, loggedInUser }) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [isWriteReviewOpen, setWriteReviewIsOpen] = useState(false);
+  const [openSeeReview, setSeeReview] = useState(false);
   console.log("loggedinUser in match profile", loggedInUser);
+
+  const seeReviewHandler = () => {
+    setSeeReview(true);
+    console.log(openSeeReview);
+  };
+
   if (user.pictureBucket) {
     if (user.pictureBucket.length) {
       return (
@@ -72,6 +80,19 @@ const MatchedProfile = ({ setMatchCard, user, loggedInUser }) => {
             }}
           >
             REVIEW
+          </button>
+          <SeeReviews
+            setSeeReview={setSeeReview}
+            user={user}
+            openSeeReview={openSeeReview}
+          />
+          <button
+            onClick={() => {
+              setSeeReview(true);
+              console.log(openSeeReview);
+            }}
+          >
+            SEE REVIEWS
           </button>
         </div>
       );
@@ -147,6 +168,19 @@ const MatchedProfile = ({ setMatchCard, user, loggedInUser }) => {
             }}
           >
             REVIEW
+          </button>
+          <SeeReviews
+            setSeeReview={setSeeReview}
+            user={user}
+            openSeeReview={openSeeReview}
+          />
+          <button
+            onClick={() => {
+              setSeeReview(true);
+              console.log(openSeeReview);
+            }}
+          >
+            SEE REVIEWS
           </button>
         </div>
       );

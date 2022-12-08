@@ -1,38 +1,18 @@
 import React, { useRef, useState } from "react";
 import "../Css/writeReview.css";
-import { auth } from "../db/signup";
-import { addReviewToReviewee, addReviewToReviewer } from "../db/users";
-import { createReview } from "../db/reviews";
 const WriteReview = ({
+  userId,
+  revieweeId,
   children,
   openWriteReview,
   onWriteReviewClose,
-  user,
-  loggedInUser,
 }) => {
-  const loggedinId = loggedInUser.id;
-  const targetUserId = user.id;
+  const [pictags, setTags] = useState([]);
   const reviewRef = useRef();
-  const submitHandler = async (e) => {
+  const tagRef = useRef();
+  const submitHandler = (e) => {
     e.preventDefault();
-    const reviewString = reviewRef.current.value;
-    console.log(
-      "review text",
-      reviewRef.current.value,
-      "type",
-      typeof reviewRef.current.value
-    );
-    const reviewId = await createReview(reviewString, loggedinId, targetUserId);
-    console.log(
-      "review Id created",
-      reviewId.id,
-      "reviewwee ID",
-      loggedinId,
-      "targetID",
-      targetUserId
-    );
-    await addReviewToReviewee(targetUserId, reviewId.id);
-    await addReviewToReviewer(loggedinId, reviewId.id);
+    console.log("review text", reviewRef.current.value);
   };
 
   if (!openWriteReview) return null;
@@ -46,13 +26,7 @@ const WriteReview = ({
             {children}
           </div>
           <form onSubmit={submitHandler}>
-            <textarea
-              id="write-review-textarea"
-              rows="10"
-              cols="60"
-              ref={reviewRef}
-              style={{ resize: "none" }}
-            ></textarea>
+            <textarea ref={reviewRef} style={{ resize: "none" }}></textarea>
             <button>Submit</button>
           </form>
         </div>
