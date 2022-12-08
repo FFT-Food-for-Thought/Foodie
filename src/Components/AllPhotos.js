@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../db/signup";
 import { deletePhoto } from "../db/pictures";
 import "../Css/allphoto.css";
-import { onAuthStateChanged } from "firebase/auth";
+import { AuthErrorCodes, onAuthStateChanged } from "firebase/auth";
 import { getLoggedUser } from "../db/users";
 
 const AllPhotos = ({
@@ -76,6 +76,7 @@ const AllPhotos = ({
             style={{
               // backgroundImage: `url( ${img[currentImg].URL} )`,
               backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
               backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0)10%, rgba(0,0,0,1)), url( ${img[currentImg].URL} )`,
             }}
           >
