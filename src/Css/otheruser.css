@@ -118,7 +118,7 @@
   color: #f8f4f1;
   background-color: #a97575;
   font-size: 24px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .next:hover {
@@ -139,6 +139,7 @@
   height: 473px;
 }
 
+/*
 .review {
   color: #f8f4f1;
   background-color: #b7c4cf;
@@ -154,12 +155,13 @@
   color: #f8f4f1;
   background-color: #b7c4cf;
 }
+*/
 
 .like {
   color: #f8f4f1;
   background-color: #80a479;
   font-size: 20px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .like:hover {
