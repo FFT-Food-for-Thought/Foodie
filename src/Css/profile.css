@@ -137,6 +137,7 @@
   width: 40%;
   background-color: black;
   height: 50%;
+  border-radius: 6px;
 }
 
 .btn {

@@ -2,6 +2,7 @@
   width: 512.67px;
   height: 353px;
   -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  border-radius: 6px;
 }
 
 .other-user-firstName {
@@ -191,7 +192,8 @@
   width: 497.5px;
   height: 110px;
   background-color: black;
-  transform: translateY(-35px);
+  transform: translateY(-44px);
   color: #f8f4f1;
   padding: 15px;
+  border-radius: 6px;
 }
