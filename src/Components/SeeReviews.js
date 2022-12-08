@@ -4,6 +4,7 @@ import { auth } from "../db/signup";
 import { getRevieweeReviews, getReviewerReviews } from "../db/reviews";
 const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
   const [reviews, setReviews] = useState([]);
+  const [currentReview, setCurrentReview] = useState(0);
   useEffect(() => {
     const _getReviews = async () => {
       const gottenReviews = await getRevieweeReviews(user.id);
@@ -29,11 +30,22 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
               X
             </button>
             {/* {children} */}
-            <div>
-              {reviews.map((review) => {
-                return <p>{review.review}</p>;
-              })}
-            </div>
+            <div>{reviews[currentReview].review}</div>
+            <button
+              onClick={() => {
+                currentReview > 0 && setCurrentReview(currentReview - 1);
+              }}
+            >
+              {"<<"}
+            </button>
+            <button
+              onClick={() => {
+                currentReview < reviews.length - 1 &&
+                  setCurrentReview(currentReview + 1);
+              }}
+            >
+              {">>"}
+            </button>
           </div>
         </div>
       </div>
