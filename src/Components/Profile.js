@@ -154,7 +154,7 @@ const Profile = () => {
           </div>
           <div className="picture-view">
             <div className="box">
-              <MatchedProfile user={currentMatch} />
+              <MatchedProfile user={currentMatch} loggedInUser={user} />
               <button onClick={handleMatchedView}>Continue Browsing</button>
             </div>
           </div>

@@ -104,6 +104,7 @@ const ProfileMatchMessage = ({
                       onClick={console.log(likedObj)}
                       likedObj={likedObj}
                       setCurrentMatch={setCurrentMatch}
+                      loggedInUser={user}
                     />
                     <button
                       onClick={() => {
