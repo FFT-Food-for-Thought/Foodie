@@ -5,25 +5,39 @@ import "../Css/allphoto.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { getLoggedUser } from "../db/users";
 
-const AllPhotos = ({ openAllPhotos, children, onAllPhotoClose }) => {
-  const [user, setUser] = useState({});
+const AllPhotos = ({
+  openAllPhotos,
+  children,
+  onAllPhotoClose,
+  pictures,
+  currUser,
+  setPictures,
+}) => {
+  const [user, setUser] = useState(currUser);
   const [currentImg, setCurrentImg] = useState(0);
-  const [img, setImg] = useState([]);
+  const [img, setImg] = useState(pictures);
 
+  // useEffect(() => {
+  //   const unsub = onAuthStateChanged(auth, async (user) => {
+  //     const newUser = await getLoggedUser();
+  //     setUser(newUser);
+  //     setImg(newUser.pictureBucket);
+
+  //     console.log(">>> Auth state changed", picture);
+  //     console.log(">>> newUser is", img);
+  //   });
+  //   return unsub;
+  // }, []);
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (user) => {
-      const newUser = await getLoggedUser();
-      setUser(newUser);
-      setImg(newUser.pictureBucket);
+    setUser(currUser);
+    setImg(pictures);
+    console.log("in new useEffect");
+  }, [pictures.length]);
 
-      console.log(">>> Auth state changed", user);
-      console.log(">>> newUser is", newUser);
-    });
-    return unsub;
-  }, []);
-  console.log(">>picturebucket", img);
-
-  console.log("images>>>>", img);
+  console.log(">>picturebucket", pictures);
+  console.log(img);
+  console.log("images>>>>", currUser);
+  console.log(user);
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -33,7 +47,8 @@ const AllPhotos = ({ openAllPhotos, children, onAllPhotoClose }) => {
     const filteredImages = img.filter((image, idx) => {
       if (idx !== currentImg) return image;
     });
-    setImg(filteredImages);
+    setPictures(filteredImages);
+    setCurrentImg(0);
   };
 
   if (!openAllPhotos) {
