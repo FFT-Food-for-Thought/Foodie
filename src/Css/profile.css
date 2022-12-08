@@ -137,14 +137,7 @@
   width: 40%;
   background-color: black;
   height: 50%;
-}
-
-#infoDiv {
-  display: none;
-  overflow-x: hidden;
-  overflow-y: auto;
-  width: 470.4px;
-  height: 110px;
+  border-radius: 6px;
 }
 
 .btn {

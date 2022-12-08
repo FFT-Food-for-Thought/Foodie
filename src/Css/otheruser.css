@@ -2,6 +2,7 @@
   width: 512.67px;
   height: 353px;
   -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  border-radius: 6px;
 }
 
 .other-user-firstName {
@@ -117,7 +118,7 @@
   color: #f8f4f1;
   background-color: #a97575;
   font-size: 24px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .next:hover {
@@ -138,6 +139,7 @@
   height: 473px;
 }
 
+/*
 .review {
   color: #f8f4f1;
   background-color: #b7c4cf;
@@ -153,12 +155,13 @@
   color: #f8f4f1;
   background-color: #b7c4cf;
 }
+*/
 
 .like {
   color: #f8f4f1;
   background-color: #80a479;
   font-size: 20px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .like:hover {
@@ -180,6 +183,19 @@
   align-items: center;
 }
 
-.no-pic-first-name {
-  transform: translateY(-66px);
+#infoDiv {
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 497.5px;
+  height: 110px;
+  background-color: black;
+  transform: translateY(-44px);
+  color: #f8f4f1;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.name-and-location-no-img {
+  transform: translateY(-62px);
 }

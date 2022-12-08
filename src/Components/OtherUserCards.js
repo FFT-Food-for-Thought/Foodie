@@ -74,6 +74,7 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
           >
             <i class="fa-solid fa-xmark"></i>
           </button>
+          {/*
           <button
             onClick={() => {
               onAddReviewHandler(users[currentUser].id);
@@ -82,6 +83,7 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
           >
             <i class="fa-regular fa-pen-to-square"></i>
           </button>
+          */}
           <button
             onClick={() => {
               const likedObj = {
