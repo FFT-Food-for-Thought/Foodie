@@ -7,7 +7,7 @@ const SingleMatchView = ({ likedObj }) => {
     return (
       <>
         <img src={likedObj.URL} alt="profilepic" className="match-img" />
-        <p>{likedObj.name}</p>
+        {/* <p>{likedObj.name}</p> */}
       </>
     );
   } else {
@@ -18,7 +18,7 @@ const SingleMatchView = ({ likedObj }) => {
           alt="profilepic"
           className="match-img"
         />
-        <p>{likedObj.name}</p>
+        {/* <p>{likedObj.name}</p> */}
       </>
     );
   }
