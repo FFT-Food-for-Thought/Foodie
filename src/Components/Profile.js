@@ -36,6 +36,7 @@ const Profile = () => {
       setLikedList(newUser.likedUsers);
       console.log("Auth state changed", user);
       console.log("newuser", newUser);
+      return unsub;
     });
     if ("geolocation" in navigator) {
       /* geolocation is available */
@@ -43,6 +44,12 @@ const Profile = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           addGeo(user.id, position.coords.latitude, position.coords.longitude);
+          console.log("user.id :>> ", user.id);
+          console.log(
+            "COORDS :>> ",
+            position.coords.latitude,
+            position.coords.longitude
+          );
 
           // console.log(
           //   "distance formulat being used, you are this many miles from disneyland in a straight line",
@@ -61,7 +68,6 @@ const Profile = () => {
         }
       );
     }
-    return unsub;
   }, []);
 
   useEffect(() => {
