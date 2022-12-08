@@ -33,6 +33,10 @@ const WriteReview = ({
     );
     await addReviewToReviewee(targetUserId, reviewId.id);
     await addReviewToReviewer(loggedinId, reviewId.id);
+
+    user.reviews.push({
+      review: reviewString,
+    });
   };
 
   if (!openWriteReview) return null;
