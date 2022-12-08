@@ -3,10 +3,10 @@ import "../Css/profile.css";
 import "../Css/writeReview.css";
 import WriteReview from "./WriteReview";
 //add back in {user} into props later
-const MatchedProfile = ({ setMatchCard, user }) => {
+const MatchedProfile = ({ setMatchCard, user, loggedInUser }) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [isWriteReviewOpen, setWriteReviewIsOpen] = useState(false);
-
+  console.log("loggedinUser in match profile", loggedInUser);
   if (user.pictureBucket) {
     if (user.pictureBucket.length) {
       return (
@@ -59,6 +59,8 @@ const MatchedProfile = ({ setMatchCard, user }) => {
           </div>
 
           <WriteReview
+            user={user}
+            loggedInUser={loggedInUser}
             openWriteReview={isWriteReviewOpen}
             onWriteReviewClose={() => {
               setWriteReviewIsOpen(false);
@@ -133,6 +135,7 @@ const MatchedProfile = ({ setMatchCard, user }) => {
             X
           </button>
           <WriteReview
+            user={user}
             openWriteReview={isWriteReviewOpen}
             onWriteReviewClose={() => {
               setWriteReviewIsOpen(false);

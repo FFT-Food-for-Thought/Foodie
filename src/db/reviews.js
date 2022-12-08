@@ -23,13 +23,13 @@ const reviewRef = collection(db, "Reviews");
 // };
 
 //Live function to actually post reviews to review table
-export const createReview = async (reviewString, reviewer, reviewee) => {
+export const createReview = async (reviewString, reviewerId, revieweeId) => {
   try {
     const review = {
       review: reviewString,
       createdAt: serverTimestamp(),
-      reviewer,
-      reviewee,
+      reviewerId,
+      revieweeId,
     };
     const reviewId = await addDoc(reviewRef, review);
     return reviewId;
