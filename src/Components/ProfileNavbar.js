@@ -12,7 +12,9 @@ import AllPhotos from "./AllPhotos";
 const ProfileNavbar = ({ setSingleViewClicked }) => {
   const [isAddPhotoOpen, setAddPhotoIsOpen] = useState(false);
   const [isAllPhotoOpen, setAllPhotoIsOpen] = useState(false);
+  const [pictures, setPictures] = useState([]);
   const navigate = useNavigate();
+  const [user, setUser] = useState({});
 
   const handleLogout = () => {
     logout();
@@ -23,13 +25,14 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
     setSingleViewClicked(true);
   };
 
-  const [user, setUser] = useState({});
   console.log(">>>> NAVBAR", user.pictureBucket);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
       const newUser = await getLoggedUser();
       setUser(newUser);
+      setPictures(newUser.pictureBucket);
+      console.log("in use effect pictures,", newUser, pictures);
     });
     return unsub;
   }, []);
@@ -53,6 +56,8 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
         <AddPhoto
           openAddPhoto={isAddPhotoOpen}
           onAddPhotoClose={() => setAddPhotoIsOpen(false)}
+          setPictures={setPictures}
+          pictures={pictures}
         ></AddPhoto>
         <button
           onClick={() => setAllPhotoIsOpen(true)}
@@ -63,6 +68,9 @@ const ProfileNavbar = ({ setSingleViewClicked }) => {
         <AllPhotos
           openAllPhotos={isAllPhotoOpen}
           onAllPhotoClose={() => setAllPhotoIsOpen(false)}
+          pictures={pictures}
+          currUser={user}
+          setPictures={setPictures}
         ></AllPhotos>
         <div className="padding-right"></div>
         <button className="btn logout" onClick={handleLogout}>

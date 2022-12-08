@@ -7,7 +7,13 @@ import { tags } from "../db/tags";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { addPicture } from "../db/pictures";
 
-const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
+const AddPhoto = ({
+  openAddPhoto,
+  children,
+  onAddPhotoClose,
+  setPictures,
+  pictures,
+}) => {
   const [imageUpload, setImageUpload] = useState(null);
   const [pictags, setTags] = useState([]);
   const tagRef = useRef();
@@ -35,7 +41,7 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
     });
     setTags(newTags);
   };
-
+  console.log("in add photoasdfasdf", pictures);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const uid = auth.currentUser.uid;
@@ -53,6 +59,15 @@ const AddPhoto = ({ openAddPhoto, children, onAddPhotoClose }) => {
     const URL = await getDownloadURL(imageRef);
     console.log(URL);
     await addPicture(URL, imageName, pictags);
+
+    const pictureObj = {
+      URL,
+      imageName,
+      tags: pictags,
+    };
+    const newPictures = [...pictures, pictureObj];
+    console.log(newPictures);
+    setPictures(newPictures);
   };
   const handleImageChange = async (e) => {
     e.preventDefault();
