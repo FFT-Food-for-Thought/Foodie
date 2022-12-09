@@ -8,6 +8,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
+
 import { storage } from "./firebase";
 import { auth } from "./signup";
 import {
@@ -15,6 +16,7 @@ import {
   uploadBytes,
   getDownloadURL,
   deleteObject,
+  listAll,
 } from "firebase/storage";
 
 const PROFILE_PIC_REF = "gs://foodie-1ba1a.appspot.com/profilePics/";
@@ -64,9 +66,12 @@ export const deleteProfilePicture = async () => {
   try {
     const uid = auth.currentUser.uid;
     const imageRef = ref(storage, `profilePics/${uid}/profilePic.jpg`);
-    deleteObject(imageRef).catch((err) =>
-      console.log("error in Delete Profile Picture :>> ", err)
-    );
+    const res = await listAll(imageRef);
+    if (res.items.length) {
+      deleteObject(imageRef).catch((err) =>
+        console.log("error in Delete Profile Picture :>> ", err)
+      );
+    }
   } catch (error) {
     console.log("error in Delete Profile Picture :>> ", error);
   }
