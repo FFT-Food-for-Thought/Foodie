@@ -61,6 +61,7 @@ export const getChat = async (loggedInUserId, targetUserId) => {
     const chatRoom = snapshot.docs.map((doc) => {
       return { ...doc.data(), id: doc.id };
     });
+    console.log("chatroom obj", chatRoom);
     return chatRoom[0];
   } catch (error) {
     console.log("error in getChat", error);
