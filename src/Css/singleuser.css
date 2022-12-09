@@ -1,7 +1,154 @@
 .single-user-firstName {
-  color: #F8F4F1;
+  color: #f8f4f1;
   font-family: "Inter";
   font-weight: 400;
   padding-left: 10px;
   padding-bottom: 5px;
+}
+.user-profile-picture {
+  border-radius: 2%;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: 500px;
+  height: 400px;
+}
+.profile-container {
+  width: 550px;
+  height: 500px;
+  border-radius: 2%;
+  background-image: url("https://media.istockphoto.com/id/185105112/photo/natural-wood-texture.jpg?s=612x612&w=0&k=20&c=NEDgzeNDnK0c1wMy8z_jrbmziow7m92W6q98ayrfhYY=");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.single-user-profile-name {
+  position: relative;
+  top: 20px;
+  right: -20px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.single-user-username {
+  position: relative;
+  top: 20px;
+  right: -20px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.single-user-edit-profile {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+.single-user-edit-profile:hover {
+  color: gray;
+}
+.single-user-edit-picture {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+.single-user-edit-picture:hover {
+  color: gray;
+}
+.single-user-browsing {
+  position: relative;
+  top: -32px;
+  left: 410px;
+  font-size: 15px;
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+.single-user-browsing:hover {
+  color: gray;
+}
+
+.single-user-box {
+  width: 40%;
+  /* background-color: black; */
+  height: 50%;
+  border-radius: 6px;
+}
+
+.single-user-profile-no-picture {
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  top: 200px;
+  left: 200px;
+}
+
+.single-user-edit-picture-button-no-picture {
+  cursor: pointer;
+  position: relative;
+  top: 170px;
+  left: 220px;
+  font-size: 15px;
+  color: white;
+  background: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  border-left: none;
+  border-right: none;
+}
+.single-user-edit-picture-button-no-picture:hover {
+  color: gray;
+}
+
+.single-user-firstName-no-pic {
+  position: relative;
+  top: 400px;
+  left: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+.single-user-username-no-pic {
+  position: relative;
+  top: 410px;
+  left: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.single-user-edit-button-no-picture {
+  position: relative;
+  top: 390px;
+  left: 210px;
+  font-size: 15px;
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  border-left: none;
+  border-right: none;
+  color: white;
+}
+.single-user-edit-button-no-picture:hover {
+  color: gray;
 }
