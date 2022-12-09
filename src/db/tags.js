@@ -3,7 +3,14 @@ import { getDocs, collection } from "firebase/firestore";
 
 const tagRef = collection(db, "Tags");
 
-export const tags = ["vegetarian", "seafood", "meatlover", "healthy", "vegen"];
+export const tags = [
+  "Vegetarian",
+  "Seafood",
+  "Meatlover",
+  "Gluten-Free",
+  "Vegan",
+  "Keto",
+];
 
 //GETs All Tags
 export const getAllTags = async () => {

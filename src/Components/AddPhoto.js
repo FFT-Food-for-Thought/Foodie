@@ -79,7 +79,7 @@ const AddPhoto = ({
   return (
     <>
       <div className="popup-overlay">
-        <div className="add-photos-popup">
+        <div className="add-photos-modal-popup">
           <div className="add-photo-close">
             <div className="add-photo-form-container">
               <div className="close-button">

@@ -1,14 +1,15 @@
-.all-photo-popup {
+.all-photos-modal-popup {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-20%, -10%);
   background-color: black;
-  width: 450px;
-  height: 450px;
+  width: 700px;
+  height: 500px;
   z-index: 1000;
   flex-direction: column;
 }
+
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -21,55 +22,91 @@
 .all-photo-container {
   float: right;
 }
+
 .all-photo-close {
+  cursor: pointer;
   margin: 10px;
   color: white;
   font-size: 20px;
   border: none;
   background: none;
-  opacity: 70%;
+  /* opacity: 70%; */
 }
 .all-photo-close:hover {
-  opacity: 100%;
+  color: gray;
 }
 .delete-photo-button {
-  position: absolute;
+  cursor: pointer;
+  position: relative;
   padding: 5px;
-  right: 0;
-  bottom: 0;
+  top: 40px;
+  right: -320px;
   border: none;
-  opacity: 60%;
+  /* opacity: 60%; */
 }
 .delete-photo-button:hover {
-  opacity: 100%;
+  background-color: gray;
 }
 .search-right-button {
+  cursor: pointer;
   position: relative;
-  top: 200px;
-  left: 360px;
+  top: 40px;
+  left: 485px;
   border-radius: 50%;
   padding: 8px;
   border: none;
   font-size: 20px;
   font-weight: bold;
   background-color: white;
-  opacity: 70%;
+  /* opacity: 70%; */
 }
 .search-left-button:hover {
-  opacity: 100%;
+  background-color: gray;
 }
 .search-left-button {
+  cursor: pointer;
   position: relative;
-  top: 200px;
-  right: -10px;
+  top: 40px;
+  right: 40px;
   border-radius: 50%;
   padding: 8px;
   border: none;
   font-size: 20px;
   font-weight: bold;
   background-color: white;
-  opacity: 70%;
+  /* opacity: 70%; */
 }
 .search-right-button:hover {
-  opacity: 100%;
+  background-color: gray;
+}
+
+.picture-size {
+  width: 600.67px;
+  height: 400px;
+  border-radius: 6px;
+}
+
+.spacing-pictures {
+  position: relative;
+  top: 40px;
+  left: 50px;
+}
+
+.no-picture-close {
+  color: white;
+  position: relative;
+  top: 0px;
+  left: 650px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+.no-picture {
+  color: white;
+  position: relative;
+  top: 200px;
+  left: 270px;
+  font-size: 20px;
+  font-weight: bold;
 }

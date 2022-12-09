@@ -57,12 +57,14 @@ const AllPhotos = ({
     return (
       <>
         <div className="popup-overlay">
-          <div className="all-photo-popup">
+          <div className="all-photos-modal-popup">
             <div className="all-photo-close">
-              <button onClick={onAllPhotoClose}>X</button>
+              <button onClick={onAllPhotoClose} className="no-picture-close">
+                X
+              </button>
               {children}
             </div>
-            <div>No Pictures to load</div>
+            <div className="no-picture">No Pictures to load</div>
           </div>
         </div>
       </>
@@ -72,13 +74,14 @@ const AllPhotos = ({
       <>
         <div className="popup-overlay">
           <div
-            className="all-photo-popup"
-            style={{
-              // backgroundImage: `url( ${img[currentImg].URL} )`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0)10%, rgba(0,0,0,1)), url( ${img[currentImg].URL} )`,
-            }}
+            className="all-photos-modal-popup"
+            // style={{
+            //   // backgroundImage: `url( ${img[currentImg].URL} )`,
+
+            //   backgroundSize: "cover",
+            //   backgroundRepeat: "no-repeat",
+            //   backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0)10%, rgba(0,0,0,1)), url( ${img[currentImg].URL} )`,
+            // }}
           >
             <div className="all-photo-container">
               <button onClick={onAllPhotoClose} className="all-photo-close">
@@ -86,7 +89,9 @@ const AllPhotos = ({
               </button>
               {children}
             </div>
-            {/* <img src={img[currentImg].URL} alt="" /> */}
+            <div className="spacing-pictures">
+              <img src={img[currentImg].URL} alt="" className="picture-size" />
+            </div>
             <button
               className="delete-photo-button"
               onClick={(e) => {
