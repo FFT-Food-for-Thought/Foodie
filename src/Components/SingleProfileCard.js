@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../Css/otheruser.css";
+import { distance } from "../db/users";
 
 const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
+  const [usersDistance, setUsersDistance] = useState(0);
+  let tempDistance = 0;
+
+  if ("geolocation" in navigator && user.geo !== undefined) {
+    console.log("user.geo :>> ", user.geo);
+    /* geolocation is available */
+    console.log("geolocation is useable");
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        tempDistance =
+          Math.ceil(
+            distance(
+              position.coords.latitude,
+              position.coords.longitude,
+              user.geo._lat,
+              user.geo._long
+            ) / 10
+          ) *
+            10 +
+          10;
+        setUsersDistance(tempDistance);
+        console.log("usersDistance :>> ", usersDistance);
+      },
+      () => {}
+    );
+  }
+
   if (user.pictureBucket) {
     if (user.pictureBucket.length) {
       return (
@@ -51,10 +79,15 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
               <i class="fa-solid fa-house"></i>
               <p className="other-user-location">Lives in {user.location}</p>
             </div>
-            <div className="basic-info">
-              <i class="fa-solid fa-location-dot"></i>
-              <p className="other-user-location">miles away</p>
-            </div>
+
+            {user.geo ? (
+              <div className="basic-info">
+                <i class="fa-solid fa-location-dot"></i>
+                <p className="other-user-location">
+                  {usersDistance} miles away
+                </p>
+              </div>
+            ) : null}
             <div className="other-user-tags">
               {user.pictureBucket[currentImg].tags.map((tag, i) => (
                 <p key={i} className="other-user-tag">
@@ -91,10 +124,14 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
               <i class="fa-solid fa-house"></i>
               <p className="other-user-location">Lives in {user.location}</p>
             </div>
-            <div className="basic-info">
-              <i class="fa-solid fa-location-dot"></i>
-              <p className="other-user-location">miles away</p>
-            </div>
+            {user.geo ? (
+              <div className="basic-info">
+                <i class="fa-solid fa-location-dot"></i>
+                <p className="other-user-location">
+                  {usersDistance} miles away
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
       );

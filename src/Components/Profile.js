@@ -44,12 +44,6 @@ const Profile = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           addGeo(user.id, position.coords.latitude, position.coords.longitude);
-          console.log("user.id :>> ", user.id);
-          console.log(
-            "COORDS :>> ",
-            position.coords.latitude,
-            position.coords.longitude
-          );
 
           // console.log(
           //   "distance formulat being used, you are this many miles from disneyland in a straight line",
