@@ -112,6 +112,9 @@ const ProfileMatchMessage = ({
                         setCurrentMatch(likedObj);
                         setSingleViewClicked(false);
                         setMatchedViewClicked(true);
+                        setMatch(false);
+                        setMessage(true);
+                        console.log("yes it is peter", likedObj);
                       }}
                     >
                       {likedObj.firstName} {likedObj.lastName}
