@@ -126,9 +126,11 @@ const Profile = () => {
             />
           </div>
           <div className="picture-view">
-            <div className="box">
+            <div className="single-user-box">
               <SingleUserCard user={user} />
-              <button onClick={handleView}>Continue Browsing</button>
+              <button onClick={handleView} className="single-user-browsing">
+                Continue Browsing
+              </button>
             </div>
           </div>
         </>

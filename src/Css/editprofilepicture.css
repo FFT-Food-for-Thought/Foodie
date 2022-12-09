@@ -1,11 +1,17 @@
-.add-photo-popup {
+.edit-profile-photos-popup {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-10%, -50%);
   background-color: #dae1e7;
+  border-radius: 2%;
   padding: 50px;
   z-index: 1000;
+  background-image: url("https://images.pexels.com/photos/616409/pexels-photo-616409.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 408px;
   flex-direction: column;
 }
 .popup-overlay {
@@ -16,4 +22,58 @@
   bottom: 0;
   background-color: rgb(0, 0, 0, 0.7);
   z-index: 1000;
+}
+.edit-add-photo-close {
+  float: right;
+}
+.edit-choose-file {
+  position: relative;
+  top: 100px;
+  right: -100px;
+}
+.edit-submit-profile-pic {
+  margin-top: 10px;
+  position: relative;
+  top: 110px;
+  right: -200px;
+}
+.edit-profile-pic-button:hover {
+  color: rgb(192, 36, 36);
+}
+.edit-profile-pic-button {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  width: 60px;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 2px #2d2820;
+}
+.edit-pic-text {
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  top: 70px;
+  right: -60px;
+}
+.edit-profile-close {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+.edit-profile-close:hover {
+  color: rgb(192, 36, 36);
+}
+
+.edit-choose-file-box {
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 2px #2d2820;
 }

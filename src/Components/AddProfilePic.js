@@ -27,19 +27,32 @@ const AddProfilePic = ({
   return (
     <>
       <div className="popup-overlay">
-        <div className="add-photo-popup">
-          <div className="add-photo-close">
-            <button onClick={onProfilePicClose}>X</button>
+        <div className="edit-profile-photos-popup">
+          <div className="edit-add-photo-close">
+            <button onClick={onProfilePicClose} className="edit-profile-close">
+              X
+            </button>
             {children}
           </div>
-          <div>
+          <div className="edit-pic-text">
+            Would you like to change your profile picture?
+          </div>
+          <div className="edit-choose-file">
             <input
               type="file"
               onChange={handleImageChange}
               placeholder="Add Photo"
               id="profilePicChooser"
+              className="edit-choose-file-box"
             />
-            <button onClick={handleProfileUpload}>Submit</button>
+          </div>
+          <div className="edit-submit-profile-pic">
+            <button
+              onClick={handleProfileUpload}
+              className="edit-profile-pic-button"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>

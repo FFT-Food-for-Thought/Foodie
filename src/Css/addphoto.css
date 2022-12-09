@@ -7,8 +7,9 @@
   background-image: url("https://images.pexels.com/photos/616409/pexels-photo-616409.jpeg?auto=compress&cs=tinysrgb&w=1600");
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 2%;
   width: 600px;
-  height: 400px;
+  height: 409px;
   padding: 50px;
   z-index: 1000;
   flex-direction: column;

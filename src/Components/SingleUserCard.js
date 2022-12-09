@@ -21,30 +21,54 @@ const SingleUserCard = ({ user }) => {
 
   if (userPfp) {
     return (
-      <div>
-        <img src={userPfp} alt="" />
-        <button onClick={() => setAddProfilePicIsOpen(true)}>
-          Edit Profile Pic
-        </button>
-        <AddProfilePic
-          openProfilePic={isAddProfilePicOpen}
-          onProfilePicClose={() => setAddProfilePicIsOpen(false)}
-          setUserPfp={setUserPfp}
-        ></AddProfilePic>
-        <button onClick={() => setEditProfileIsOpen(true)}>Edit Profile</button>
-        <EditProfile
-          openEditProfile={isEditProfileOpen}
-          onEditProfileClose={() => setEditProfileIsOpen(false)}
-        ></EditProfile>
-        <h1>{user.firstName}</h1>
+      <div className="profile-container">
+        <img src={userPfp} alt="" className="user-profile-picture" />
+
+        <div>
+          <div
+            className="single-user-profile-name
+          "
+          >
+            {`${user.firstName} ${user.lastName}`}
+          </div>
+          <div className="single-user-username">{user.username}</div>
+
+          <button
+            onClick={() => setEditProfileIsOpen(true)}
+            className="single-user-edit-profile"
+          >
+            Edit Profile
+          </button>
+          <EditProfile
+            openEditProfile={isEditProfileOpen}
+            onEditProfileClose={() => setEditProfileIsOpen(false)}
+          ></EditProfile>
+          <button
+            onClick={() => setAddProfilePicIsOpen(true)}
+            className="single-user-edit-picture"
+          >
+            Edit Profile Pic
+          </button>
+          <AddProfilePic
+            openProfilePic={isAddProfilePicOpen}
+            onProfilePicClose={() => setAddProfilePicIsOpen(false)}
+            setUserPfp={setUserPfp}
+          ></AddProfilePic>
+        </div>
       </div>
     );
   } else {
     return (
-      <div>
-        <div className="single-user-firstName">{user.firstName}NO PIC</div>
-
-        <button onClick={() => setAddProfilePicIsOpen(true)}>
+      <div className="profile-container">
+        <div className="single-user-profile-no-picture">No Picture</div>
+        <div className="single-user-firstName-no-pic">
+          {`${user.firstName} ${user.lastName}`}
+        </div>
+        <div className="single-user-username-no-pic">{user.username}</div>
+        <button
+          onClick={() => setAddProfilePicIsOpen(true)}
+          className="single-user-edit-picture-button-no-picture"
+        >
           Add Profile Pic
         </button>
         <AddProfilePic
@@ -52,7 +76,14 @@ const SingleUserCard = ({ user }) => {
           onProfilePicClose={() => setAddProfilePicIsOpen(false)}
           setUserPfp={setUserPfp}
         ></AddProfilePic>
-        <button onClick={() => setEditProfileIsOpen(true)}>Edit Profile</button>
+
+        <button
+          onClick={() => setEditProfileIsOpen(true)}
+          className="single-user-edit-button-no-picture"
+        >
+          Edit Profile
+        </button>
+
         <EditProfile
           openEditProfile={isEditProfileOpen}
           onEditProfileClose={() => setEditProfileIsOpen(false)}
