@@ -9,10 +9,11 @@ const ProfileSideBar = ({
   setMatchedViewClicked,
   user,
   allUsers,
+  currentMatch,
   setCurrentMatch,
   removeLikedHandler,
 }) => {
-  console.log("profileSideBar", user, "and", likedUsers);
+  console.log("profileSideBar", user, "and", currentMatch);
 
   return (
     <>
@@ -23,6 +24,7 @@ const ProfileSideBar = ({
       <ProfileMatchMessage
         likedUsers={likedUsers}
         user={user}
+        currentMatch={currentMatch}
         setCurrentMatch={setCurrentMatch}
         setSingleViewClicked={setSingleViewClicked}
         setMatchedViewClicked={setMatchedViewClicked}

@@ -18,7 +18,7 @@ const Profile = () => {
   const [isMatchedView, setMatchedViewClicked] = useState(false);
   const [likedUsers, setLikedList] = useState([]);
   const [currentMatch, setCurrentMatch] = useState({});
-  console.log("Current Match  >>>>", currentMatch);
+  console.log("Current Match >>>>", currentMatch);
   console.log("isMatchedView >>>>", isMatchedView);
   const handleView = (e) => {
     e.preventDefault();
@@ -127,6 +127,7 @@ const Profile = () => {
               setMatchedViewClicked={setMatchedViewClicked}
               removeLikedHandler={removeLikedHandler}
               setCurrentMatch={setCurrentMatch}
+              currentMatch={currentMatch}
               user={user}
             />
           </div>
@@ -149,6 +150,7 @@ const Profile = () => {
               setMatchedViewClicked={setMatchedViewClicked}
               removeLikedHandler={removeLikedHandler}
               setCurrentMatch={setCurrentMatch}
+              currentMatch={currentMatch}
               user={user}
             />
           </div>
@@ -172,6 +174,7 @@ const Profile = () => {
               allUsers={allUsers}
               removeLikedHandler={removeLikedHandler}
               setCurrentMatch={setCurrentMatch}
+              currentMatch={currentMatch}
             />
           </div>
           <div className="picture-view">
