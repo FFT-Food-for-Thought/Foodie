@@ -139,7 +139,6 @@
   height: 473px;
 }
 
-/*
 .review {
   color: #f8f4f1;
   background-color: #b7c4cf;
@@ -155,7 +154,6 @@
   color: #f8f4f1;
   background-color: #b7c4cf;
 }
-*/
 
 .like {
   color: #f8f4f1;
@@ -198,4 +196,17 @@
 
 .name-and-location-no-img {
   transform: translateY(-62px);
+}
+
+#matchedInfoDiv {
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 497.5px;
+  height: 110px;
+  background-color: black;
+  transform: translateY(-44px);
+  color: #f8f4f1;
+  padding: 15px;
+  border-radius: 6px;
 }

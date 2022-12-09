@@ -18,38 +18,109 @@ const MatchedProfile = ({ setMatchCard, user, loggedInUser }) => {
   if (user.pictureBucket) {
     if (user.pictureBucket.length) {
       return (
-        <div>
-          {/* post pictures? */}
-          <img src={user.pictureBucket[currentImg].URL} alt="" />
-          <h1>{user.firstName}</h1>
+        <div className="other-user">
+          <div className="single-profile-card">
+            {/* post pictures? */}
+            <img
+              src={user.pictureBucket[currentImg].URL}
+              alt=""
+              className="other-user-img"
+            />
+            <div className="left-right">
+              <button
+                onClick={() => {
+                  currentImg > 0 && setCurrentImg(currentImg - 1);
+                }}
+                className="left-right-button"
+              >
+                <i class="fa-solid fa-angles-left"></i>
+              </button>
+              <button
+                onClick={() =>
+                  currentImg < user.pictureBucket.length - 1 &&
+                  setCurrentImg(currentImg + 1)
+                }
+                className="left-right-button"
+              >
+                <i class="fa-solid fa-angles-right"></i>
+              </button>
+            </div>
+            <div className="name-and-location">
+              <div className="basic-info">
+                <h1 className="other-user-firstName">{user.firstName}</h1>
+                <button
+                  onClick={() => {
+                    let div = document.getElementById("matchedInfoDiv");
+                    if (div.style.display === "block") {
+                      div.style.display = "none";
+                    } else {
+                      div.style.display = "block";
+                    }
+                  }}
+                  className="info-button"
+                >
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </div>
+              <div className="basic-info">
+                <i class="fa-solid fa-house"></i>
+                <p className="other-user-location">Lives in {user.location}</p>
+              </div>
+              <div className="basic-info">
+                <i class="fa-solid fa-location-dot"></i>
+                <p className="other-user-location">miles away</p>
+              </div>
+              <div className="other-user-tags">
+                {user.pictureBucket[currentImg].tags.map((tag, i) => (
+                  <p key={i} className="other-user-tag">
+                    {tag}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <br></br>
+          </div>
+          <div className="other-user-next">
+            <WriteReview
+              user={user}
+              loggedInUser={loggedInUser}
+              openWriteReview={isWriteReviewOpen}
+              onWriteReviewClose={() => {
+                setWriteReviewIsOpen(false);
+              }}
+            />
+            <button
+              onClick={() => {
+                setWriteReviewIsOpen(true);
+              }}
+              className="other-user-button review"
+            >
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+            {/*
           <button
             onClick={() => {
-              let div = document.getElementById("matchedInfoDiv");
-              if (div.style.display === "block") {
-                div.style.display = "none";
-              } else {
-                div.style.display = "block";
-              }
+              onAddReviewHandler(users[currentUser].id);
             }}
+            className="other-user-button review"
           >
-            {"info"}
+            <i class="fa-regular fa-pen-to-square"></i>
           </button>
-          <br></br>
-          <button
-            onClick={() => {
-              currentImg > 0 && setCurrentImg(currentImg - 1);
-            }}
-          >
-            {"<<"}
-          </button>
-          <button
-            onClick={() =>
-              currentImg < user.pictureBucket.length - 1 &&
-              setCurrentImg(currentImg + 1)
-            }
-          >
-            {">>"}
-          </button>
+          */}
+            <SeeReviews
+              setSeeReview={setSeeReview}
+              user={user}
+              openSeeReview={openSeeReview}
+            />
+            <button
+              onClick={() => {
+                setSeeReview(true);
+                console.log(openSeeReview);
+              }}
+            >
+              SEE REVIEWS
+            </button>
+          </div>
           <div id="matchedInfoDiv" style={{ display: "none" }}>
             Woops poop hanging from butt must get rid run run around house drag
             poop on floor maybe it comes off woops left brown marks on floor
@@ -65,35 +136,6 @@ const MatchedProfile = ({ setMatchCard, user, loggedInUser }) => {
             boyfriend end up making babies with her and let her move in. Please
             let me outside pouty face yay!
           </div>
-
-          <WriteReview
-            user={user}
-            loggedInUser={loggedInUser}
-            openWriteReview={isWriteReviewOpen}
-            onWriteReviewClose={() => {
-              setWriteReviewIsOpen(false);
-            }}
-          />
-          <button
-            onClick={() => {
-              setWriteReviewIsOpen(true);
-            }}
-          >
-            REVIEW
-          </button>
-          <SeeReviews
-            setSeeReview={setSeeReview}
-            user={user}
-            openSeeReview={openSeeReview}
-          />
-          <button
-            onClick={() => {
-              setSeeReview(true);
-              console.log(openSeeReview);
-            }}
-          >
-            SEE REVIEWS
-          </button>
         </div>
       );
     } else {
