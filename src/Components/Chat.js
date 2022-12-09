@@ -3,6 +3,7 @@ import db from "../db/firebase";
 import { getDoc, doc, query, where, onSnapshot } from "firebase/firestore";
 import { addToChat, getChat } from "../db/messages";
 import { orderBy } from "firebase/firestore";
+import { Timestamp } from "firebase/firestore";
 
 import { async } from "@firebase/util";
 const Chat = ({ loggedInUser, currentMatch }) => {
@@ -23,6 +24,7 @@ const Chat = ({ loggedInUser, currentMatch }) => {
       } else {
         setChat({
           chats: "",
+          timestamp: { seconds: Timestamp.now() },
         });
       }
     };
