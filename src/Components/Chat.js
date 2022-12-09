@@ -6,11 +6,29 @@ import { orderBy } from "firebase/firestore";
 
 import { async } from "@firebase/util";
 const Chat = ({ loggedInUser, currentMatch }) => {
+  const [chat, setChat] = useState({});
   const messageRef = useRef();
   //need regular ids
   const targetId = currentMatch.id;
   const loggedId = loggedInUser.id;
   const sender = `${loggedInUser.firstName} ${loggedInUser.lastName}`;
+
+  //use a useEffect to get chat?
+  useEffect(() => {
+    const _get_chat = async () => {
+      const chatroom = await getChat(loggedId, targetId);
+      if (chatroom.chats) {
+        setChat(chatroom);
+        console.log("here", chatroom);
+      } else {
+        setChat({
+          chats: "",
+        });
+      }
+    };
+    _get_chat();
+  }, []);
+
   const handleMessageSubmit = async () => {
     if (messageRef.current.value) {
       console.log("this will be put in add chat", messageRef.current.value);
@@ -20,7 +38,7 @@ const Chat = ({ loggedInUser, currentMatch }) => {
       alert("Please type in a message");
     }
   };
-  console.log("in chat", currentMatch);
+  console.log("in chat", chat);
   // const docRef = doc(db, "messages", "AnrgW4l8uAwwSi0c8lM8")
   // const handleMessage = async () => {
   //   const testMessage = await getDoc(docRef);
@@ -63,12 +81,34 @@ const Chat = ({ loggedInUser, currentMatch }) => {
   //     <button onClick={handleGetChat}>getChat</button>
   //   </div>
   // );
-  return (
-    <>
-      <input ref={messageRef} type={"text"}></input>
-      <button onClick={handleMessageSubmit}>Submit</button>
-    </>
-  );
+
+  if (chat.chats) {
+    return (
+      <>
+        {chat.chats.map((messageObj) => {
+          return (
+            <div>
+              <p>
+                from:{messageObj.sentby}
+                {new Date(messageObj.timestamp.seconds * 1000).toDateString()}
+              </p>
+              <p>{messageObj.message}</p>
+            </div>
+          );
+        })}
+        <input ref={messageRef} type={"text"}></input>
+        <button onClick={handleMessageSubmit}>Submit</button>
+      </>
+    );
+  } else {
+    return (
+      <div>
+        <p>No Chat send a message</p>
+        <input ref={messageRef} type={"text"}></input>
+        <button onClick={handleMessageSubmit}>Submit</button>
+      </div>
+    );
+  }
 };
 
 export default Chat;
