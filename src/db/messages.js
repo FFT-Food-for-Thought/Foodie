@@ -8,6 +8,7 @@ import {
   updateDoc,
   arrayUnion,
   serverTimestamp,
+  Timestamp,
   collection,
   where,
 } from "firebase/firestore";
@@ -27,7 +28,7 @@ export const addToChat = async (
       const updatedObject = {
         message,
         sentby: username,
-        // timestamp: serverTimestamp(),
+        timestamp: Timestamp.now(),
       };
 
       await updateDoc(docRef, { chats: arrayUnion(updatedObject) });

@@ -11,11 +11,13 @@ const ProfileMatchMessage = ({
   user,
   allUsers,
   removeLikedHandler,
+  currentMatch,
   setCurrentMatch,
 }) => {
   const [match, setMatch] = useState(true);
   const [message, setMessage] = useState(false);
   const [likedList, setLikedList] = useState([]);
+  console.log("in profilematchmessage, currentmatch", currentMatch);
   useEffect(() => {
     const unsub = async () => {
       const pfpList = await Promise.all(
@@ -135,12 +137,15 @@ const ProfileMatchMessage = ({
       </div>
     );
   return (
-    <div className="matches">
-      <div className="match-container">
-        <button onClick={toggleMatches}>Matches</button>
-        <button onClick={toggleMessasges}>Messages</button>
-        <Chat />
+    //added this div, KYLE, don't hate me, signed -P.N
+    <div>
+      <div className="matches">
+        <div className="match-container">
+          <button onClick={toggleMatches}>Matches</button>
+          <button onClick={toggleMessasges}>Messages</button>
+        </div>
       </div>
+      <Chat currentMatch={currentMatch} loggedInUser={user} />
     </div>
   );
 };

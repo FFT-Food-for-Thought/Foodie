@@ -1,12 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import db from "../db/firebase";
 import { getDoc, doc, query, where, onSnapshot } from "firebase/firestore";
-import { addToChat } from "../db/messages";
+import { addToChat, getChat } from "../db/messages";
 import { orderBy } from "firebase/firestore";
-import { getChat } from "../db/messages";
+
 import { async } from "@firebase/util";
-const Chat = ({ target, loggedInUser }) => {
-  // const docRef = doc(db, "messages", "AnrgW4l8uAwwSi0c8lM8");
+const Chat = ({ loggedInUser, currentMatch }) => {
+  const messageRef = useRef();
+  //need regular ids
+  const targetId = currentMatch.id;
+  const loggedId = loggedInUser.id;
+  const sender = `${loggedInUser.firstName} ${loggedInUser.lastName}`;
+  const handleMessageSubmit = async () => {
+    if (messageRef.current.value) {
+      console.log("this will be put in add chat", messageRef.current.value);
+      console.log("LoggedInUser", loggedInUser, "currentMatcH", currentMatch);
+      await addToChat(loggedId, targetId, messageRef.current.value, sender);
+    } else {
+      alert("Please type in a message");
+    }
+  };
+  console.log("in chat", currentMatch);
+  // const docRef = doc(db, "messages", "AnrgW4l8uAwwSi0c8lM8")
   // const handleMessage = async () => {
   //   const testMessage = await getDoc(docRef);
   //   console.log("test message", testMessage.data().chats[0].message);
@@ -48,6 +63,12 @@ const Chat = ({ target, loggedInUser }) => {
   //     <button onClick={handleGetChat}>getChat</button>
   //   </div>
   // );
+  return (
+    <>
+      <input ref={messageRef} type={"text"}></input>
+      <button onClick={handleMessageSubmit}>Submit</button>
+    </>
+  );
 };
 
 export default Chat;
