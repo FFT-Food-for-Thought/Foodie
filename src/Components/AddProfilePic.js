@@ -29,7 +29,10 @@ const AddProfilePic = ({
       <div className="popup-overlay">
         <div className="edit-profile-photos-popup">
           <div className="edit-add-photo-close">
-            <button onClick={onProfilePicClose} className="edit-profile-close">
+            <button
+              onClick={onProfilePicClose}
+              className="edit-user-profile-pic-close"
+            >
               X
             </button>
             {children}

@@ -2,16 +2,16 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-10%, -50%);
+  transform: translate(-20%, -50%);
   background-color: #dae1e7;
   border-radius: 2%;
   padding: 50px;
   z-index: 1000;
-  background-image: url("https://images.pexels.com/photos/616409/pexels-photo-616409.jpeg?auto=compress&cs=tinysrgb&w=1600");
-  background-size: cover;
+  background-image: url("https://c8.alamy.com/zooms/9/e3feaa8dbff6427aa60eb4464e57e696/2e0nmt1.jpg");
+  background-size: 130%;
   background-repeat: no-repeat;
-  width: 500px;
-  height: 408px;
+  width: 600px;
+  height: 400px;
   flex-direction: column;
 }
 .popup-overlay {
@@ -24,18 +24,20 @@
   z-index: 1000;
 }
 .edit-add-photo-close {
-  float: right;
+  position: relative;
+  top: 0px;
+  left: 0px;
 }
 .edit-choose-file {
   position: relative;
-  top: 100px;
-  right: -100px;
+  top: 170px;
+  right: -250px;
 }
 .edit-submit-profile-pic {
   margin-top: 10px;
   position: relative;
-  top: 110px;
-  right: -200px;
+  top: 200px;
+  right: -360px;
 }
 .edit-profile-pic-button:hover {
   color: rgb(192, 36, 36);
@@ -55,17 +57,26 @@
   font-weight: bold;
   font-size: 20px;
   position: relative;
-  top: 70px;
-  right: -60px;
+  top: 150px;
+  right: -200px;
 }
-.edit-profile-close {
+.edit-add-profile-photo-close {
+  position: relative;
+  top: 5px;
+  bottom: 10px;
+}
+.edit-user-profile-pic-close {
+  position: relative;
   cursor: pointer;
-  background: none;
-  border: none;
   font-size: 20px;
   font-weight: bold;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
-.edit-profile-close:hover {
+.edit-user-profile-pic-close:hover {
   color: rgb(192, 36, 36);
 }
 
