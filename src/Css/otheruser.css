@@ -186,7 +186,7 @@
   display: none;
   overflow-x: hidden;
   overflow-y: auto;
-  width: 497.5px;
+  width: 482.5px;
   height: 110px;
   background-color: black;
   transform: translateY(-44px);
@@ -203,7 +203,7 @@
   display: none;
   overflow-x: hidden;
   overflow-y: auto;
-  width: 497.5px;
+  width: 482.5px;
   height: 110px;
   background-color: black;
   transform: translateY(-44px);
@@ -213,18 +213,38 @@
 }
 
 .see-reviews {
-  background-color: #f8f4f1;
-  color: black;
+  background-color: #52687a;
+  color: #f8f4f1;
   font-size: 20px;
   margin-left: 5px;
+  width: 37px;
+  height: 37px;
 }
 
 .see-reviews:hover {
   background-color: black;
-  color: #f8f4f1;
+  color: #52687a;
 }
 
 .see-reviews:active {
-  background-color: #f8f4f1;
-  color: black;
+  background-color: #52687a;
+  color: #f8f4f1;
+}
+
+.continue-browsing-button {
+  transform: translate(316px, -50px);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #f8f4f1;
+  font-size: 20px;
+  font-family: "Inter";
+}
+
+.continue-browsing-button:hover {
+  color: #b7c4cf;
+}
+
+.continue-browsing-button:active {
+  color: #f8f4f1;
 }
