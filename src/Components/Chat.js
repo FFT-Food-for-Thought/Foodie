@@ -1,35 +1,85 @@
 import React, { useState, useEffect, useRef } from "react";
 import db from "../db/firebase";
-import { getDoc, doc, query, where, onSnapshot } from "firebase/firestore";
-import { addToChat, getChat } from "../db/messages";
-import { orderBy } from "firebase/firestore";
-import { Timestamp } from "firebase/firestore";
+import {
+  getDoc,
+  doc,
+  query,
+  where,
+  onSnapshot,
+  getDocs,
+  collection,
+  orderBy,
+  Timestamp,
+} from "firebase/firestore";
+import { addToChat, getChat, findChatFromTwo } from "../db/messages";
 
 import { async } from "@firebase/util";
-const Chat = ({ loggedInUser, currentMatch }) => {
+const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
   const [chat, setChat] = useState({});
+  const [chatId, setChatId] = useState("");
+
   const messageRef = useRef();
   //need regular ids
   const targetId = currentMatch.id;
   const loggedId = loggedInUser.id;
   const sender = `${loggedInUser.firstName} ${loggedInUser.lastName}`;
 
-  //use a useEffect to get chat?
   useEffect(() => {
-    const _get_chat = async () => {
-      const chatroom = await getChat(loggedId, targetId);
-      if (chatroom.chats) {
-        setChat(chatroom);
-        console.log("here", chatroom);
-      } else {
-        setChat({
-          chats: "",
-          timestamp: { seconds: Timestamp.now() },
-        });
-      }
+    let chatId;
+    const _getId = async () => {
+      const chatRoomName = findChatFromTwo(loggedId, targetId);
+      const q = query(
+        collection(db, "messages"),
+        where("chatters", "==", chatRoomName)
+      );
+      const snapshot = await getDocs(q);
+      const chatRoom = snapshot.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      });
+      console.log("useeffect chatroom", chatRoom);
+      setChatId(chatRoom[0].id);
+      chatId = chatRoom[0].id;
+      console.log("in onsnapshot", chatId);
+      const unSubChat = onSnapshot(doc(db, "messages", chatId), (doc) => {
+        console.log(doc.data());
+        setChat(doc.data());
+      });
+      setunSub({ unsub: unSubChat });
+      return () => unSubChat();
     };
-    _get_chat();
+    return () => _getId();
   }, []);
+
+  //use a useEffect to get chat?
+  // useEffect(() => {
+  //   console.log("unsub initial state", unSub);
+  //   const _get_chat = async () => {
+  //     const chatroom = await getChat(loggedId, targetId);
+  //     if (chatroom.chats) {
+  //       setChat(chatroom);
+  //       console.log("here", chatroom);
+  //       if (chatroom.id) {
+  //         const unSubChat = onSnapshot(
+  //           doc(db, "messages", chatroom.id),
+  //           (doc) => {
+  //             console.log(doc.data());
+  //           }
+  //         );
+  //         console.log("this is what unsubchat is", unSubChat);
+  //         const test = { test: unSubChat };
+  //         console.log(test);
+  //         setunSub(test);
+  //         console.log(unSub);
+  //       }
+  //     } else {
+  //       setChat({
+  //         chats: "",
+  //         timestamp: { seconds: Timestamp.now() },
+  //       });
+  //     }
+  //   };
+  //   _get_chat();
+  // }, []);
 
   const handleMessageSubmit = async () => {
     if (messageRef.current.value) {

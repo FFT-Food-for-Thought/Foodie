@@ -17,6 +17,8 @@ const ProfileMatchMessage = ({
   const [match, setMatch] = useState(true);
   const [message, setMessage] = useState(false);
   const [likedList, setLikedList] = useState([]);
+  const [chatUnsub, setChatUnsub] = useState(() => {});
+  const [unSub, setunSub] = useState({});
   console.log("in profilematchmessage, currentmatch", currentMatch);
   useEffect(() => {
     const unsub = async () => {
@@ -67,12 +69,14 @@ const ProfileMatchMessage = ({
     console.log(likedList);
     setMessage(false);
     setMatch(true);
+    unSub.unsub();
   };
 
   const toggleMessasges = (e) => {
     e.preventDefault();
     setMessage(true);
     setMatch(false);
+    unSub.unsub();
   };
 
   if (match)
@@ -116,6 +120,7 @@ const ProfileMatchMessage = ({
                         setMatchedViewClicked(true);
                         setMatch(false);
                         setMessage(true);
+                        unSub.unsub();
                         console.log("yes it is peter", likedObj);
                       }}
                     >
@@ -145,7 +150,11 @@ const ProfileMatchMessage = ({
           <button onClick={toggleMessasges}>Messages</button>
         </div>
       </div>
-      <Chat currentMatch={currentMatch} loggedInUser={user} />
+      <Chat
+        currentMatch={currentMatch}
+        loggedInUser={user}
+        setunSub={setunSub}
+      />
     </div>
   );
 };
