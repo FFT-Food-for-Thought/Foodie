@@ -41,8 +41,13 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
         <div className="edit-profile-popup">
           <div className="edit-profile-form-container">
             <div className="bio-input">
-              <div className="edit-profile-close">
-                <button onClick={onEditProfileClose}>X</button>
+              <div>
+                <button
+                  onClick={onEditProfileClose}
+                  className="edit-profile-close"
+                >
+                  X
+                </button>
                 {children}
               </div>
               <label>Email:</label>

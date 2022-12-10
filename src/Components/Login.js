@@ -34,7 +34,7 @@ const Login = ({ open, children, onClose }) => {
         </div>
         {children}
         <div className="form-container">
-          <h3>GET STARTED</h3>
+          <h3 className="login-h3">GET STARTED</h3>
           <p>
             By clicking Log In, you agree to our <a href="/">Terms</a>. Learn
             how we process your data in our <a href="/">Privacy Policy</a> and{" "}
@@ -65,8 +65,8 @@ const Login = ({ open, children, onClose }) => {
           />
         </div>
         <a href="/">Trouble Loggin In?</a>
-        <hr className="line-hr" />
-        <h3>GET THE APP!</h3>
+        <hr />
+        <h3 className="login-h3">GET THE APP!</h3>
         <div className="apps-container">
           <img
             src={require("../img/DownloadOnTheAppStore.png")}
