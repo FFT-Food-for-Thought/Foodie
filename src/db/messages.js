@@ -40,6 +40,7 @@ export const addToChat = async (
           {
             message,
             sentby: username,
+            timestamp: Timestamp.now(),
           },
         ],
       };
@@ -68,16 +69,23 @@ export const getChat = async (loggedInUserId, targetUserId) => {
   }
 };
 
-// export const postToChat = async (
-//   loggedInUserId,
-//   targetUserId,
-//   message,
-//   username
-// ) => {
-//   const chatRoom = await getChat(loggedInUserId, targetUserId);
-//   const chatRoomId = chatRoom.id;
-
-// };
+export const getChatroomDocId = async (loggedInUserId, targetUserId) => {
+  try {
+    const chatRoomName = findChatFromTwo(loggedInUserId, targetUserId);
+    const q = query(
+      collection(db, "messages"),
+      where("chatters", "==", chatRoomName)
+    );
+    const snapshot = await getDocs(q);
+    const chatRoom = snapshot.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    console.log("chatroom obj", chatRoom);
+    return chatRoom[0];
+  } catch (error) {
+    console.log("error in getChat", error);
+  }
+};
 
 //helper functions
 //concat two users name alphabetically for a unique room id
