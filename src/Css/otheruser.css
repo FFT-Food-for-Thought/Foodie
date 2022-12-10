@@ -140,18 +140,19 @@
 }
 
 .review {
-  color: #f8f4f1;
+  color: black;
   background-color: #b7c4cf;
   font-size: 20px;
+  margin-right: 5px;
 }
 
 .review:hover {
   color: #b7c4cf;
-  background-color: #f8f4f1;
+  background-color: black;
 }
 
 .review:active {
-  color: #f8f4f1;
+  color: black;
   background-color: #b7c4cf;
 }
 
@@ -209,4 +210,21 @@
   color: #f8f4f1;
   padding: 15px;
   border-radius: 6px;
+}
+
+.see-reviews {
+  background-color: #f8f4f1;
+  color: black;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.see-reviews:hover {
+  background-color: black;
+  color: #f8f4f1;
+}
+
+.see-reviews:active {
+  background-color: #f8f4f1;
+  color: black;
 }

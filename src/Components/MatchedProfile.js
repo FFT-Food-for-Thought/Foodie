@@ -117,8 +117,9 @@ const MatchedProfile = ({ setMatchCard, user, loggedInUser }) => {
                 setSeeReview(true);
                 console.log(openSeeReview);
               }}
+              className="other-user-button see-reviews"
             >
-              SEE REVIEWS
+              <i class="fa-regular fa-file-lines"></i>
             </button>
           </div>
           <div id="matchedInfoDiv" style={{ display: "none" }}>
