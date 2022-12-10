@@ -139,23 +139,22 @@
   height: 473px;
 }
 
-/*
 .review {
-  color: #f8f4f1;
+  color: black;
   background-color: #b7c4cf;
   font-size: 20px;
+  margin-right: 5px;
 }
 
 .review:hover {
   color: #b7c4cf;
-  background-color: #f8f4f1;
+  background-color: black;
 }
 
 .review:active {
-  color: #f8f4f1;
+  color: black;
   background-color: #b7c4cf;
 }
-*/
 
 .like {
   color: #f8f4f1;
@@ -187,7 +186,7 @@
   display: none;
   overflow-x: hidden;
   overflow-y: auto;
-  width: 497.5px;
+  width: 482.5px;
   height: 110px;
   background-color: black;
   transform: translateY(-44px);
@@ -198,4 +197,54 @@
 
 .name-and-location-no-img {
   transform: translateY(-62px);
+}
+
+#matchedInfoDiv {
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 482.5px;
+  height: 110px;
+  background-color: black;
+  transform: translateY(-44px);
+  color: #f8f4f1;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.see-reviews {
+  background-color: #52687a;
+  color: #f8f4f1;
+  font-size: 20px;
+  margin-left: 5px;
+  width: 37px;
+  height: 37px;
+}
+
+.see-reviews:hover {
+  background-color: black;
+  color: #52687a;
+}
+
+.see-reviews:active {
+  background-color: #52687a;
+  color: #f8f4f1;
+}
+
+.continue-browsing-button {
+  transform: translate(316px, -50px);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #f8f4f1;
+  font-size: 20px;
+  font-family: "Inter";
+}
+
+.continue-browsing-button:hover {
+  color: #b7c4cf;
+}
+
+.continue-browsing-button:active {
+  color: #f8f4f1;
 }

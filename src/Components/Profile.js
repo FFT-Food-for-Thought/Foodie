@@ -10,6 +10,7 @@ import OtherUserCards from "./OtherUserCards";
 import { distance } from "../db/users";
 import { addGeo } from "../db/users";
 import MatchedProfile from "./MatchedProfile";
+import "../Css/otheruser.css";
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -153,7 +154,12 @@ const Profile = () => {
           <div className="picture-view">
             <div className="box">
               <MatchedProfile user={currentMatch} loggedInUser={user} />
-              <button onClick={handleMatchedView}>Continue Browsing</button>
+              <button
+                onClick={handleMatchedView}
+                className="continue-browsing-button"
+              >
+                Continue Browsing
+              </button>
             </div>
           </div>
         </>
