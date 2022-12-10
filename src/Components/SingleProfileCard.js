@@ -7,7 +7,6 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
   let tempDistance = 0;
 
   if ("geolocation" in navigator && user.geo !== undefined) {
-    console.log("user.geo :>> ", user.geo);
     /* geolocation is available */
     console.log("geolocation is useable");
     navigator.geolocation.getCurrentPosition(
@@ -24,7 +23,6 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
             10 +
           10;
         setUsersDistance(tempDistance);
-        console.log("usersDistance :>> ", usersDistance);
       },
       () => {}
     );

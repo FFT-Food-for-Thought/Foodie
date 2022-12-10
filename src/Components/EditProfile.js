@@ -37,56 +37,74 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
 
   return (
     <>
-      <div className="popup-overlay">
-        <div className="add-photo-popup">
-          <div className="edit-profile-close">
-            <button onClick={onEditProfileClose}>X</button>
-            {children}
-          </div>
-          <div className="form-container">
-            <input
-              defaultValue={user.email}
-              ref={emailRef}
-              htmlFor="email"
-              id="email"
-              className="form-input"
-            />
-            <input
-              defaultValue={user.firstName}
-              ref={firstNameRef}
-              htmlFor="firstName"
-              id="firstName"
-              className="form-input"
-            />
-            <input
-              defaultValue={user.lastName}
-              ref={lastNameRef}
-              htmlFor="lastName"
-              id="lastName"
-              className="form-input"
-            />
-            <input
-              defaultValue={user.username}
-              ref={userNameRef}
-              className="form-input"
-              htmlFor="username"
-              id="username"
-            />
-            <input
-              defaultValue={user.bio}
-              ref={bioRef}
-              className="form-input"
-              htmlFor="bio"
-              id="bio"
-              type="text"
-            />
-            <label htmlFor="location" className="state">
-              State:
-            </label>
-            <div className="select">
-              <StateSelect userLocation={user.location} />
+      <div className="edit-profile-popup-overlay">
+        <div className="edit-profile-popup">
+          <div className="edit-profile-form-container">
+            <div className="bio-input">
+              <div className="edit-profile-close">
+                <button onClick={onEditProfileClose}>X</button>
+                {children}
+              </div>
+              <label>Email:</label>
+              <input
+                defaultValue={user.email}
+                ref={emailRef}
+                htmlFor="email"
+                id="email"
+                className="form-input"
+              />
             </div>
-            <button onClick={handleUpdateProfile} className="signup-button">
+            <div className="bio-input">
+              <label>First Name:</label>
+              <input
+                defaultValue={user.firstName}
+                ref={firstNameRef}
+                htmlFor="firstName"
+                id="firstName"
+                className="form-input"
+              />
+            </div>
+            <div className="bio-input">
+              <label>Last Name:</label>
+              <input
+                defaultValue={user.lastName}
+                ref={lastNameRef}
+                htmlFor="lastName"
+                id="lastName"
+                className="form-input"
+              />
+            </div>
+            <div className="bio-input">
+              <label>UserName:</label>
+              <input
+                defaultValue={user.username}
+                ref={userNameRef}
+                className="form-input"
+                htmlFor="username"
+                id="username"
+              />
+            </div>
+            <div className="bio-input">
+              <label>About Me:</label>
+              <input
+                defaultValue={user.bio}
+                ref={bioRef}
+                className="form-input"
+                htmlFor="bio"
+                id="bio"
+                type="text"
+              />
+            </div>
+            <div className="bio-input">
+              <label htmlFor="location">State:</label>
+              <div className="select">
+                <StateSelect userLocation={user.location} />
+              </div>
+            </div>
+            <button
+              onClick={handleUpdateProfile}
+              className="edit-profile-button"
+            >
               Update Profile
             </button>
           </div>
