@@ -65,7 +65,7 @@ const WriteReview = ({
               ref={reviewRef}
               style={{ resize: "none" }}
             ></textarea>
-            <button>Submit</button>
+            <button className="submit-button">Submit</button>
           </form>
         </div>
       </div>

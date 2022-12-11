@@ -52,3 +52,12 @@
   flex-direction: column;
   align-items: center;
 }
+
+#write-review-textarea {
+  margin-bottom: 10px;
+  padding: 9px;
+  border: 0.05em solid #503d42;
+  border-radius: 2px;
+}
+
+.submit-button {}
