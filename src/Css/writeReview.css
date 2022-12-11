@@ -1,14 +1,19 @@
-.add-photo-popup {
+.write-review-popup {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-20%, -50%);
   background-color: #dae1e7;
+  background-image: url(https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 25px;
   padding: 50px;
   z-index: 1000;
   flex-direction: column;
+  display: flex;
 }
-.popup-overlay {
+.popup-overlay-write-review {
   position: fixed;
   top: 0;
   left: 0;
@@ -16,4 +21,7 @@
   bottom: 0;
   background-color: rgb(0, 0, 0, 0.7);
   z-index: 1000;
+  width: 1680px;
+  height: 947px;
+  transform: translate(-783px, -652px);
 }
