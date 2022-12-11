@@ -4,7 +4,8 @@
   left: 50%;
   transform: translate(-20%, -50%);
   /* background-color: #dae1e7; */
-  background-image: url("https://images.pexels.com/photos/616409/pexels-photo-616409.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  /* background-image: url("https://images.pexels.com/photos/616409/pexels-photo-616409.jpeg?auto=compress&cs=tinysrgb&w=1600"); */
+  background-image: url("https://media.istockphoto.com/id/185105112/photo/natural-wood-texture.jpg?s=612x612&w=0&k=20&c=NEDgzeNDnK0c1wMy8z_jrbmziow7m92W6q98ayrfhYY=");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 2%;
@@ -31,6 +32,7 @@
 }
 
 .close-button {
+  color: white;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
@@ -43,22 +45,24 @@
 }
 .add-photo-input {
   /* background-color: #dae1e7; */
+  color: white;
   border: none;
   margin: 10px;
-  border-bottom: solid 2px #2d2820;
+  border-bottom: solid 2px white;
   border-top: none;
   border-left: none;
   border-right: none;
   background: none;
 }
 .addphoto-submit {
+  color: white;
   cursor: pointer;
   /* background-color: #dae1e7; */
   width: 100px;
   padding: 5px;
   margin: 10px;
   background: none;
-  border-bottom: solid 2px #2d2820;
+  border-bottom: solid 2px white;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -70,10 +74,11 @@
   width: 100px;
   padding: 5px;
   margin: 10px;
-  border-bottom: solid 2px #2d2820;
+  border-bottom: solid 2px white;
   border-top: none;
   border-left: none;
   border-right: none;
+  color: white;
 }
 .addphoto-addtag:hover {
   color: rgb(192, 36, 36);
@@ -88,11 +93,13 @@
 }
 
 .added-tag {
+  color: white;
   font-size: 20px;
   font-weight: bold;
   margin: 2px;
 }
 .delete-tag {
+  color: white;
   cursor: pointer;
   border: none;
   font-size: 15px;
@@ -113,22 +120,24 @@
   /* background-color: #dae1e7; */
   background: none;
   margin-bottom: 30px;
-  border-bottom: solid 2px #2d2820;
+  border-bottom: solid 2px white;
   border-top: none;
   border-left: none;
   border-right: none;
-
-  border-bottom: solid 2px #2d2820;
+  color: white;
+  border-bottom: solid 2px white;
   border-top: none;
   border-left: none;
   border-right: none;
 }
 .tag-title {
+  color: white;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 .tag-suggestion {
+  color: white;
   font-size: 17px;
   font-weight: bold;
   margin-bottom: 20px;
