@@ -60,4 +60,25 @@
   border-radius: 2px;
 }
 
-.submit-button {}
+.submit-button {
+  border-radius: 2px;
+  background-color: #503d42;
+  border: 0.05em solid #503d42;
+  color: #f8f4f1;
+  padding: 9px;
+  width: 289.33px;
+  font-family: "Inter";
+  font-weight: 900;
+}
+
+.submit-button:hover {
+  background-color: #f8f4f1;
+  border: 0.05em solid #f8f4f1;
+  color: #503d42;
+}
+
+.submit-button:active {
+  background-color: #503d42;
+  border: 0.05em solid #503d42;
+  color: #f8f4f1;
+}
