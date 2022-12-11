@@ -45,11 +45,19 @@ const WriteReview = ({
     <>
       <div className="popup-overlay-write-review">
         <div className="write-review-popup">
-          <div className="close-button-review">
-            <button onClick={onWriteReviewClose}>X</button>
+          <div className="signup-close">
+            <button
+              onClick={onWriteReviewClose}
+              className="close-button-review"
+            >
+              x
+            </button>
             {children}
           </div>
-          <form onSubmit={submitHandler}>
+          <form
+            onSubmit={submitHandler}
+            className="form-container-write-review"
+          >
             <textarea
               id="write-review-textarea"
               rows="10"
