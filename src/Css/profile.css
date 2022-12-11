@@ -2,7 +2,7 @@
   height: 100vh;
   max-width: 40%;
   float: left;
-  background-color: #80a479;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAhMzBi78sB9GpzDXqIPxUON67saE43cJ2rSLrxNbw8Pr9tTAYBTwSX85ofPsbAfmStv8&usqp=CAU");
 }
 
 .picture-view {
@@ -27,7 +27,6 @@
 
 .profile-picture-container {
   height: 100vh;
-  /* width: auto; */
   padding: 30px;
   margin: 30px;
   background-color: red;
@@ -52,16 +51,14 @@
 .matches {
   height: auto;
   display: flex;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAhMzBi78sB9GpzDXqIPxUON67saE43cJ2rSLrxNbw8Pr9tTAYBTwSX85ofPsbAfmStv8&usqp=CAU");
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAhMzBi78sB9GpzDXqIPxUON67saE43cJ2rSLrxNbw8Pr9tTAYBTwSX85ofPsbAfmStv8&usqp=CAU"); */
   align-items: center;
   justify-content: center;
-  overflow-y: scroll;
-  scrollbar-color: #2d2820 #80a479;
+  overflow-y: auto;
 }
 .match-container {
   display: block;
   max-height: 89vh;
-  /* overflow-y: auto; */
 }
 .match-message-navbar {
   display: flex;
@@ -74,30 +71,35 @@
   cursor: pointer;
   padding: 10px;
   margin: 2px;
-  /* border: none; */
   border-bottom: solid 3px white;
   border-top: none;
   border-left: none;
   border-right: none;
   background: none;
   border-radius: 5%;
-  /* text-decoration: underline; */
+}
+.match-toggled-button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin: 2px;
+  border: none;
+  background: none;
+  border-radius: 5%;
 }
 .message-button {
+  cursor: pointer;
   font-size: 20px;
   font-weight: bold;
   color: white;
   cursor: pointer;
   padding: 10px;
   border: none;
-  /* border-bottom: solid 3px #2d2820;
-  border-top: none;
-  border-left: none;
-  border-right: none; */
   margin: 2px;
   background: none;
   border-radius: 5%;
-  /* text-decoration: underline; */
 }
 .message-button:hover {
   color: rgb(192, 36, 36);
@@ -106,12 +108,33 @@
   border-left: none;
   border-right: none;
 }
-.match-button:hover {
-  color: rgb(192, 36, 36);
-  /* border-bottom: solid 3px #2d2820;
+.message-toggled-button {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: solid 3px white;
   border-top: none;
   border-left: none;
-  border-right: none; */
+  border-right: none;
+  margin: 2px;
+  background: none;
+  border-radius: 5%;
+}
+.message-toggled-button:hover {
+  color: rgb(192, 36, 36);
+}
+.match-button:hover {
+  color: rgb(192, 36, 36);
+}
+.match-toggled-button:hover {
+  color: rgb(192, 36, 36);
+  border-bottom: solid 3px white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 .match-remove-button {
   font-weight: bold;
