@@ -143,18 +143,29 @@ const ProfileMatchMessage = ({
     );
   return (
     //added this div, KYLE, don't hate me, signed -P.N
-    <div>
-      <div className="matches">
-        <div className="match-container">
-          <button onClick={toggleMatches}>Matches</button>
-          <button onClick={toggleMessasges}>Messages</button>
+    <div className="matches">
+      <div className="match-container">
+        <div className="match-message-navbar">
+          <div>
+            <button onClick={toggleMatches} className="match-toggled-button">
+              Matches
+            </button>
+          </div>
+          <div>
+            <button
+              onClick={toggleMessasges}
+              className="message-toggled-button"
+            >
+              Messages
+            </button>
+          </div>
         </div>
+        <Chat
+          currentMatch={currentMatch}
+          loggedInUser={user}
+          setunSub={setunSub}
+        />
       </div>
-      <Chat
-        currentMatch={currentMatch}
-        loggedInUser={user}
-        setunSub={setunSub}
-      />
     </div>
   );
 };

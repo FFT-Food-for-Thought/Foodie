@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import db from "../db/firebase";
+import "../Css/chat.css";
 import {
   getDoc,
   doc,
@@ -136,28 +137,40 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
 
   if (chat.chats) {
     return (
-      <>
+      <div className="chat-container">
         {chat.chats.map((messageObj) => {
           return (
             <div>
-              <p>
+              <div className="messages-container">
                 from:{messageObj.sentby}
                 {new Date(messageObj.timestamp.seconds * 1000).toDateString()}
-              </p>
-              <p>{messageObj.message}</p>
+              </div>
+              <div className="chat">{messageObj.message}</div>
             </div>
           );
         })}
-        <input ref={messageRef} type={"text"}></input>
-        <button onClick={handleMessageSubmit}>Submit</button>
-      </>
+        <div className="chat-input-container">
+          <input ref={messageRef} type={"text"}></input>
+        </div>
+        <div className="submit-container">
+          <button onClick={handleMessageSubmit} className="submit-button">
+            Send
+          </button>
+        </div>
+      </div>
     );
   } else {
     return (
-      <div>
-        <p>No Chat send a message</p>
-        <input ref={messageRef} type={"text"}></input>
-        <button onClick={handleMessageSubmit}>Submit</button>
+      <div className="chat-container">
+        <div className="no-chat">No Chat send a message</div>
+        <div className="chat-input-container">
+          <input ref={messageRef} type={"text"}></input>
+        </div>
+        <div className="submit-container">
+          <button onClick={handleMessageSubmit} className="submit-button">
+            Send
+          </button>
+        </div>
       </div>
     );
   }
