@@ -43,13 +43,21 @@ const WriteReview = ({
 
   return (
     <>
-      <div className="popup-overlay">
-        <div className="add-photo-popup">
-          <div className="close-button-review">
-            <button onClick={onWriteReviewClose}>X</button>
+      <div className="popup-overlay-review">
+        <div className="write-review-popup">
+          <div className="signup-close">
+            <button
+              onClick={onWriteReviewClose}
+              className="close-button-review"
+            >
+              x
+            </button>
             {children}
           </div>
-          <form onSubmit={submitHandler}>
+          <form
+            onSubmit={submitHandler}
+            className="form-container-write-review"
+          >
             <textarea
               id="write-review-textarea"
               rows="10"
@@ -57,7 +65,7 @@ const WriteReview = ({
               ref={reviewRef}
               style={{ resize: "none" }}
             ></textarea>
-            <button>Submit</button>
+            <button className="submit-button">Submit</button>
           </form>
         </div>
       </div>
