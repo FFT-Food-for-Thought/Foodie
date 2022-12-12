@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ProfileSideBar from "./ProfileSideBar";
-import SingleProfileCard from "./SingleProfileCard";
 import SingleUserCard from "./SingleUserCard";
-import "../Css/profile.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../db/signup";
 import { getLoggedUser, getAllUsers, removeLike } from "../db/users";
 import OtherUserCards from "./OtherUserCards";
-import { distance } from "../db/users";
 import { addGeo } from "../db/users";
 import MatchedProfile from "./MatchedProfile";
+import { useNavigate } from "react-router-dom";
+import "../Css/profile.css";
 import "../Css/otheruser.css";
 
 const Profile = () => {
@@ -19,8 +18,7 @@ const Profile = () => {
   const [isMatchedView, setMatchedViewClicked] = useState(false);
   const [likedUsers, setLikedList] = useState([]);
   const [currentMatch, setCurrentMatch] = useState({});
-  console.log("Current Match >>>>", currentMatch);
-  console.log("isMatchedView >>>>", isMatchedView);
+  const navigate = useNavigate();
   const handleView = (e) => {
     e.preventDefault();
     setSingleViewClicked(false);
@@ -35,8 +33,7 @@ const Profile = () => {
       const newUser = await getLoggedUser();
       setUser(newUser);
       setLikedList(newUser.likedUsers);
-      console.log("Auth state changed", user);
-      console.log("newuser", newUser);
+      if (user) navigate("/profile");
       return unsub;
     });
     if ("geolocation" in navigator) {
@@ -45,16 +42,6 @@ const Profile = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           addGeo(user.id, position.coords.latitude, position.coords.longitude);
-
-          // console.log(
-          //   "distance formulat being used, you are this many miles from disneyland in a straight line",
-          //   distance(
-          //     position.coords.latitude,
-          //     position.coords.longitude,
-          //     28.377242637128813,
-          //     -81.57071111805162
-          //   )
-          // );
         },
         () => {
           // console.log(
@@ -69,27 +56,17 @@ const Profile = () => {
     const _getUsers = async (users) => {
       //returns array of all users in Users
       const allUsersLocal = await getAllUsers();
-      console.log("in useEffect", allUsersLocal);
       //filter self out of potential others
-      console.log("userslength", allUsersLocal.length);
-      console.log("user to filter out", user);
 
       setUsers(allUsersLocal);
     };
     _getUsers();
   }, []);
-  console.log("testuser", user);
 
-  console.log(user.pictureBucket);
-  console.log("profile component rendered");
   const handleLike = (userObj) => {
-    console.log("likedusers", likedUsers);
-    console.log(user);
     const updatedLiked = [...likedUsers];
-    console.log("updatedLiked", updatedLiked);
     updatedLiked.push(userObj);
     setLikedList(updatedLiked);
-    console.log("updatedlikedusers State", likedUsers);
   };
 
   const removeLikedHandler = (userObj) => {
@@ -97,7 +74,6 @@ const Profile = () => {
       name: userObj.name,
       userId: userObj.userId,
     };
-    console.log(objectToRemove);
 
     removeLike(user.id, objectToRemove);
 
