@@ -9,6 +9,7 @@ import {
 } from "../db/users";
 import SingleProfileCard from "./SingleProfileCard";
 import "../Css/otheruser.css";
+import userEvent from "@testing-library/user-event";
 
 const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
   const [currentImg, setCurrentImg] = useState(0);
@@ -23,6 +24,39 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
     addReviewToReviewer(loggedInUser.id, dummyReviewId);
     console.log("clicked");
   };
+  console.log("nousersagai", allUsers);
+  useEffect(() => {
+    const set = () => {
+      console.log("loggedAgain", loggedInUser);
+
+      const noMe = allUsers.filter((otherUserObj) => {
+        if (otherUserObj.userId != loggedInUser.userId) {
+          console.log("checking id", otherUserObj.userId, loggedInUser.userId);
+          return otherUserObj;
+        }
+      });
+
+      if (loggedInUser.likedUsers.length) {
+        const checked = {};
+        loggedInUser.likedUsers.forEach((likedObj) => {
+          console.log("map", likedObj);
+          checked[likedObj.userId] = true;
+        });
+        console.log("map", checked);
+        const removedMatched = noMe.filter((userObj) => {
+          console.log("map", userObj.userId);
+          if (!checked[userObj.userId]) {
+            return userObj;
+          }
+        });
+        console.log("nousersagaiR", removedMatched);
+        setUsers(removedMatched);
+      } else {
+        setUsers(noMe);
+      }
+    };
+    set();
+  }, [allUsers.length]);
   // useEffect(() => {
   //   const _getUsers = async (users) => {
   //     //returns array of all users in Users

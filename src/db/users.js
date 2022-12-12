@@ -59,7 +59,8 @@ export const updateUser = async (
   lastName,
   userName,
   location,
-  bio
+  bio,
+  preference
 ) => {
   // Below is old hardcoded code
   // const docRef = doc(db, "Users", "fhfUllMNrJD0ddRgT38Z");
@@ -74,6 +75,7 @@ export const updateUser = async (
       username: userName,
       email: email,
       bio: bio,
+      preference: preference,
     };
     console.log("update :>> ", update);
     await updateDoc(docRef, update);
@@ -110,6 +112,7 @@ export const makeUser = async (
   try {
     const newUserObj = {
       userId: uid,
+      bio: "",
       email,
       lastName,
       firstName,

@@ -12,6 +12,16 @@ export const tags = [
   "Keto",
 ];
 
+export const preference = [
+  "Vegetarian",
+  "Seafood",
+  "Meatlover",
+  "Gluten-Free",
+  "Vegan",
+  "Keto",
+  "None",
+];
+
 //GETs All Tags
 export const getAllTags = async () => {
   const tags = await getDocs(tagRef);

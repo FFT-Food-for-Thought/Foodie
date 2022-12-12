@@ -71,12 +71,14 @@ const Profile = () => {
       const allUsersLocal = await getAllUsers();
       console.log("in useEffect", allUsersLocal);
       //filter self out of potential others
+      console.log("userslength", allUsersLocal.length);
+      console.log("user to filter out", user);
 
       setUsers(allUsersLocal);
     };
     _getUsers();
   }, []);
-  console.log(user);
+  console.log("testuser", user);
 
   console.log(user.pictureBucket);
   console.log("profile component rendered");
