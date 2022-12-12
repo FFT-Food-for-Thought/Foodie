@@ -28,14 +28,14 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
   useEffect(() => {
     const set = () => {
       console.log("loggedAgain", loggedInUser);
-
+      let cards = allUsers;
       const noMe = allUsers.filter((otherUserObj) => {
         if (otherUserObj.userId != loggedInUser.userId) {
           console.log("checking id", otherUserObj.userId, loggedInUser.userId);
           return otherUserObj;
         }
       });
-
+      cards = noMe;
       if (loggedInUser.likedUsers.length) {
         const checked = {};
         loggedInUser.likedUsers.forEach((likedObj) => {
@@ -50,10 +50,34 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
           }
         });
         console.log("nousersagaiR", removedMatched);
-        setUsers(removedMatched);
-      } else {
-        setUsers(noMe);
+        cards = removedMatched;
       }
+      console.log("preference", loggedInUser.preference);
+      if (loggedInUser.preference != "None") {
+        console.log("removing non pref'd", cards);
+        const removedPref = cards.filter((userObj) => {
+          for (let i = 0; i < userObj.pictureBucket.length; i++) {
+            console.log(
+              "tag checking userObj",
+              userObj.pictureBucket[i].tags,
+              loggedInUser.preference
+            );
+            if (
+              userObj.pictureBucket[i].tags.includes(loggedInUser.preference)
+            ) {
+              console.log(
+                "tag checking",
+                userObj.pictureBucket[i],
+                loggedInUser.preference
+              );
+              return userObj;
+            }
+          }
+        });
+        cards = removedPref;
+      }
+
+      setUsers(cards);
     };
     set();
   }, [allUsers.length]);
