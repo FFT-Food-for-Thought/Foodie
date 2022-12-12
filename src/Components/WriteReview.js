@@ -43,7 +43,7 @@ const WriteReview = ({
 
   return (
     <>
-      <div className="popup-overlay-write-review">
+      <div className="popup-overlay-review">
         <div className="write-review-popup">
           <div className="signup-close">
             <button

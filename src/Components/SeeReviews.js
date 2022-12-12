@@ -49,7 +49,6 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
                 {">>"}
               </button>
             </div>
-
           </div>
         </div>
       </>
@@ -57,19 +56,21 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
   } else {
     return (
       <>
-        <div className="popup-overlay">
-          <div className="add-photo-popup">
-            <div className="close-button-review">
+        <div className="popup-overlay-review">
+          <div className="see-reviews-popup">
+            <div className="signup-close">
               <button
                 onClick={() => {
                   setSeeReview(false);
                 }}
+                className="close-button-review"
               >
-                X
+                x
               </button>
-              <p>No Reviews</p>
             </div>
-
+            <div className="div-reviews">
+              <p className="p-reviews">No Reviews</p>
+            </div>
           </div>
         </div>
       </>

@@ -13,7 +13,8 @@
   flex-direction: column;
   display: flex;
 }
-.popup-overlay-write-review {
+
+.popup-overlay-review {
   position: fixed;
   top: 0;
   left: 0;

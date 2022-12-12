@@ -17,3 +17,37 @@
   background-color: rgb(0, 0, 0, 0.7);
   z-index: 1000;
 }
+
+.see-reviews-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(63px, -50%);
+  background-color: #dae1e7;
+  background-image: url(https://images.pexels.com/photos/326268/pexels-photo-326268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  padding: 50px;
+  z-index: 1000;
+  flex-direction: column;
+  display: flex;
+  width: 172.04px;
+  height: 155.5px;
+}
+
+.div-reviews {
+  transform: translate(-32px, 38.875px);
+}
+
+.p-reviews {
+  width: 172.04px;
+  height: 47.5px;
+  background-color: #f8f4f1;
+  padding: 9px;
+  border: 0.05em solid #503d42;
+  border-radius: 2px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 47.5px;
+}
