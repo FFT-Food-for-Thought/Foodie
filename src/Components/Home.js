@@ -18,18 +18,6 @@ const Home = () => {
                 Foodie
               </a>
             </div>
-
-            <div className="navbar-left">
-              <a href="/about" className="nav-link">
-                About
-              </a>
-            </div>
-
-            <div className="navbar-left">
-              <a href="/safety" className="nav-link">
-                Safety
-              </a>
-            </div>
           </div>
           <div className="navbar-right">
             <div className="login">
@@ -72,7 +60,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </React.Fragment>
   );
 };
