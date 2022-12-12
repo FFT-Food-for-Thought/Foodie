@@ -73,17 +73,12 @@ const Profile = () => {
       //filter self out of potential others
       console.log("userslength", allUsersLocal.length);
       console.log("user to filter out", user);
-      const noMe = allUsersLocal.filter((otherUserObj) => {
-        if (otherUserObj.userId != user.userId) {
-          return otherUserObj;
-        }
-      });
-      console.log("userslength", noMe.length);
-      setUsers(noMe);
+
+      setUsers(allUsersLocal);
     };
     _getUsers();
   }, []);
-  console.log(user);
+  console.log("testuser", user);
 
   console.log(user.pictureBucket);
   console.log("profile component rendered");
