@@ -62,6 +62,7 @@ const WriteReview = ({
               id="write-review-textarea"
               rows="10"
               cols="60"
+              maxlength="60"
               ref={reviewRef}
               style={{ resize: "none" }}
             ></textarea>

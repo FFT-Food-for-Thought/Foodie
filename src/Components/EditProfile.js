@@ -4,6 +4,7 @@ import { auth } from "../db/signup";
 import { onAuthStateChanged } from "firebase/auth";
 import { updateUser } from "../db/users";
 import { StateSelect } from "./StateSelect";
+import { preference } from "../db/tags";
 import "../Css/editprofile.css";
 
 const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
@@ -13,6 +14,7 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
   const lastNameRef = useRef();
   const userNameRef = useRef();
   const bioRef = useRef();
+  const preferenceRef = useRef();
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
@@ -30,7 +32,17 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
     const location = document.getElementById("location").value;
     const userName = userNameRef.current.value;
     const bio = bioRef.current.value;
-    updateUser(userId, email, firstName, lastName, userName, location, bio);
+    const preference = preferenceRef.current.value;
+    updateUser(
+      userId,
+      email,
+      firstName,
+      lastName,
+      userName,
+      location,
+      bio,
+      preference
+    );
   };
 
   if (!openEditProfile) return null;
@@ -57,6 +69,7 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
                 htmlFor="email"
                 id="email"
                 className="form-input"
+                readOnly
               />
             </div>
             <div className="bio-input">
@@ -90,21 +103,50 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
               />
             </div>
             <div className="bio-input">
-              <label>About Me:</label>
-              <input
+              {/* <label>About Me:</label>
+              <textarea
                 defaultValue={user.bio}
                 ref={bioRef}
                 className="form-input"
                 htmlFor="bio"
                 id="bio"
                 type="text"
-              />
+              /> */}
+              <label>About Me:</label>
+              <textarea
+                defaultValue={user.bio}
+                id="bio"
+                htmlFor="bio"
+                className="form-input"
+                rows="10"
+                cols="40"
+                maxlength="60"
+                ref={bioRef}
+                style={{ resize: "none" }}
+              ></textarea>
             </div>
             <div className="bio-input">
               <label htmlFor="location">State:</label>
               <div className="select">
                 <StateSelect userLocation={user.location} />
               </div>
+            </div>
+            <div className="bio-input">
+              <label>Prefence:</label>
+              <select
+                ref={preferenceRef}
+                name="tags"
+                id="picturetags"
+                className="add-photo-tags"
+              >
+                {preference.map((tag) => {
+                  return (
+                    <option key={tag} value={tag}>
+                      {tag}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
             <button
               onClick={handleUpdateProfile}
