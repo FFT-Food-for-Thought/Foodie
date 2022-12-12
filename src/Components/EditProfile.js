@@ -138,6 +138,7 @@ const EditProfile = ({ openEditProfile, children, onEditProfileClose }) => {
                 name="tags"
                 id="picturetags"
                 className="add-photo-tags"
+                defaultValue={user.preference}
               >
                 {preference.map((tag) => {
                   return (
