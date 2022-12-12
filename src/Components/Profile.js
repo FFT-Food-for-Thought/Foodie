@@ -33,23 +33,29 @@ const Profile = () => {
       const newUser = await getLoggedUser();
       setUser(newUser);
       setLikedList(newUser.likedUsers);
-      if (user) navigate("/profile");
+      if (user) {
+        navigate("/profile");
+      }
+      if ("geolocation" in navigator) {
+        /* geolocation is available */
+        console.log("geolocation is useable");
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            addGeo(
+              newUser.id,
+              position.coords.latitude,
+              position.coords.longitude
+            );
+          },
+          () => {
+            // console.log(
+            //   "I can't calculate your distance from disney land if you don't share your location :("
+            // );
+          }
+        );
+      }
       return unsub;
     });
-    if ("geolocation" in navigator) {
-      /* geolocation is available */
-      console.log("geolocation is useable");
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          addGeo(user.id, position.coords.latitude, position.coords.longitude);
-        },
-        () => {
-          // console.log(
-          //   "I can't calculate your distance from disney land if you don't share your location :("
-          // );
-        }
-      );
-    }
   }, []);
 
   useEffect(() => {
