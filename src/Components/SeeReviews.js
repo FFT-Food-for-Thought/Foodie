@@ -21,32 +21,41 @@ const SeeReviews = ({ children, openSeeReview, setSeeReview, user }) => {
   if (reviews.length) {
     return (
       <>
-        <div className="popup-overlay">
-          <div className="add-photo-popup">
-            <div className="close-button-review">
+        <div className="popup-overlay-review">
+          <div className="see-reviews-popup">
+            <div className="signup-close">
               <button
                 onClick={() => {
                   setSeeReview(false);
                 }}
+                className="close-button-review"
               >
-                X
+                x
               </button>
               {/* {children} */}
-              <div>{reviews[currentReview].review}</div>
+            </div>
+            <div className="div-reviews">
+              <p className="p-reviews p-see-reviews">
+                {reviews[currentReview].review}
+              </p>
+            </div>
+            <div className="left-right-reviews">
               <button
                 onClick={() => {
                   currentReview > 0 && setCurrentReview(currentReview - 1);
                 }}
+                className="left-right-button"
               >
-                {"<<"}
+                <i class="fa-solid fa-angles-left"></i>
               </button>
               <button
                 onClick={() => {
                   currentReview < reviews.length - 1 &&
                     setCurrentReview(currentReview + 1);
                 }}
+                className="left-right-button"
               >
-                {">>"}
+                <i class="fa-solid fa-angles-right"></i>
               </button>
             </div>
           </div>

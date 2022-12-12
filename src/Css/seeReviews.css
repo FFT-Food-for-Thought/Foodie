@@ -51,3 +51,11 @@
   text-align: center;
   line-height: 47.5px;
 }
+
+.p-see-reviews {
+  line-height: 15.5px;
+}
+
+.left-right-reviews {
+  transform: translateY(72px);
+}
