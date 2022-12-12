@@ -71,8 +71,15 @@ const Profile = () => {
       const allUsersLocal = await getAllUsers();
       console.log("in useEffect", allUsersLocal);
       //filter self out of potential others
-
-      setUsers(allUsersLocal);
+      console.log("userslength", allUsersLocal.length);
+      console.log("user to filter out", user);
+      const noMe = allUsersLocal.filter((otherUserObj) => {
+        if (otherUserObj.userId != user.userId) {
+          return otherUserObj;
+        }
+      });
+      console.log("userslength", noMe.length);
+      setUsers(noMe);
     };
     _getUsers();
   }, []);
