@@ -142,10 +142,12 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
           return (
             <div>
               <div className="messages-container">
-                from:{messageObj.sentby}
-                {new Date(messageObj.timestamp.seconds * 1000).toDateString()}
+                <h5>
+                  from: {messageObj.sentby}{" "}
+                  {new Date(messageObj.timestamp.seconds * 1000).toDateString()}
+                </h5>
               </div>
-              <div className="chat">{messageObj.message}</div>
+              <div className="chat">-{messageObj.message}</div>
             </div>
           );
         })}
