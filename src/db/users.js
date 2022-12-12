@@ -123,7 +123,7 @@ export const makeUser = async (
       reviews: [],
       writtenReviews: [],
       role: "foodie",
-      preference: "",
+      preference: "None",
     };
     await addDoc(userRef, newUserObj);
   } catch (error) {
