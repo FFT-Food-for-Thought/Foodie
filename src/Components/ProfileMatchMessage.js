@@ -20,6 +20,7 @@ const ProfileMatchMessage = ({
   const [chatUnsub, setChatUnsub] = useState(() => {});
   const [unSub, setunSub] = useState({});
   console.log("in profilematchmessage, currentmatch", currentMatch);
+  console.log("unsube state in profilematchmessage", unSub);
   useEffect(() => {
     const unsub = async () => {
       const pfpList = await Promise.all(
