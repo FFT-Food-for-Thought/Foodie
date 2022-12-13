@@ -41,6 +41,18 @@
   font-weight: bold;
 }
 
+.round-button:hover {
+  background-color: #f5eee0;
+  border: 4px solid #52687a;
+  color: #503d42;
+}
+
+.round-button:active {
+  background-color: #dae1e7;
+  border: 4px solid #503d42;
+  color: #503d42;
+}
+
 .or-hr {
   border: none;
   border-top: 1px solid #503d42;

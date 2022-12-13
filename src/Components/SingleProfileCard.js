@@ -75,13 +75,15 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
             </div>
             <div className="basic-info">
               <i class="fa-solid fa-house"></i>
-              <p className="other-user-location">Lives in {user.location}</p>
+              <p className="other-user-location lives-in-miles-away">
+                Lives in {user.location}
+              </p>
             </div>
 
             {user.geo ? (
               <div className="basic-info">
                 <i class="fa-solid fa-location-dot"></i>
-                <p className="other-user-location">
+                <p className="other-user-location lives-in-miles-away">
                   {usersDistance} miles away
                 </p>
               </div>
@@ -120,12 +122,14 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
             </div>
             <div className="basic-info">
               <i class="fa-solid fa-house"></i>
-              <p className="other-user-location">Lives in {user.location}</p>
+              <p className="other-user-location lives-in-miles-away">
+                Lives in {user.location}
+              </p>
             </div>
             {user.geo ? (
               <div className="basic-info">
                 <i class="fa-solid fa-location-dot"></i>
-                <p className="other-user-location">
+                <p className="other-user-location lives-in-miles-away">
                   {usersDistance} miles away
                 </p>
               </div>

@@ -25,6 +25,10 @@
   vertical-align: bottom;
 }
 
+.lives-in-miles-away {
+  padding-bottom: 2.5px;
+}
+
 .fa-location-dot {
   color: #f8f4f1;
   padding-left: 15px;
