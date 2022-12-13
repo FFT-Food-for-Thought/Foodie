@@ -199,7 +199,8 @@
   font-family: "Inter";
   font-size: 24px;
   padding-top: 13px;
-  padding-left: 17px;
+  padding-left: 6px;
+  padding-right: 19px;
   color: #f8f4f1;
 }
 
@@ -212,7 +213,7 @@
 }
 
 .padding-right {
-  padding-right: 17px;
+  padding-right: 13px;
 }
 
 .matched-profile-button {
