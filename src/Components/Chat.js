@@ -23,8 +23,9 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
   const targetId = currentMatch.id;
   const loggedId = loggedInUser.id;
   const sender = `${loggedInUser.firstName} ${loggedInUser.lastName}`;
-
+  console.log("unsube Chat rendered");
   useEffect(() => {
+    console.log("unsube useeffect");
     let chatId;
     const _getId = async () => {
       const chatRoomName = findChatFromTwo(loggedId, targetId);
