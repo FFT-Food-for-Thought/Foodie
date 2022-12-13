@@ -43,7 +43,7 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
       chatId = chatRoom[0].id;
       console.log("in onsnapshot", chatId);
       const unSubChat = onSnapshot(doc(db, "messages", chatId), (doc) => {
-        console.log(doc.data());
+        console.log("ubsube calling onSnapshot", doc.data());
         setChat(doc.data());
       });
       console.log("this is unsube from onsnapsho", unSubChat);
