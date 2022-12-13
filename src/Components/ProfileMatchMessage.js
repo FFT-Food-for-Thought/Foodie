@@ -69,7 +69,7 @@ const ProfileMatchMessage = ({
     console.log(likedList);
     setMessage(false);
     setMatch(true);
-    console.log("this is unsube", unSub);
+    console.log("this is unsube after clicking toggle matchs", unSub, match);
     unSub.unsub();
   };
 
@@ -77,7 +77,7 @@ const ProfileMatchMessage = ({
     e.preventDefault();
     setMessage(true);
     setMatch(false);
-    console.log("this is unsube", unSub);
+    console.log("this is unsube after clicking toggle messages", unSub, match);
     unSub.unsub();
   };
 
@@ -122,7 +122,11 @@ const ProfileMatchMessage = ({
                         setMatchedViewClicked(true);
                         setMatch(false);
                         setMessage(true);
-                        console.log("this is unsube", unSub);
+                        console.log(
+                          "this is unsube after clicking name",
+                          unSub,
+                          match
+                        );
                         unSub.unsub();
                         console.log("yes it is peter", likedObj);
                       }}
