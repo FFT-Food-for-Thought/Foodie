@@ -83,7 +83,7 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
             {user.geo ? (
               <div className="basic-info">
                 <i class="fa-solid fa-location-dot"></i>
-                <p className="other-user-location lives-in-miles-away">
+                <p className="other-user-location lives-in-miles-away miles-away">
                   {usersDistance} miles away
                 </p>
               </div>
@@ -129,7 +129,7 @@ const SingleProfileCard = ({ user, currentImg, setCurrentImg }) => {
             {user.geo ? (
               <div className="basic-info">
                 <i class="fa-solid fa-location-dot"></i>
-                <p className="other-user-location lives-in-miles-away">
+                <p className="other-user-location lives-in-miles-away miles-away">
                   {usersDistance} miles away
                 </p>
               </div>
