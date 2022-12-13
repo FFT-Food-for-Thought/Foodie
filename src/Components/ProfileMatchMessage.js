@@ -69,16 +69,32 @@ const ProfileMatchMessage = ({
     console.log(likedList);
     setMessage(false);
     setMatch(true);
-    console.log("this is unsube after clicking toggle matchs", unSub, match);
-    unSub.unsub();
+
+    if (unSub.unsub) {
+      unSub.unsub();
+      console.log(
+        "this is unsube after clicking toggle match",
+        unSub,
+        "match",
+        match
+      );
+    }
   };
 
   const toggleMessasges = (e) => {
     e.preventDefault();
     setMessage(true);
     setMatch(false);
-    console.log("this is unsube after clicking toggle messages", unSub, match);
-    unSub.unsub();
+
+    if (unSub.unsub) {
+      unSub.unsub();
+      console.log(
+        "this is unsube after clicking toggle message",
+        unSub,
+        "match",
+        unSub
+      );
+    }
   };
 
   if (match)
@@ -123,8 +139,9 @@ const ProfileMatchMessage = ({
                         setMatch(false);
                         setMessage(true);
                         console.log(
-                          "this is unsube after clicking name",
+                          "this is unsube after clicking nam",
                           unSub,
+                          "match",
                           match
                         );
                         unSub.unsub();

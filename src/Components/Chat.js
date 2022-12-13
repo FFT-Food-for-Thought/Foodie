@@ -14,7 +14,6 @@ import {
 } from "firebase/firestore";
 import { addToChat, getChat, findChatFromTwo } from "../db/messages";
 
-import { async } from "@firebase/util";
 const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
   const [chat, setChat] = useState({});
   const [chatId, setChatId] = useState("");
