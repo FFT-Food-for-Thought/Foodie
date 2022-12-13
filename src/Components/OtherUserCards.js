@@ -57,19 +57,19 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
         console.log("removing non pref'd", cards);
         const removedPref = cards.filter((userObj) => {
           for (let i = 0; i < userObj.pictureBucket.length; i++) {
-            console.log(
-              "tag checking userObj",
-              userObj.pictureBucket[i].tags,
-              loggedInUser.preference
-            );
+            // console.log(
+            //   "tag checking userObj",
+            //   userObj.pictureBucket[i].tags,
+            //   loggedInUser.preference
+            // );
             if (
               userObj.pictureBucket[i].tags.includes(loggedInUser.preference)
             ) {
-              console.log(
-                "tag checking",
-                userObj.pictureBucket[i],
-                loggedInUser.preference
-              );
+              // console.log(
+              //   "tag checking",
+              //   userObj.pictureBucket[i],
+              //   loggedInUser.preference
+              // );
               return userObj;
             }
           }
