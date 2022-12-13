@@ -45,6 +45,7 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
         console.log(doc.data());
         setChat(doc.data());
       });
+      console.log("this is unsube from onsnapshot", unSubChat);
       setunSub({ unsub: unSubChat });
       return () => unSubChat();
     };
