@@ -28,6 +28,7 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
     console.log("unsube useeffect");
     let chatId;
     const _getId = async () => {
+      console.log("in get Id");
       const chatRoomName = findChatFromTwo(loggedId, targetId);
       const q = query(
         collection(db, "messages"),
@@ -49,6 +50,7 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
       setunSub({ unsub: unSubChat });
       return () => unSubChat();
     };
+    console.log("unsube running useeffect");
     return () => _getId();
   }, []);
 
