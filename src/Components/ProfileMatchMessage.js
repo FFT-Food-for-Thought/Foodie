@@ -145,8 +145,10 @@ const ProfileMatchMessage = ({
                           "match",
                           match
                         );
-                        unSub.unsub();
-                        console.log("yes it is peter", likedObj);
+                        if (unSub.unsub) {
+                          unSub.unsub();
+                          console.log("yes it is peter", likedObj);
+                        }
                       }}
                     >
                       {likedObj.firstName} {likedObj.lastName}
