@@ -53,7 +53,7 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
       return () => unSubChat();
     };
     console.log("unsube running useeffect");
-    return () => _getId();
+    _getId();
   }, [currentMatch]);
 
   //use a useEffect to get chat?
