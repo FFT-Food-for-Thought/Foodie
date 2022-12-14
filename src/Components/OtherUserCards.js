@@ -10,7 +10,7 @@ import {
 import SingleProfileCard from "./SingleProfileCard";
 import "../Css/otheruser.css";
 import userEvent from "@testing-library/user-event";
-
+import { createDefaultChat, findChatFromTwo, getChat } from "../db/messages";
 const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [currentUser, setCurrentUser] = useState(0);
@@ -143,7 +143,7 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
           </button>
           */}
           <button
-            onClick={() => {
+            onClick={async () => {
               const likedObj = {
                 userId: users[currentUser].userId,
                 name: users[currentUser].firstName,
@@ -156,6 +156,21 @@ const OtherUserCards = ({ loggedInUser, allUsers, handleLike }) => {
                 users[currentUser].userId,
                 users[currentUser].firstName
               );
+              const chatters = findChatFromTwo(
+                loggedInUser.id,
+                users[currentUser].id
+              );
+
+              const chatroom = await getChat(
+                loggedInUser.id,
+                users[currentUser].id
+              );
+
+              console.log("adding default", chatroom);
+              if (!chatroom) {
+                console.log("making default chat!");
+                createDefaultChat(chatters);
+              }
               currentUser < users.length - 1 && setCurrentUser(currentUser + 1);
             }}
             className="other-user-button like"

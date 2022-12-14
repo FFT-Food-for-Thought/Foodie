@@ -21,7 +21,8 @@ export const addToChat = async (
 ) => {
   try {
     const chatRoom = await getChat(loggedInUserId, targetUserId);
-    if (chatRoom) {
+    if (chatRoom.chatters) {
+      console.log("created chat updating only");
       const chatRoomId = chatRoom.id;
 
       const docRef = doc(db, "messages", chatRoomId);
@@ -33,6 +34,7 @@ export const addToChat = async (
 
       await updateDoc(docRef, { chats: arrayUnion(updatedObject) });
     } else {
+      console.log("created chat creating new");
       const chatRoomId = findChatFromTwo(loggedInUserId, targetUserId);
       const newChatDoc = {
         chatters: chatRoomId,
@@ -51,6 +53,13 @@ export const addToChat = async (
     console.log("error in addChat", error);
   }
 };
+
+export const createDefaultChat = async (combinedId) => {
+  const chatRef = collection(db, "messages");
+  const emptyChat = { chatters: combinedId };
+  await addDoc(chatRef, emptyChat);
+};
+
 export const getChat = async (loggedInUserId, targetUserId) => {
   try {
     const chatRoomName = findChatFromTwo(loggedInUserId, targetUserId);
