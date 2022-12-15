@@ -15,7 +15,7 @@ const Home = () => {
           <div className="navbar">
             <div className="navbar-left">
               <a href="/" className="nav-link">
-                Foodie
+                Foodi
               </a>
             </div>
           </div>
