@@ -12,7 +12,12 @@ import {
   orderBy,
   Timestamp,
 } from "firebase/firestore";
-import { addToChat, getChat, findChatFromTwo } from "../db/messages";
+import {
+  addToChat,
+  getChat,
+  findChatFromTwo,
+  createDefaultChat,
+} from "../db/messages";
 
 const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
   const [chat, setChat] = useState({});
@@ -28,8 +33,15 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
     console.log("unsube useeffect");
     let chatId;
     const _getId = async () => {
-      console.log("in get Id");
+      console.log("in get Id", currentMatch);
       const chatRoomName = findChatFromTwo(loggedId, targetId);
+      // const alreadychat = await getChat(loggedId, targetId);
+      // console.log("alreadychat", alreadychat);
+      // if (!alreadychat) {
+      //   console.log("no found chat");
+      //   // console.log("alreadychat", alreadychat == true);
+      //   // await createDefaultChat(chatRoomName);
+      // }
       const q = query(
         collection(db, "messages"),
         where("chatters", "==", chatRoomName)
@@ -54,7 +66,7 @@ const Chat = ({ loggedInUser, currentMatch, setunSub }) => {
     };
     console.log("unsube running useeffect");
     _getId();
-  }, [currentMatch]);
+  }, []);
 
   //use a useEffect to get chat?
   // useEffect(() => {

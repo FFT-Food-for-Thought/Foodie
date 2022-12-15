@@ -67,7 +67,7 @@ const Profile = () => {
       setUsers(allUsersLocal);
     };
     _getUsers();
-  }, []);
+  }, [likedUsers.length]);
 
   const handleLike = (userObj) => {
     const updatedLiked = [...likedUsers];
@@ -88,7 +88,8 @@ const Profile = () => {
         return userObj;
       }
     });
-    console.log(filtered);
+    console.log("remove like", likedUsers);
+    console.log("remove like", filtered);
     setLikedList(filtered);
 
     //updateLikedList to remove the removed person

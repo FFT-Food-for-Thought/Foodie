@@ -3,7 +3,7 @@ import "../Css/profile.css";
 import SingleMatchView from "./SingleMatchView";
 import { getLikedPFP } from "../db/pictures";
 import Chat from "./Chat";
-import { removeLike } from "../db/users";
+import { getAllUsers, removeLike } from "../db/users";
 const ProfileMatchMessage = ({
   setMatchedViewClicked,
   setSingleViewClicked,
@@ -28,6 +28,7 @@ const ProfileMatchMessage = ({
           const URL = await getLikedPFP(targetObj.userId);
           console.log("targetObj>>>", targetObj);
           let singleUser;
+          const allUsers = await getAllUsers();
           for (let i = 0; i < allUsers.length; i++) {
             const userObj = allUsers[i];
             if (userObj.userId === targetObj.userId) {
